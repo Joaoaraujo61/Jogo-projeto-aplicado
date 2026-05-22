@@ -10,36 +10,46 @@ public class Main {
     public static void main(String[] args) {
 
         ImageIcon fundo = new ImageIcon(
-                Main.class.getResource("/assets/fundo1-pixilart.png"));
-
-        ImageIcon entrarIcon = new ImageIcon(
-                Main.class.getResource("/assets/pixilart-drawing (1).png"));
+                Main.class.getResource("/assets/fundoMenu.png"));
+        ImageIcon comecarIcon = new ImageIcon(
+                Main.class.getResource("/assets/botaoComecar.png"));
+        ImageIcon continuarIcon = new ImageIcon(
+                Main.class.getResource("/assets/botaoContinuar.png"));
 
         JFrame frame = new JFrame("Menu");
 
-        frame.setSize(640, 360);
+        frame.setSize(1280, 720);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
         JLabel labelFundo = new JLabel(fundo);
         labelFundo.setLayout(null);
 
-        JButton botaoIniciar = new JButton(entrarIcon);
+        JButton botaoComecar = new JButton(comecarIcon);
+        JButton botaoContinuar = new JButton(continuarIcon);
         
-        int larguraBotao = entrarIcon.getIconWidth();
-        int alturaBotao = entrarIcon.getIconHeight();
+        int larguraBotao = continuarIcon.getIconWidth();
+        int alturaBotao = continuarIcon.getIconHeight();
 
-        int x = (640 - larguraBotao) / 2;
-        int y = (360 - alturaBotao) / 2;
+        int x = (1280 - larguraBotao) / 2;
+        int y = (720 - alturaBotao) / 2;
 
-        botaoIniciar.setBounds(x, y, larguraBotao, alturaBotao);
 
-        botaoIniciar.setBorderPainted(false);
-        botaoIniciar.setContentAreaFilled(false);
-        botaoIniciar.setFocusPainted(false);
-        botaoIniciar.setOpaque(false);
+        botaoContinuar.setBounds(x, y, larguraBotao, alturaBotao);
+        botaoComecar.setBounds(x, 130, larguraBotao, alturaBotao);
 
-        labelFundo.add(botaoIniciar);
+        botaoContinuar.setBorderPainted(false);
+        botaoContinuar.setContentAreaFilled(false);
+        botaoContinuar.setFocusPainted(false);
+        botaoContinuar.setOpaque(false);
+
+        botaoComecar.setBorderPainted(false);
+        botaoComecar.setContentAreaFilled(false);
+        botaoComecar.setFocusPainted(false);
+        botaoComecar.setOpaque(false);
+
+        labelFundo.add(botaoContinuar);
+        labelFundo.add(botaoComecar);
 
         frame.setContentPane(labelFundo);
 
