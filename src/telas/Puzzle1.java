@@ -1,6 +1,7 @@
 package telas;
 
 import componentes.Botao;
+import componentes.CaixaDialogo;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,6 +12,7 @@ public class Puzzle1 extends JPanel {
     private ImageIcon imgTelefoneTocando;
     private Botao telefoneBtn;
     private JLabel labelCaixaTelefone;
+    private CaixaDialogo caixaDialogo;
 
     public Puzzle1(JFrame frame) {
         setLayout(null);
@@ -26,14 +28,14 @@ public class Puzzle1 extends JPanel {
         this.telefoneBtn = new Botao(imgTelefone,1070,200);
         JButton botao = telefoneBtn.getBotaoClicavel();
         botao.setBorderPainted(false);
-        botao.setContentAreaFilled(false);  // ← torna o botão transparente (só ícone)
+        botao.setContentAreaFilled(false);
         botao.setFocusPainted(false);
         this.imgTelefoneTocando = new ImageIcon(MenuInicial.class.getResource("/assets/telefoneTocando.png"));
 
         //Caixa Telefone
-        ImageIcon caixaTefone = new ImageIcon(MenuInicial.class.getResource("/assets/DialogoTelefone.png"));
-        this.labelCaixaTelefone = new JLabel(caixaTefone);
-        labelCaixaTelefone.setBounds(80, 500, caixaTefone.getIconWidth(), caixaTefone.getIconHeight());
+        ImageIcon caixaTelefone = new ImageIcon(MenuInicial.class.getResource("/assets/DialogoTelefone.png"));
+        this.labelCaixaTelefone = new JLabel(caixaTelefone);
+        this.caixaDialogo = new CaixaDialogo(caixaTelefone, 80, 500);
 
         labelFundo.add(telefoneBtn.getBotaoClicavel());
 
@@ -57,14 +59,16 @@ public class Puzzle1 extends JPanel {
         timer.start();
     }
 
-    public void atenderTelefone(Timer timer){
+    public void atenderTelefone(Timer timer) {
         timer.stop();
         telefoneBtn.getBotaoClicavel().setIcon(imgTelefone);
 
-        labelFundo.add(labelCaixaTelefone);
-        labelFundo.setComponentZOrder(labelCaixaTelefone, 0);
+        labelFundo.add(caixaDialogo);
+        labelFundo.setComponentZOrder(caixaDialogo, 0);
         labelFundo.revalidate();
         labelFundo.repaint();
+
+        caixaDialogo.digitarTexto("Filha, encontrei uma vaga de emprego na sua área, <br>vem aqui para a minha casa para conversarmos sobre <br>isso, faz muito tempo que você não me visita..."); // ← seu texto
     }
 }
 
