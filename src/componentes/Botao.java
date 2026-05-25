@@ -1,6 +1,7 @@
 package componentes;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Botao {
     private ImageIcon icone;
@@ -15,9 +16,7 @@ public class Botao {
         this.largura = icone.getIconWidth();
         this.altura = icone.getIconHeight();
         this.posicaoY = posicaoY;
-        this.posicaoX = (1280 - largura) / 2;//
-        //int y = (720 - alturaBotao) / 2;
-
+        this.posicaoX = (1280 - largura) / 2;
         botaoClicavel = new JButton(icone);
         botaoClicavel.setBounds(posicaoX, posicaoY, largura, altura);
 
@@ -25,6 +24,7 @@ public class Botao {
         botaoClicavel.setContentAreaFilled(false);
         botaoClicavel.setFocusPainted(false);
         botaoClicavel.setOpaque(false);
+        botaoClicavel.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
     }
 
