@@ -3,37 +3,41 @@ package telas;
 import componentes.Botao;
 
 import javax.swing.*;
-import java.util.concurrent.atomic.AtomicReference;
+import java.awt.*;
 
 public class Puzzle1 extends JPanel {
-    private ImageIcon fundo;
     private JLabel labelFundo;
     private ImageIcon imgTelefone;
     private ImageIcon imgTelefoneTocando;
     private Botao telefoneBtn;
-    private ImageIcon caixaTefone;
     private JLabel labelCaixaTelefone;
 
     public Puzzle1(JFrame frame) {
+        setLayout(null);
+        setPreferredSize(new Dimension(1280, 720));
         //Fundo
-        this.fundo = new ImageIcon(MenuInicial.class.getResource("/assets/salaDeEstar-pixilart.png"));
+        ImageIcon fundo = new ImageIcon(MenuInicial.class.getResource("/assets/salaDeEstar-pixilart.png"));
         this.labelFundo = new JLabel(fundo);
         labelFundo.setBounds(0, 0, 1280, 720);
         labelFundo.setLayout(null);
 
         //Imagem Telefone
         this.imgTelefone = new ImageIcon(MenuInicial.class.getResource("/assets/telefone.png"));
-        this.telefoneBtn = new Botao(imgTelefone,970,200);
+        this.telefoneBtn = new Botao(imgTelefone,1070,200);
+        JButton botao = telefoneBtn.getBotaoClicavel();
+        botao.setBorderPainted(false);
+        botao.setContentAreaFilled(false);  // ← torna o botão transparente (só ícone)
+        botao.setFocusPainted(false);
         this.imgTelefoneTocando = new ImageIcon(MenuInicial.class.getResource("/assets/telefoneTocando.png"));
 
         //Caixa Telefone
-        this.caixaTefone = new ImageIcon(MenuInicial.class.getResource("/assets/DialogoTelefone.png"));
+        ImageIcon caixaTefone = new ImageIcon(MenuInicial.class.getResource("/assets/DialogoTelefone.png"));
         this.labelCaixaTelefone = new JLabel(caixaTefone);
-        labelCaixaTelefone.setBounds(20, 200, caixaTefone.getIconWidth(), caixaTefone.getIconHeight());
+        labelCaixaTelefone.setBounds(80, 500, caixaTefone.getIconWidth(), caixaTefone.getIconHeight());
 
         labelFundo.add(telefoneBtn.getBotaoClicavel());
 
-        add(labelFundo);add(labelFundo);
+        add(labelFundo);
 
         tocarTelefone();
     }
@@ -48,16 +52,19 @@ public class Puzzle1 extends JPanel {
                     botao.setIcon(imgTelefone);
                 }
         });
-        telefoneBtn.getBotaoClicavel().addActionListener(e -> {
-            timer.stop();
-            telefoneBtn.getBotaoClicavel().setIcon(imgTelefone);
 
-            labelFundo.add(labelCaixaTelefone);
-            labelFundo.setComponentZOrder(labelCaixaTelefone, 0);
-            revalidate();
-            repaint();
-        });
-
+        telefoneBtn.getBotaoClicavel().addActionListener(e -> atenderTelefone(timer));
         timer.start();
     }
+
+    public void atenderTelefone(Timer timer){
+        timer.stop();
+        telefoneBtn.getBotaoClicavel().setIcon(imgTelefone);
+
+        labelFundo.add(labelCaixaTelefone);
+        labelFundo.setComponentZOrder(labelCaixaTelefone, 0);
+        labelFundo.revalidate();
+        labelFundo.repaint();
+    }
 }
+

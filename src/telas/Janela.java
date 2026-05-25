@@ -6,7 +6,6 @@ public class Janela extends JFrame {
 
     public Janela(){
         setTitle("Rota de Fuga");
-        setSize(1280, 720);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -14,6 +13,8 @@ public class Janela extends JFrame {
 
         // coloca o menu na janela
         setContentPane(new MenuInicial(this));
+        pack(); // ← deixa o frame se ajustar ao tamanho do painel
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 

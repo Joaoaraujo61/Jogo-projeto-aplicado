@@ -16,7 +16,7 @@ public class Botao {
         this.largura = icone.getIconWidth();
         this.altura = icone.getIconHeight();
         this.posicaoY = posicaoY;
-        this.posicaoX = (1280 - largura) / 2;
+        this.posicaoX = posicaoX;
         botaoClicavel = new JButton(icone);
         botaoClicavel.setBounds(posicaoX, posicaoY, largura, altura);
 

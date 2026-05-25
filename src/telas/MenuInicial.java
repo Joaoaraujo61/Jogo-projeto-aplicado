@@ -4,37 +4,32 @@ import javax.swing.*;
 
 import componentes.Botao;
 
+import java.awt.*;
+
 public class MenuInicial extends JPanel{
     private ImageIcon fundo;
-    private ImageIcon iconeComecar;
-    private ImageIcon iconeContinuar;
-    private ImageIcon nomeJogo;
-    private Janela frame;
-    private JLabel labelFundo;
-    private JLabel labelNomeJogo;
-    private Botao botaoComecar;
-    private Botao botaoContinuar;
 
     public MenuInicial(Janela frame){
-        this.frame = frame;
+        setLayout(null);
+        setPreferredSize(new Dimension(1280, 720));
 
-        this.iconeComecar = new ImageIcon(MenuInicial.class.getResource("/assets/botaoComecar.png"));
-        this.iconeContinuar = new ImageIcon(MenuInicial.class.getResource("/assets/botaoContinuar.png"));
+        ImageIcon iconeComecar = new ImageIcon(MenuInicial.class.getResource("/assets/botaoComecar.png"));
+        ImageIcon iconeContinuar = new ImageIcon(MenuInicial.class.getResource("/assets/botaoContinuar.png"));
         this.fundo = new ImageIcon(MenuInicial.class.getResource("/assets/fundoMenu.png"));
-        this.nomeJogo = new ImageIcon(MenuInicial.class.getResource("/assets/RotaDeFuga.png"));
+        ImageIcon nomeJogo = new ImageIcon(MenuInicial.class.getResource("/assets/RotaDeFuga.png"));
 
         //Fundo
-        this.labelFundo = new JLabel(fundo);
+        JLabel labelFundo = new JLabel(fundo);
         labelFundo.setBounds(0, 0, 1280, 720);
         labelFundo.setLayout(null);
 
         //Nome Jogo
-        this.labelNomeJogo = new JLabel(nomeJogo);
+        JLabel labelNomeJogo = new JLabel(nomeJogo);
         labelNomeJogo.setBounds(260, 200, 759, 84);
 
         //Botoes
-        this.botaoComecar = new Botao(iconeComecar,490,380);
-        this.botaoContinuar = new Botao(iconeContinuar,472, 504);
+        Botao botaoComecar = new Botao(iconeComecar, 490, 380);
+        Botao botaoContinuar = new Botao(iconeContinuar, 472, 504);
 
         //
         //Adiciona elementos

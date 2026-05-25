@@ -1,6 +1,5 @@
 
 import telas.Janela;
-import telas.MenuInicial;
 
 
 public class Main {
