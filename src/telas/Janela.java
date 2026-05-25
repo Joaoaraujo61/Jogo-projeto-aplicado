@@ -14,7 +14,6 @@ public class Janela extends JFrame {
 
         // coloca o menu na janela
         setContentPane(new MenuInicial(this));
-
         setVisible(true);
     }
 
