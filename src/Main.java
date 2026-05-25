@@ -1,4 +1,5 @@
-import java.awt.Image;
+import componentes.Botao;
+
 import javax.swing.*;
 
 public class Main {

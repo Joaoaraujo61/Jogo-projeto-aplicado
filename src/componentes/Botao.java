@@ -1,3 +1,5 @@
+package componentes;
+
 import javax.swing.*;
 
 public class Botao {
