@@ -44,6 +44,18 @@ public class Puzzle1 extends JPanel {
         tocarTelefone();
     }
 
+    public void avancaCena(int etapa, Timer timer){
+        switch (etapa){
+            case 0:
+                atenderTelefone(timer);
+                System.out.println("etapa"+etapa);
+                break;
+            case 1:
+                desligarTelefone();
+                System.out.println("etapa"+etapa);
+                break;
+        }
+    }
     public void tocarTelefone(){
         Timer timer = new Timer(500, e ->{
                 JButton botao = telefoneBtn.getBotaoClicavel();
@@ -55,20 +67,26 @@ public class Puzzle1 extends JPanel {
                 }
         });
 
-        telefoneBtn.getBotaoClicavel().addActionListener(e -> atenderTelefone(timer));
+        telefoneBtn.getBotaoClicavel().addActionListener(e -> avancaCena(0, timer));
         timer.start();
     }
 
     public void atenderTelefone(Timer timer) {
-        timer.stop();
-        telefoneBtn.getBotaoClicavel().setIcon(imgTelefone);
+            timer.stop();
+            telefoneBtn.getBotaoClicavel().setIcon(imgTelefone);
 
-        labelFundo.add(caixaDialogo);
-        labelFundo.setComponentZOrder(caixaDialogo, 0);
-        labelFundo.revalidate();
-        labelFundo.repaint();
+            labelFundo.add(caixaDialogo);
+            labelFundo.setComponentZOrder(caixaDialogo, 0);
+            labelFundo.revalidate();
+            labelFundo.repaint();
 
-        caixaDialogo.digitarTexto("Filha, encontrei uma vaga de emprego na sua área, <br>vem aqui para a minha casa para conversarmos sobre <br>isso, faz muito tempo que você não me visita..."); // ← seu texto
+            caixaDialogo.digitarTexto("Filha, encontrei uma vaga de emprego na sua área, <br>vem aqui para a minha casa para conversarmos sobre <br>isso, faz muito tempo que você não me visita...");
+    }
+
+    public void desligarTelefone(){
+            labelFundo.remove(caixaDialogo);
+            labelFundo.revalidate();
+            labelFundo.repaint();
     }
 }
 
