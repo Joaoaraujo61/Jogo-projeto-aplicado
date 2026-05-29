@@ -3,21 +3,21 @@ package telas;
 import componentes.Botao;
 import componentes.CaixaDialogo;
 import componentes.Personagem;
+import componentes.Telefone;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class Puzzle1 extends JPanel {
     private JLabel labelFundo;
-    private ImageIcon imgTelefone;
-    private ImageIcon imgTelefoneTocando;
-    private Botao telefoneBtn;
     private CaixaDialogo caixaDialogo;
     private CaixaDialogo caixaPensamento;
+    private  Personagem rosangela;
 
     private int etapa = 0;
 
     public Puzzle1(JFrame frame) {
+        this.rosangela = new Personagem();
         setLayout(null);
         setPreferredSize(new Dimension(1280, 720));
         //Fundo
@@ -27,34 +27,43 @@ public class Puzzle1 extends JPanel {
         labelFundo.setLayout(null);
 
         //Imagem Telefone
-        this.imgTelefone = new ImageIcon(MenuInicial.class.getResource("/assets/telefone.png"));
-        this.telefoneBtn = new Botao(imgTelefone,1070,200);
-        JButton botao = telefoneBtn.getBotaoClicavel();
-        botao.setBorderPainted(false);
-        botao.setContentAreaFilled(false);
-        botao.setFocusPainted(false);
-        this.imgTelefoneTocando = new ImageIcon(MenuInicial.class.getResource("/assets/telefoneTocando.png"));
+        Telefone telefone = new Telefone();
 
         //Caixa Telefone
-        ImageIcon caixaTelefone = new ImageIcon(MenuInicial.class.getResource("/assets/DialogoTelefone.png"));
-        this.caixaDialogo = new CaixaDialogo(caixaTelefone, 80, 500);
+        ImageIcon imgCaixaTelefone = new ImageIcon(MenuInicial.class.getResource("/assets/DialogoTelefone.png"));
+        this.caixaDialogo = new CaixaDialogo(imgCaixaTelefone, 80, 500);
 
         //Caiaxa Pensamento
-        ImageIcon caixaPensamento = new ImageIcon(MenuInicial.class.getResource("/assets/caixaDePensamento.png"));
-        this.caixaPensamento = new CaixaDialogo(caixaPensamento, 80, 500);
+        ImageIcon imgCaixaPensamento = new ImageIcon(MenuInicial.class.getResource("/assets/caixaDePensamento.png"));
+        this.caixaPensamento = new CaixaDialogo(imgCaixaPensamento, 80, 500);
 
-        labelFundo.add(telefoneBtn.getBotaoClicavel());
+        labelFundo.add(telefone.getTelefoneBtn().getBotaoClicavel());
 
         add(labelFundo);
 
-        tocarTelefone();
+        tocarTelefone(telefone);
     }
 
-    public void avancaCena(Timer timer){
-        Personagem rosangela = new Personagem();
+    public void tocarTelefone(Telefone telefone){
+        Timer timer = new Timer(500, e ->{
+            JButton botao = telefone.getTelefoneBtn().getBotaoClicavel();
+            Icon iconeAtual = botao.getIcon();
+            if (iconeAtual == telefone.getImgTelefone()) {
+                botao.setIcon(telefone.getImgTelefoneTocando());
+            } else {
+                botao.setIcon(telefone.getImgTelefone());
+            }
+        });
+
+        telefone.getTelefoneBtn().getBotaoClicavel().addActionListener(e -> avancaCena(timer, telefone));
+        timer.start();
+    }
+
+
+    public void avancaCena(Timer timer,Telefone telefone){
         switch (etapa){
             case 0:
-                rosangela.atenderTelefone(timer,telefoneBtn, imgTelefone, labelFundo,caixaDialogo);
+                rosangela.atenderTelefone(timer,telefone.getTelefoneBtn(), telefone.getImgTelefone(), labelFundo,caixaDialogo);
                 etapa++;
                 break;
             case 1:
@@ -63,21 +72,6 @@ public class Puzzle1 extends JPanel {
                 etapa++;
                 break;
         }
-    }
-
-    public void tocarTelefone(){
-        Timer timer = new Timer(500, e ->{
-                JButton botao = telefoneBtn.getBotaoClicavel();
-                Icon iconeAtual = botao.getIcon();
-                if (iconeAtual == imgTelefone) {
-                    botao.setIcon(imgTelefoneTocando);
-                } else {
-                    botao.setIcon(imgTelefone);
-                }
-        });
-
-        telefoneBtn.getBotaoClicavel().addActionListener(e -> avancaCena(timer));
-        timer.start();
     }
 }
 

@@ -12,7 +12,7 @@ public class Personagem {
         labelFundo.revalidate();
         labelFundo.repaint();
 
-        caixaPensamento.digitarTexto("Filha, encontrei uma vaga de emprego na sua área, <br>vem aqui para a minha casa para conversarmos sobre <br>isso, faz muito tempo que você não me visita...");
+        caixaPensamento.digitarTexto("......");
     }
     public void atenderTelefone(Timer timer, Botao telefoneBtn, ImageIcon imgTelefone, JLabel labelFundo,CaixaDialogo caixaDialogo) {
         timer.stop();
