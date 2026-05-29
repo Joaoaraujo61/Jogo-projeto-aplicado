@@ -2,6 +2,7 @@ package telas;
 
 import componentes.Botao;
 import componentes.CaixaDialogo;
+import componentes.Personagem;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,8 +12,10 @@ public class Puzzle1 extends JPanel {
     private ImageIcon imgTelefone;
     private ImageIcon imgTelefoneTocando;
     private Botao telefoneBtn;
-    private JLabel labelCaixaTelefone;
     private CaixaDialogo caixaDialogo;
+    private CaixaDialogo caixaPensamento;
+
+    private int etapa = 0;
 
     public Puzzle1(JFrame frame) {
         setLayout(null);
@@ -34,8 +37,11 @@ public class Puzzle1 extends JPanel {
 
         //Caixa Telefone
         ImageIcon caixaTelefone = new ImageIcon(MenuInicial.class.getResource("/assets/DialogoTelefone.png"));
-        this.labelCaixaTelefone = new JLabel(caixaTelefone);
         this.caixaDialogo = new CaixaDialogo(caixaTelefone, 80, 500);
+
+        //Caiaxa Pensamento
+        ImageIcon caixaPensamento = new ImageIcon(MenuInicial.class.getResource("/assets/caixaDePensamento.png"));
+        this.caixaPensamento = new CaixaDialogo(caixaPensamento, 80, 500);
 
         labelFundo.add(telefoneBtn.getBotaoClicavel());
 
@@ -44,18 +50,21 @@ public class Puzzle1 extends JPanel {
         tocarTelefone();
     }
 
-    public void avancaCena(int etapa, Timer timer){
+    public void avancaCena(Timer timer){
+        Personagem rosangela = new Personagem();
         switch (etapa){
             case 0:
-                atenderTelefone(timer);
-                System.out.println("etapa"+etapa);
+                rosangela.atenderTelefone(timer,telefoneBtn, imgTelefone, labelFundo,caixaDialogo);
+                etapa++;
                 break;
             case 1:
-                desligarTelefone();
-                System.out.println("etapa"+etapa);
+                rosangela.desligarTelefone(labelFundo,caixaDialogo);
+                rosangela.pensar(labelFundo, caixaPensamento);
+                etapa++;
                 break;
         }
     }
+
     public void tocarTelefone(){
         Timer timer = new Timer(500, e ->{
                 JButton botao = telefoneBtn.getBotaoClicavel();
@@ -67,26 +76,8 @@ public class Puzzle1 extends JPanel {
                 }
         });
 
-        telefoneBtn.getBotaoClicavel().addActionListener(e -> avancaCena(0, timer));
+        telefoneBtn.getBotaoClicavel().addActionListener(e -> avancaCena(timer));
         timer.start();
-    }
-
-    public void atenderTelefone(Timer timer) {
-            timer.stop();
-            telefoneBtn.getBotaoClicavel().setIcon(imgTelefone);
-
-            labelFundo.add(caixaDialogo);
-            labelFundo.setComponentZOrder(caixaDialogo, 0);
-            labelFundo.revalidate();
-            labelFundo.repaint();
-
-            caixaDialogo.digitarTexto("Filha, encontrei uma vaga de emprego na sua área, <br>vem aqui para a minha casa para conversarmos sobre <br>isso, faz muito tempo que você não me visita...");
-    }
-
-    public void desligarTelefone(){
-            labelFundo.remove(caixaDialogo);
-            labelFundo.revalidate();
-            labelFundo.repaint();
     }
 }
 
