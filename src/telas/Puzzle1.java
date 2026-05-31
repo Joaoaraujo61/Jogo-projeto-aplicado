@@ -1,9 +1,6 @@
 package telas;
 
-import componentes.Botao;
-import componentes.CaixaDialogo;
-import componentes.Personagem;
-import componentes.Telefone;
+import componentes.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -83,6 +80,8 @@ public class Puzzle1 extends JPanel {
                 rosangela.desligarTelefone(labelFundo,caixaDialogo);
                 rosangela.pensar(labelFundo, caixaPensamento, "Preciso sair de casa, nem que seja pela primeira vez este mês,<br> preciso mesmo visitar a minha mãe, saber dessa oportunidade <br> de emprego, faz tanto tempo que eu não trabalho");
                 labelFundo.add(rosangela.getSprite());
+                labelFundo.revalidate();
+                labelFundo.repaint();
                 etapa++;
                 break;
             case 2:
@@ -91,6 +90,15 @@ public class Puzzle1 extends JPanel {
                 break;
             case 3:
                 rosangela.pensar(labelFundo, caixaPensamento, "Posso começar pensando no que dizer para ele, quem sabe ...");
+                etapa++;
+                break;
+            case 4:
+                rosangela.pararPensamento(labelFundo,caixaPensamento);
+                labelFundo.remove(rosangela.getSprite());
+                new Texto(labelFundo, "aaaaaaaaaaaa", 90, Color.red);
+                labelFundo.revalidate();
+                labelFundo.repaint();
+
                 etapa++;
                 break;
         }

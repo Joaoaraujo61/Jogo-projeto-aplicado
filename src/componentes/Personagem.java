@@ -28,6 +28,11 @@ public class Personagem {
         caixaPensamento.digitarTexto(textoPensamento);
 
     }
+    public void pararPensamento(JLabel labelFundo,CaixaDialogo caixaPensamento){
+        labelFundo.remove(caixaPensamento);
+        labelFundo.revalidate();
+        labelFundo.repaint();
+    }
     public void atenderTelefone(Timer timer, Botao telefoneBtn, ImageIcon imgTelefone, JLabel labelFundo,CaixaDialogo caixaDialogo) {
         timer.stop();
         telefoneBtn.getBotaoClicavel().setIcon(imgTelefone);
