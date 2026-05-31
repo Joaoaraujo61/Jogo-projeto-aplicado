@@ -19,13 +19,13 @@ public class Personagem {
         );
     }
 
-    public void pensar(JLabel labelFundo,CaixaDialogo caixaPensamento){
+    public void pensar(JLabel labelFundo,CaixaDialogo caixaPensamento, String textoPensamento){
         labelFundo.add(caixaPensamento);
         labelFundo.setComponentZOrder(caixaPensamento, 0);
         labelFundo.revalidate();
         labelFundo.repaint();
 
-        caixaPensamento.digitarTexto("Preciso sair de casa, nem que seja pela primeira vez este mês,<br> preciso mesmo visitar a minha mãe, saber dessa oportunidade <br> de emprego, faz tanto tempo que eu não trabalho");
+        caixaPensamento.digitarTexto(textoPensamento);
 
     }
     public void atenderTelefone(Timer timer, Botao telefoneBtn, ImageIcon imgTelefone, JLabel labelFundo,CaixaDialogo caixaDialogo) {

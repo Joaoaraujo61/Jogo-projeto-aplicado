@@ -7,6 +7,8 @@ import componentes.Telefone;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Puzzle1 extends JPanel {
     private JLabel labelFundo;
@@ -56,7 +58,17 @@ public class Puzzle1 extends JPanel {
             }
         });
 
-        telefone.getTelefoneBtn().getBotaoClicavel().addActionListener(e -> avancaCena(timer, telefone));
+        telefone.getTelefoneBtn().getBotaoClicavel().addActionListener(e -> {
+            if(etapa < 2){
+                avancaCena(timer, telefone);
+            }else {
+                caixaPensamento.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        avancaCena(timer, telefone);
+                    }
+                });
+            }
+        });
         timer.start();
     }
 
@@ -69,8 +81,16 @@ public class Puzzle1 extends JPanel {
                 break;
             case 1:
                 rosangela.desligarTelefone(labelFundo,caixaDialogo);
-                rosangela.pensar(labelFundo, caixaPensamento);
+                rosangela.pensar(labelFundo, caixaPensamento, "Preciso sair de casa, nem que seja pela primeira vez este mês,<br> preciso mesmo visitar a minha mãe, saber dessa oportunidade <br> de emprego, faz tanto tempo que eu não trabalho");
                 labelFundo.add(rosangela.getSprite());
+                etapa++;
+                break;
+            case 2:
+                rosangela.pensar(labelFundo, caixaPensamento, "Mas como eu vou pedir isso para ele? Ele não vai deixar. <br>Ele não vai me autorizar ir.");
+                etapa++;
+                break;
+            case 3:
+                rosangela.pensar(labelFundo, caixaPensamento, "Posso começar pensando no que dizer para ele, quem sabe ...");
                 etapa++;
                 break;
         }
