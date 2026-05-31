@@ -13,7 +13,7 @@ public class Telefone {
 
    public Telefone(){
        this.imgTelefone = new ImageIcon(
-               MenuInicial.class.getResource("/assets/telefone.png")
+               Telefone.class.getResource("/assets/telefone.png")
        );
 
        this.telefoneBtn = new Botao(imgTelefone, 1070, 200);
@@ -25,7 +25,7 @@ public class Telefone {
        botao.setFocusPainted(false);
 
        this.imgTelefoneTocando = new ImageIcon(
-               MenuInicial.class.getResource("/assets/telefoneTocando.png")
+               Telefone.class.getResource("/assets/telefoneTocando.png")
        );
    }
 

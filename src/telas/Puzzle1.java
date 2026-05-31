@@ -21,7 +21,7 @@ public class Puzzle1 extends JPanel {
         setLayout(null);
         setPreferredSize(new Dimension(1280, 720));
         //Fundo
-        ImageIcon fundo = new ImageIcon(MenuInicial.class.getResource("/assets/salaDeEstar-pixilart.png"));
+        ImageIcon fundo = new ImageIcon(Puzzle1.class.getResource("/assets/salaDeEstar-pixilart.png"));
         this.labelFundo = new JLabel(fundo);
         labelFundo.setBounds(0, 0, 1280, 720);
         labelFundo.setLayout(null);
@@ -30,12 +30,13 @@ public class Puzzle1 extends JPanel {
         Telefone telefone = new Telefone();
 
         //Caixa Telefone
-        ImageIcon imgCaixaTelefone = new ImageIcon(MenuInicial.class.getResource("/assets/DialogoTelefone.png"));
-        this.caixaDialogo = new CaixaDialogo(imgCaixaTelefone, 80, 500);
+        ImageIcon imgCaixaTelefone = new ImageIcon(Puzzle1.class.getResource("/assets/DialogoTelefone.png"));
+        this.caixaDialogo = new CaixaDialogo(imgCaixaTelefone, 80, 500, Color.white);
 
         //Caiaxa Pensamento
-        ImageIcon imgCaixaPensamento = new ImageIcon(MenuInicial.class.getResource("/assets/caixaDePensamento.png"));
-        this.caixaPensamento = new CaixaDialogo(imgCaixaPensamento, 80, 500);
+        ImageIcon imgCaixaPensamento = new ImageIcon(Puzzle1.class.getResource("/assets/caixaDePensamento.png"));
+        this.caixaPensamento = new CaixaDialogo(imgCaixaPensamento, 70, 500, Color.BLACK);
+
 
         labelFundo.add(telefone.getTelefoneBtn().getBotaoClicavel());
 
@@ -69,6 +70,7 @@ public class Puzzle1 extends JPanel {
             case 1:
                 rosangela.desligarTelefone(labelFundo,caixaDialogo);
                 rosangela.pensar(labelFundo, caixaPensamento);
+                labelFundo.add(rosangela.getSprite());
                 etapa++;
                 break;
         }

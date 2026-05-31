@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="b92d4aa6-1d22-4ecd-8187-bd7921a833da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/componentes/Telefone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/Personagem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/Personagem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/Botao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/Botao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/CaixaDialogo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/CaixaDialogo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/MenuInicial.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/MenuInicial.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/componentes/CaixaDialogo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/CaixaDialogo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/componentes/Personagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/Personagem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/componentes/Telefone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/Telefone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/telas/Puzzle1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/Puzzle1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,26 +39,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/dev/Jogo-projeto-aplicado",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.30387.90" />
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.30387.90" />
-      </set>
-    </attachedChunks>
-  </component>
+}]]></component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b92d4aa6-1d22-4ecd-8187-bd7921a833da" name="Changes" comment="" />
