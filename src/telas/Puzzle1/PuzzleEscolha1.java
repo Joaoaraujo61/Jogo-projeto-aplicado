@@ -25,41 +25,40 @@ public class PuzzleEscolha1 extends JPanel {
         this.frame = frame;
 
         setLayout(null);
-        setPreferredSize(new Dimension(1280,720));
+        setPreferredSize(new Dimension(1280, 720));
 
-        // FUNDO
         ImageIcon fundo = new ImageIcon(
                 PuzzleEscolha1.class.getResource("/assets/salaDeEstar-pixilart.png")
         );
 
         labelFundo = new JLabel(fundo);
-        labelFundo.setBounds(0,0,1280,720);
+        labelFundo.setBounds(0, 0, 1280, 720);
         labelFundo.setLayout(null);
 
-        add(labelFundo);
-
-        this.jorjao = new Personagem(new ImageIcon(PuzzleEscolha1.class.getResource("/assets/JorjaoNormal.png")));
+        this.jorjao = new Personagem(
+                new ImageIcon(PuzzleEscolha1.class.getResource("/assets/JorjaoNormal.png")),
+                70, 180
+        );
         this.spriteJorjao = jorjao.getSprite();
+        spriteJorjao.setVisible(false);
 
-        criarJorjao();
-        criarOpcoes();
-    }
-
-    private void criarJorjao(){
         ImageIcon imgDialogo = new ImageIcon(
                 PuzzleEscolha1.class.getResource("/assets/DialogoJorjao.png")
         );
 
         caixaDialogoJorjao = new CaixaDialogo(
                 imgDialogo,
-                70,
+                0,
                 500,
-                Color.black
+                Color.BLACK
         );
         caixaDialogoJorjao.setVisible(false);
+
+        add(labelFundo);
+        criarOpcoes();
     }
 
-    private void criarOpcoes(){
+    private void criarOpcoes() {
         opcao1 = criarBotao(
                 "<html><center>Amor, preciso ver minha mãe hoje,<br>posso sair depois de terminar de organizar a cozinha?</center></html>",
                 120
@@ -81,52 +80,43 @@ public class PuzzleEscolha1 extends JPanel {
         labelFundo.add(opcao2);
         labelFundo.add(opcao3);
         labelFundo.add(opcao4);
+
         configurarEventos();
     }
 
-    private JButton criarBotao(String texto, int y){
-
+    private JButton criarBotao(String texto, int y) {
         JButton botao = new JButton(texto);
-
-        botao.setBounds(140,y,1000,80);
-
+        botao.setBounds(140, y, 700, 80);
         botao.setFont(new Font("Arial", Font.BOLD, 20));
-
         return botao;
     }
 
-    private void configurarEventos(){
+    private void configurarEventos() {
         opcao1.addActionListener(e -> {
-            mostrarResposta(
-                    "Não vou poder te acompanhar na sua mãe hoje e não quero que saia sozinha"
-            );
+            mostrarResposta("Não vou poder te acompanhar na sua mãe hoje<br> e não quero que saia sozinha");
             bloquearOpcao(opcao1);
         });
         opcao2.addActionListener(e -> {
-            mostrarResposta(
-                    "Como assim? Mas a casa está uma bagunça, você não pretende sair e deixar ela desse jeito, né?"
-            );
+            mostrarResposta("Como assim? Mas a casa está uma bagunça, você <br>não pretende sair e deixar ela desse jeito, né?");
             bloquearOpcao(opcao2);
         });
         opcao4.addActionListener(e -> {
-            mostrarResposta(
-                    "Mas nem pensar! Você nem terminou de passar minhas roupas"
-            );
+            mostrarResposta("Mas nem pensar! Você nem terminou de passar minhas roupas");
             bloquearOpcao(opcao4);
         });
         opcao3.addActionListener(e -> {
-            mostrarResposta(
-                    "Consulta na UBS? Não me lembro disso. Mas tudo bem, vá, mas troque de roupa antes, não quero que os médicos te vejam assim..."
-            );
+            mostrarResposta("Consulta na UBS? Não me lembro disso. Mas tudo bem,<br> vá, mas troque de roupa antes, não quero que os médicos te vejam assim...");
             desabilitarTodas();
 
             Timer timer = new Timer(3500, evento -> {
-                ((Timer)evento.getSource()).stop();
-                JOptionPane.showMessageDialog(
-                        this,
-                        "Puzzle concluído!"
-                );
-                // frame.trocarTela(new PuzzleRoupa(frame));
+                ((Timer) evento.getSource()).stop();
+                SwingUtilities.invokeLater(() -> {
+                    JOptionPane.showMessageDialog(
+                            SwingUtilities.getWindowAncestor(PuzzleEscolha1.this),
+                            "Puzzle concluído!"
+                    );
+                    // frame.trocarTela(new PuzzleRoupa(frame));
+                });
             });
 
             timer.setRepeats(false);
@@ -134,8 +124,7 @@ public class PuzzleEscolha1 extends JPanel {
         });
     }
 
-    private void mostrarResposta(String texto){
-
+    private void mostrarResposta(String texto) {
         labelFundo.remove(spriteJorjao);
         labelFundo.remove(caixaDialogoJorjao);
 
@@ -151,13 +140,13 @@ public class PuzzleEscolha1 extends JPanel {
         labelFundo.repaint();
     }
 
-    private void bloquearOpcao(JButton botao){
+    private void bloquearOpcao(JButton botao) {
         botao.setEnabled(false);
         botao.setBackground(Color.GRAY);
         botao.setForeground(Color.DARK_GRAY);
     }
 
-    private void desabilitarTodas(){
+    private void desabilitarTodas() {
         opcao1.setEnabled(false);
         opcao2.setEnabled(false);
         opcao3.setEnabled(false);

@@ -19,7 +19,7 @@ public class Puzzle1 extends JPanel {
 
     public Puzzle1(FrameJanela frame) {
         this.frame = frame;
-        this.rosangela = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/RosangelaNormal.png")));
+        this.rosangela = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/RosangelaNormal.png")), -70, 250);
         setLayout(null);
         setPreferredSize(new Dimension(1280, 720));
         //Fundo
@@ -37,10 +37,6 @@ public class Puzzle1 extends JPanel {
 
         //Caiaxa Pensamento
         ImageIcon imgCaixaPensamento = new ImageIcon(Puzzle1.class.getResource("/assets/caixaDePensamento.png"));
-        this.caixaPensamento = new CaixaDialogo(imgCaixaPensamento, 70, 500, Color.BLACK);
-
-        //Opcoes Puzzle
-        ImageIcon imgOpcoesPuzzle = new ImageIcon(Puzzle1.class.getResource("/assets/opcoesPuzlle1.png"));
         this.caixaPensamento = new CaixaDialogo(imgCaixaPensamento, 70, 500, Color.BLACK);
 
         labelFundo.add(telefone.getTelefoneBtn().getBotaoClicavel());
@@ -85,26 +81,21 @@ public class Puzzle1 extends JPanel {
                 break;
             case 1:
                 rosangela.desligarTelefone(labelFundo,caixaDialogo);
-                rosangela.pensar(labelFundo, caixaPensamento, "Preciso sair de casa, nem que seja pela primeira vez este mês,<br> preciso mesmo visitar a minha mãe, saber dessa oportunidade <br> de emprego, faz tanto tempo que eu não trabalho");
+                rosangela.escreverDialogo(labelFundo, caixaPensamento, "Preciso sair de casa, nem que seja pela primeira vez este mês,<br> preciso mesmo visitar a minha mãe, saber dessa oportunidade <br> de emprego, faz tanto tempo que eu não trabalho");
                 labelFundo.add(rosangela.getSprite());
                 labelFundo.revalidate();
                 labelFundo.repaint();
                 etapa++;
                 break;
             case 2:
-                rosangela.pensar(labelFundo, caixaPensamento, "Mas como eu vou pedir isso para ele? Ele não vai deixar. <br>Ele não vai me autorizar ir.");
+                rosangela.escreverDialogo(labelFundo, caixaPensamento, "Mas como eu vou pedir isso para ele? Ele não vai deixar. <br>Ele não vai me autorizar ir.");
                 etapa++;
                 break;
             case 3:
-                rosangela.pensar(labelFundo, caixaPensamento, "Posso começar pensando no que dizer para ele, quem sabe ...");
+                rosangela.escreverDialogo(labelFundo, caixaPensamento, "Posso começar pensando no que dizer para ele, quem sabe ...");
                 etapa++;
                 break;
             case 4:
-//                rosangela.pararPensamento(labelFundo,caixaPensamento);
-//                labelFundo.remove(rosangela.getSprite());
-//                new Texto(labelFundo, "Puzzle 1", 90, Color.red);
-//                labelFundo.revalidate();
-//                labelFundo.repaint();
                 frame.trocarTela(new PuzzleEscolha1(frame));;
                 etapa++;
                 break;

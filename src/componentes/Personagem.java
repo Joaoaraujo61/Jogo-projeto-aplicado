@@ -7,30 +7,24 @@ import javax.swing.*;
 public class Personagem {
     private JLabel sprite;
 
-    public Personagem(ImageIcon imgPersonagem){
+    public Personagem(ImageIcon imgPersonagem, int x, int y){
         sprite = new JLabel(imgPersonagem);
 
         sprite.setBounds(
-                -70,
-                250,
+                x, y,
                 imgPersonagem.getIconWidth(),
                 imgPersonagem.getIconHeight()
         );
     }
 
-    public void pensar(JLabel labelFundo,CaixaDialogo caixaPensamento, String textoPensamento){
-        labelFundo.add(caixaPensamento);
-        labelFundo.setComponentZOrder(caixaPensamento, 0);
+    public void escreverDialogo(JLabel labelFundo, CaixaDialogo caixa, String texto){
+        labelFundo.add(caixa);
+        labelFundo.setComponentZOrder(caixa, 0);
         labelFundo.revalidate();
         labelFundo.repaint();
 
-        caixaPensamento.digitarTexto(textoPensamento);
+        caixa.digitarTexto(texto);
 
-    }
-    public void pararPensamento(JLabel labelFundo,CaixaDialogo caixaPensamento){
-        labelFundo.remove(caixaPensamento);
-        labelFundo.revalidate();
-        labelFundo.repaint();
     }
     public void atenderTelefone(Timer timer, Botao telefoneBtn, ImageIcon imgTelefone, JLabel labelFundo,CaixaDialogo caixaDialogo) {
         timer.stop();
