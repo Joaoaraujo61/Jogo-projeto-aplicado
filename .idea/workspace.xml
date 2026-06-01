@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b92d4aa6-1d22-4ecd-8187-bd7921a833da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/componentes/Texto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/Personagem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/Personagem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/Telefone.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/Telefone.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/MenuInicial.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/MenuInicial.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/componentes/Personagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/Personagem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telas/Puzzle1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/Puzzle1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/componentes/Telefone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/Telefone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/componentes/Texto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/Texto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/telas/MenuInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/MenuInicial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/telas/Puzzle1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/Puzzle1/Puzzle1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

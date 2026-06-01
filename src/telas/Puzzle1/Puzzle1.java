@@ -1,6 +1,7 @@
-package telas;
+package telas.Puzzle1;
 
 import componentes.*;
+import telas.FrameJanela;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,11 +13,13 @@ public class Puzzle1 extends JPanel {
     private CaixaDialogo caixaDialogo;
     private CaixaDialogo caixaPensamento;
     private  Personagem rosangela;
+    private FrameJanela frame;
 
     private int etapa = 0;
 
-    public Puzzle1(JFrame frame) {
-        this.rosangela = new Personagem();
+    public Puzzle1(FrameJanela frame) {
+        this.frame = frame;
+        this.rosangela = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/RosangelaNormal.png")));
         setLayout(null);
         setPreferredSize(new Dimension(1280, 720));
         //Fundo
@@ -36,6 +39,9 @@ public class Puzzle1 extends JPanel {
         ImageIcon imgCaixaPensamento = new ImageIcon(Puzzle1.class.getResource("/assets/caixaDePensamento.png"));
         this.caixaPensamento = new CaixaDialogo(imgCaixaPensamento, 70, 500, Color.BLACK);
 
+        //Opcoes Puzzle
+        ImageIcon imgOpcoesPuzzle = new ImageIcon(Puzzle1.class.getResource("/assets/opcoesPuzlle1.png"));
+        this.caixaPensamento = new CaixaDialogo(imgCaixaPensamento, 70, 500, Color.BLACK);
 
         labelFundo.add(telefone.getTelefoneBtn().getBotaoClicavel());
 
@@ -58,13 +64,14 @@ public class Puzzle1 extends JPanel {
         telefone.getTelefoneBtn().getBotaoClicavel().addActionListener(e -> {
             if(etapa < 2){
                 avancaCena(timer, telefone);
-            }else {
+            }
                 caixaPensamento.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
-                        avancaCena(timer, telefone);
+                        if (etapa >= 2) {
+                            avancaCena(timer, telefone);
+                        }
                     }
                 });
-            }
         });
         timer.start();
     }
@@ -93,12 +100,12 @@ public class Puzzle1 extends JPanel {
                 etapa++;
                 break;
             case 4:
-                rosangela.pararPensamento(labelFundo,caixaPensamento);
-                labelFundo.remove(rosangela.getSprite());
-                new Texto(labelFundo, "aaaaaaaaaaaa", 90, Color.red);
-                labelFundo.revalidate();
-                labelFundo.repaint();
-
+//                rosangela.pararPensamento(labelFundo,caixaPensamento);
+//                labelFundo.remove(rosangela.getSprite());
+//                new Texto(labelFundo, "Puzzle 1", 90, Color.red);
+//                labelFundo.revalidate();
+//                labelFundo.repaint();
+                frame.trocarTela(new PuzzleEscolha1(frame));;
                 etapa++;
                 break;
         }

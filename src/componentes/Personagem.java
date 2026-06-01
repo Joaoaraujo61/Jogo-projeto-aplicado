@@ -7,15 +7,14 @@ import javax.swing.*;
 public class Personagem {
     private JLabel sprite;
 
-    public Personagem(){
-        ImageIcon imgRosangela = new ImageIcon(Personagem.class.getResource("/assets/RosangelaNormal.png"));
-        sprite = new JLabel(imgRosangela);
+    public Personagem(ImageIcon imgPersonagem){
+        sprite = new JLabel(imgPersonagem);
 
         sprite.setBounds(
                 -70,
                 250,
-                imgRosangela.getIconWidth(),
-                imgRosangela.getIconHeight()
+                imgPersonagem.getIconWidth(),
+                imgPersonagem.getIconHeight()
         );
     }
 

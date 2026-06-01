@@ -1,9 +1,5 @@
 package componentes;
 
-import telas.FrameJanela;
-import telas.MenuInicial;
-import telas.Puzzle1;
-
 import javax.swing.*;
 
 public class Telefone {
