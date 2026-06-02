@@ -3,13 +3,14 @@ package telas;
 import javax.swing.*;
 
 import componentes.Botao;
+import telas.Puzzle1.Puzzle1;
 
 import java.awt.*;
 
 public class MenuInicial extends JPanel{
     private ImageIcon fundo;
 
-    public MenuInicial(Janela frame){
+    public MenuInicial(FrameJanela frame){
         setLayout(null);
         setPreferredSize(new Dimension(1280, 720));
 

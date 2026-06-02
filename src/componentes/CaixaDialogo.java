@@ -8,7 +8,7 @@ public class CaixaDialogo extends JLabel {
     private Timer timerDigitando;
     private int larguraTexto;
 
-    public CaixaDialogo(ImageIcon imagem, int x, int y) {
+    public CaixaDialogo(ImageIcon imagem, int x, int y, Color cor) {
         super(imagem);
         setBounds(x, y, imagem.getIconWidth(), imagem.getIconHeight());
         setLayout(null);
@@ -17,8 +17,8 @@ public class CaixaDialogo extends JLabel {
         this.larguraTexto = imagem.getIconWidth() - 250;
 
         labelTexto = new JLabel();
-        labelTexto.setBounds(140, 30, larguraTexto, imagem.getIconHeight()-20);
-        labelTexto.setForeground(Color.WHITE);
+        labelTexto.setBounds(140, 60, larguraTexto, imagem.getIconHeight()-20);
+        labelTexto.setForeground(cor);
         labelTexto.setFont(new Font("Arial", Font.PLAIN, 35));
         labelTexto.setVerticalAlignment(JLabel.TOP);
 
@@ -26,13 +26,13 @@ public class CaixaDialogo extends JLabel {
     }
 
     public void digitarTexto(String texto) {
-        if (timerDigitando != null) timerDigitando.stop(); // para se já estiver rodando
+        if (timerDigitando != null) timerDigitando.stop();
 
         String[] letras = texto.split("");
         int[] index = {0};
         StringBuilder textoAtual = new StringBuilder();
 
-        timerDigitando = new Timer(50, e -> {
+        timerDigitando = new Timer(20, e -> {
             if (index[0] < letras.length) {
                 textoAtual.append(letras[index[0]]);
                 labelTexto.setText("<html><body style='width: "

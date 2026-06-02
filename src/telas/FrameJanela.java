@@ -2,9 +2,9 @@ package telas;
 
 import javax.swing.*;
 
-public class Janela extends JFrame {
+public class FrameJanela extends JFrame {
 
-    public Janela(){
+    public FrameJanela(){
         setTitle("Rota de Fuga");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
