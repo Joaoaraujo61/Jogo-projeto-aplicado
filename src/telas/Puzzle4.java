@@ -66,10 +66,11 @@ public class Puzzle4 extends JPanel{
 	    "Como?",
     };
     
-    private int indiceDaFala = 0;
+    private int indiceDaFala;
+    
 
     public void tocarTelefone(){
-        Timer timer = new Timer(500, e ->{
+        Timer timerToque = new Timer(500, e ->{
                 JButton botao = telefoneBtn.getBotaoClicavel();
                 Icon iconeAtual = botao.getIcon();
                 if (iconeAtual == imgTelefone) {
@@ -79,12 +80,30 @@ public class Puzzle4 extends JPanel{
                 }
         });
 
-        telefoneBtn.getBotaoClicavel().addActionListener(e -> atenderTelefone(timer));
-        timer.start();
+        telefoneBtn.getBotaoClicavel().addActionListener(e -> atenderTelefone(timerToque));
+        timerToque.start();
     }
+    Timer timerDoDialogo = new Timer(4000, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            
+            // Se ainda tem fala na lista, mostra a próxima
+            if (indiceDaFala < falasDoTelefone.length) {
+                caixaDialogo.digitarTexto(falasDoTelefone[indiceDaFala]);
+                indiceDaFala++;
+            } else {
+                // Se as falas acabaram, desliga ESSE timer do diálogo
+                ((Timer)e.getSource()).stop();
+                
+                // Opcional: Se quiser sumir com a caixa quando a conversa acabar:
+                // labelFundo.remove(caixaDialogo); labelFundo.repaint();
+            }
+            
+        }
+    });
 
-    public void atenderTelefone(Timer timer) {
-        timer.stop();
+    public void atenderTelefone(Timer timerToque, timerDialogo) {
+        timerToque.stop();
         telefoneBtn.getBotaoClicavel().setIcon(imgTelefone);
 
         labelFundo.add(caixaDialogo);
@@ -97,25 +116,14 @@ public class Puzzle4 extends JPanel{
 
         //caixaDialogo.digitarTexto("Alô, mãe?");
        // caixaDialogo.digitarTexto("Oi, filha? É você, meu bem?");// ← seu texto
-        if (indiceDaFala < dialogoMae.length) {
-            
-            // Pega a fala atual da lista e manda digitar
-            caixaDialogo.digitarTexto(dialogoMae[indiceDaFala]);
-            
-            // Aumenta o contador (+1) para que, na próxima batida do Timer, venha a próxima fala
-            indiceDaFala++; 
-            
-        } else {
-            // Se as falas acabaram, o diálogo terminou! 
-            // Agora sim nós paramos o Timer.
-            timer.stop();
-            
-            // Reseta o contador para 0 (caso queira usar o telefone de novo no jogo)
-            indiceDaFala = 0; 
-            
-            // Opcional: Se quiser sumir com a caixa de diálogo quando acabar, descomente a linha abaixo:
-            // labelFundo.remove(caixaDialogo); labelFundo.repaint();
-        }
+        indiceDaFala = 0;
+        caixaDialogo.digitarTexto(dialogoMae[indiceDaFala]);
+        indiceDaFala++;
+        
+    
+        
+        // Liga o timer do diálogo!
+        timerDoDialogo.start();
         labelFundo.setComponentZOrder(caixaDialogo, 0);
 
     }
