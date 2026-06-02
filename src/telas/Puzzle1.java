@@ -69,6 +69,7 @@ public class Puzzle1 extends JPanel {
         labelFundo.repaint();
 
         caixaDialogo.digitarTexto("Filha, encontrei uma vaga de emprego na sua área, <br>vem aqui para a minha casa para conversarmos sobre <br>isso, faz muito tempo que você não me visita..."); // ← seu texto
+        
     }
 }
 
