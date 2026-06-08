@@ -2,18 +2,13 @@ package telas;
 
 import componentes.Botao;
 import componentes.CaixaDialogo;
-import componentes.Personagem;
-import componentes.Telefone;
-import telas.Puzzle1.Puzzle1;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 
 public class Puzzle4 extends JPanel{
-	//private JLabel labelFundo;
+	private JLabel labelFundo;
     private ImageIcon imgTelefone;
     private ImageIcon imgTelefoneTocando;
     private ImageIcon imgRosangelaNormal;
@@ -21,16 +16,9 @@ public class Puzzle4 extends JPanel{
     private JLabel labelCaixaTelefone;
     //Tetando add imagem da rosângela
    // private JLabel labelRosangelNormal;
-   // private CaixaDialogo caixaDialogo;
-    
-    //
-    private JLabel labelFundo;
     private CaixaDialogo caixaDialogo;
-    private CaixaDialogo caixaPensamento;
-    private  Personagem rosangela;
-    private FrameJanela frame;
 
-   /* public Puzzle4(JFrame frame) {
+    public Puzzle4(JFrame frame) {
         setLayout(null);
         setPreferredSize(new Dimension(1280, 720));
         //Fundo
@@ -52,35 +40,8 @@ public class Puzzle4 extends JPanel{
         /*ImageIcon rosangelaNormal = new ImageIcon(MenuInicial.class.getResource("/assets/RosangelaNormal.png"));
         this.imgRosangelaNormal = new JLabel(labelRosangelaNormal);*/
         
-    public Puzzle4(FrameJanela frame) {
-        this.frame = frame;
-        this.rosangela = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/RosangelaNormal.png")), -70, 250);
-        setLayout(null);
-        setPreferredSize(new Dimension(1280, 720));
-        //Fundo
-        ImageIcon fundo = new ImageIcon(Puzzle1.class.getResource("/assets/salaDeEstar-pixilart.png"));
-        this.labelFundo = new JLabel(fundo);
-        labelFundo.setBounds(0, 0, 1280, 720);
-        labelFundo.setLayout(null);
-
-        //Imagem Telefone
-        Telefone telefone = new Telefone();
 
         //Caixa Telefone
-        ImageIcon imgCaixaTelefone = new ImageIcon(Puzzle1.class.getResource("/assets/DialogoTelefone.png"));
-        this.caixaDialogo = new CaixaDialogo(imgCaixaTelefone, 80, 500, Color.white);
-
-        //Caiaxa Pensamento
-        ImageIcon imgCaixaPensamento = new ImageIcon(Puzzle1.class.getResource("/assets/caixaDePensamento.png"));
-        this.caixaPensamento = new CaixaDialogo(imgCaixaPensamento, 70, 500, Color.BLACK);
-
-        labelFundo.add(telefone.getTelefoneBtn().getBotaoClicavel());
-
-        add(labelFundo);
-
-        tocarTelefone(telefone);
-    }
-       /* //Caixa Telefone
         ImageIcon caixaTelefone = new ImageIcon(MenuInicial.class.getResource("/assets/DialogoTelefone.png"));
         this.labelCaixaTelefone = new JLabel(caixaTelefone);
         this.caixaDialogo = new CaixaDialogo(caixaTelefone, 80, 500);
@@ -90,7 +51,7 @@ public class Puzzle4 extends JPanel{
         add(labelFundo);
 
         tocarTelefone();
-    }*/
+    }
     
     private String[] dialogoMae = {
 	    "Alô, mãe?",
@@ -107,7 +68,7 @@ public class Puzzle4 extends JPanel{
     
     private int indiceDaFala = 0;
 
-    /*public void tocarTelefone(){
+    public void tocarTelefone(){
         Timer timer = new Timer(500, e ->{
                 JButton botao = telefoneBtn.getBotaoClicavel();
                 Icon iconeAtual = botao.getIcon();
@@ -120,35 +81,8 @@ public class Puzzle4 extends JPanel{
 
         telefoneBtn.getBotaoClicavel().addActionListener(e -> atenderTelefone(timer));
         timer.start();
-    }*/
-
-    
-    public void tocarTelefone(Telefone telefone){
-        Timer timer = new Timer(500, e ->{
-            JButton botao = telefone.getTelefoneBtn().getBotaoClicavel();
-            Icon iconeAtual = botao.getIcon();
-            if (iconeAtual == telefone.getImgTelefone()) {
-                botao.setIcon(telefone.getImgTelefoneTocando());
-            } else {
-                botao.setIcon(telefone.getImgTelefone());
-            }
-        });
-
-        telefone.getTelefoneBtn().getBotaoClicavel().addActionListener(e -> {
-            if(etapa < 2){
-                avancaCena(timer, telefone);
-            }
-                caixaPensamento.addMouseListener(new MouseAdapter() {
-                    public void mouseClicked(MouseEvent e) {
-                        if (etapa >= 2) {
-                            avancaCena(timer, telefone);
-                        }
-                    }
-                });
-        });
-        timer.start();
     }
-    
+
     public void atenderTelefone(Timer timer) {
         timer.stop();
         telefoneBtn.getBotaoClicavel().setIcon(imgTelefone);
