@@ -1,4 +1,5 @@
 package telas.Puzzle4;
+import telas.MenuInicial;
 
 //package telas;
 
@@ -55,7 +56,7 @@ public class Puzzle4 extends JPanel{
         //Caixa Telefone
         ImageIcon caixaTelefone = new ImageIcon(MenuInicial.class.getResource("/assets/DialogoTelefone.png"));
         this.labelCaixaTelefone = new JLabel(caixaTelefone);
-        this.caixaDialogo = new CaixaDialogo(caixaTelefone, 80, 500);
+        this.caixaDialogo = new CaixaDialogo(caixaTelefone, 80, 500, Color.BLACK);
 
         labelFundo.add(telefoneBtn.getBotaoClicavel());
 
