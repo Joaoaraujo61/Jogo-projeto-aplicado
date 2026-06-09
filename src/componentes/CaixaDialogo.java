@@ -16,14 +16,25 @@ public class CaixaDialogo extends JLabel {
 
         this.larguraTexto = imagem.getIconWidth() - 250;
 
+
         labelTexto = new JLabel();
-        labelTexto.setBounds(140, 60, larguraTexto, imagem.getIconHeight()-20);
+        labelTexto.setBounds(140, 25, larguraTexto, imagem.getIconHeight()-20);
+        //mudei o segundo parâmetro para 25
+        
+
         labelTexto.setForeground(cor);
         labelTexto.setFont(new Font("Arial", Font.PLAIN, 35));
+      
+
         labelTexto.setVerticalAlignment(JLabel.TOP);
 
         add(labelTexto);
-    }
+    }	
+    //outras configurações possíveis, que talvez ficariam melhores para o puzzle4 
+       // this.larguraTexto = imagem.getIconWidth() - 100;
+       //labelTexto.setBounds(100, 40, larguraTexto, imagem.getIconHeight()-20);
+       //labelTexto.setFont(new Font("Arial", Font.PLAIN, 30));
+      
 
     public void digitarTexto(String texto) {
         if (timerDigitando != null) timerDigitando.stop();
