@@ -3,6 +3,7 @@ package telas.Puzzle1;
 import componentes.CaixaDialogo;
 import componentes.Personagem;
 import telas.FrameJanela;
+import telas.Puzzle2;
 
 import javax.swing.*;
 import java.awt.*;
@@ -115,7 +116,7 @@ public class PuzzleEscolha1 extends JPanel {
                             SwingUtilities.getWindowAncestor(PuzzleEscolha1.this),
                             "Puzzle concluído!"
                     );
-                    // frame.trocarTela(new PuzzleRoupa(frame));
+                    frame.trocarTela(new Puzzle2(frame));
                 });
             });
 
