@@ -102,7 +102,7 @@ public class PuzzleEscolha1 extends JPanel {
             bloquearOpcao(opcao2);
         });
         opcao4.addActionListener(e -> {
-            mostrarResposta("Mas nem pensar! Você nem terminou de passar minhas roupas");
+            mostrarResposta("Mas nem pensar! Você nem terminou de passar <br> minhas roupas");
             bloquearOpcao(opcao4);
         });
         opcao3.addActionListener(e -> {
