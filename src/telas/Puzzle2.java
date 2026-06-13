@@ -18,7 +18,7 @@ public class Puzzle2 extends JPanel {
         //Fundo
         ImageIcon fundo = new ImageIcon(Puzzle2.class.getResource("/assets/QuartRosalngelaSemVestido.png"));
         ImageIcon vestidoRasgado = new ImageIcon(Puzzle2.class.getResource("/assets/VestidoRasgadoNoCabide.png"));
-        Botao botaoVestidoRasgado = new Botao(vestidoRasgado,1070, 300);
+        Botao botaoVestidoRasgado = new Botao(vestidoRasgado,1070, 22   0);
         botaoVestidoRasgado.getBotaoClicavel().setBorderPainted(false);
         botaoVestidoRasgado.getBotaoClicavel().setContentAreaFilled(false);
         botaoVestidoRasgado.getBotaoClicavel().setFocusPainted(false);
