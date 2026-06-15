@@ -2,8 +2,12 @@ package telas;
 
 import javax.swing.*;
 
+
 import componentes.Botao;
 import telas.Puzzle1.Puzzle1;
+import telas.Puzzle4.Puzzle4;
+//import telas.Puzzle4;
+
 
 import java.awt.*;
 
@@ -42,6 +46,10 @@ public class MenuInicial extends JPanel{
 
         botaoComecar.getBotaoClicavel().addActionListener(e ->{
             frame.trocarTela(new Puzzle1(frame));
+        });
+        //Abrindo o puzzle4 quando clica no botão continuar
+        botaoContinuar.getBotaoClicavel().addActionListener(e ->{
+            frame.trocarTela(new Puzzle4(frame));
         });
     }
 }
