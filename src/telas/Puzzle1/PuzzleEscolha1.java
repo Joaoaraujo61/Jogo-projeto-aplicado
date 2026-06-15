@@ -106,7 +106,7 @@ public class PuzzleEscolha1 extends JPanel {
             bloquearOpcao(opcao4);
         });
         opcao3.addActionListener(e -> {
-            mostrarResposta("Consulta na UBS? Não me lembro disso. Mas tudo bem,<br> vá, mas troque de roupa antes, não quero que os médicos te vejam assim...");
+            mostrarResposta("Consulta na UBS? Não me lembro disso. Mas tudo bem,<br> vá, mas troque de roupa antes, não quero que os <br>médicos te vejam assim...");
             desabilitarTodas();
 
             Timer timer = new Timer(3500, evento -> {
