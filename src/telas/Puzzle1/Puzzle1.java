@@ -2,7 +2,6 @@
 
     import componentes.*;
     import telas.FrameJanela;
-    import telas.Puzzle2;
 
     import javax.swing.*;
     import java.awt.*;
@@ -15,6 +14,7 @@
         private CaixaDialogo caixaPensamento;
         private  Personagem rosangela;
         private FrameJanela frame;
+        private JLabel labelBarraAvanco;
 
         private int etapa = 0;
 
@@ -23,6 +23,11 @@
             this.rosangela = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/RosangelaNormal.png")), -70, 250);
             setLayout(null);
             setPreferredSize(new Dimension(1280, 720));
+
+            ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/0-6.png"));
+            this.labelBarraAvanco = new JLabel(imgBarra);
+            labelBarraAvanco.setBounds(0, 0, imgBarra.getIconWidth(), imgBarra.getIconHeight());
+            labelBarraAvanco.setLayout(null);
             //Fundo
             ImageIcon fundo = new ImageIcon(Puzzle1.class.getResource("/assets/salaDeEstar-pixilart.png"));
             this.labelFundo = new JLabel(fundo);
@@ -42,6 +47,7 @@
             caixaPensamento.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
             labelFundo.add(telefone.getTelefoneBtn().getBotaoClicavel());
+            labelFundo.add(labelBarraAvanco);
 
             add(labelFundo);
 
