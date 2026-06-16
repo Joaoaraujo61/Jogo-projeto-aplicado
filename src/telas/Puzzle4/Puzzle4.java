@@ -108,8 +108,6 @@ public class Puzzle4 extends JPanel{
         labelFundo.revalidate();
         labelFundo.repaint();
 
-        //caixaDialogo.digitarTexto("Alô, mãe?");
-       // caixaDialogo.digitarTexto("Oi, filha? É você, meu bem?");// ← seu texto
         if (indiceDaFala < dialogoMae.length) {
             caixaDialogo.digitarTexto(dialogoMae[indiceDaFala]);
        
