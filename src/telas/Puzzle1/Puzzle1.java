@@ -1,106 +1,113 @@
-package telas.Puzzle1;
+    package telas.Puzzle1;
 
-import componentes.*;
-import telas.FrameJanela;
+    import componentes.*;
+    import telas.FrameJanela;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+    import javax.swing.*;
+    import java.awt.*;
+    import java.awt.event.MouseAdapter;
+    import java.awt.event.MouseEvent;
 
-public class Puzzle1 extends JPanel {
-    private JLabel labelFundo;
-    private CaixaDialogo caixaDialogo;
-    private CaixaDialogo caixaPensamento;
-    private  Personagem rosangela;
-    private FrameJanela frame;
+    public class Puzzle1 extends JPanel {
+        private JLabel labelFundo;
+        private CaixaDialogo caixaDialogo;
+        private CaixaDialogo caixaPensamento;
+        private  Personagem rosangela;
+        private FrameJanela frame;
+        private JLabel labelBarraAvanco;
 
-    private int etapa = 0;
+        private int etapa = 0;
 
-    public Puzzle1(FrameJanela frame) {
-        this.frame = frame;
-        this.rosangela = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/RosangelaNormal.png")), -70, 250);
-        setLayout(null);
-        setPreferredSize(new Dimension(1280, 720));
-        //Fundo
-        ImageIcon fundo = new ImageIcon(Puzzle1.class.getResource("/assets/salaDeEstar-pixilart.png"));
-        this.labelFundo = new JLabel(fundo);
-        labelFundo.setBounds(0, 0, 1280, 720);
-        labelFundo.setLayout(null);
+        public Puzzle1(FrameJanela frame) {
+            this.frame = frame;
+            this.rosangela = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/RosangelaNormal.png")), -70, 250);
+            setLayout(null);
+            setPreferredSize(new Dimension(1280, 720));
 
-        //Imagem Telefone
-        Telefone telefone = new Telefone();
+            ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/0-6.png"));
+            this.labelBarraAvanco = new JLabel(imgBarra);
+            labelBarraAvanco.setBounds(0, 0, imgBarra.getIconWidth(), imgBarra.getIconHeight());
+            labelBarraAvanco.setLayout(null);
+            //Fundo
+            ImageIcon fundo = new ImageIcon(Puzzle1.class.getResource("/assets/salaDeEstar-pixilart.png"));
+            this.labelFundo = new JLabel(fundo);
+            labelFundo.setBounds(0, 0, 1280, 720);
+            labelFundo.setLayout(null);
 
-        //Caixa Telefone
-        ImageIcon imgCaixaTelefone = new ImageIcon(Puzzle1.class.getResource("/assets/DialogoTelefone.png"));
-        this.caixaDialogo = new CaixaDialogo(imgCaixaTelefone, 80, 500, Color.white);
+            //Imagem Telefone
+            Telefone telefone = new Telefone();
 
-        //Caiaxa Pensamento
-        ImageIcon imgCaixaPensamento = new ImageIcon(Puzzle1.class.getResource("/assets/caixaDePensamento.png"));
-        this.caixaPensamento = new CaixaDialogo(imgCaixaPensamento, 70, 500, Color.BLACK);
+            //Caixa Telefone
+            ImageIcon imgCaixaTelefone = new ImageIcon(Puzzle1.class.getResource("/assets/DialogoTelefone.png"));
+            this.caixaDialogo = new CaixaDialogo(imgCaixaTelefone, 80, 500, Color.white);
 
-        labelFundo.add(telefone.getTelefoneBtn().getBotaoClicavel());
+            //Caiaxa Pensamento
+            ImageIcon imgCaixaPensamento = new ImageIcon(Puzzle1.class.getResource("/assets/caixaDePensamento.png"));
+            this.caixaPensamento = new CaixaDialogo(imgCaixaPensamento, 70, 500, Color.BLACK);
+            caixaPensamento.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
-        add(labelFundo);
+            labelFundo.add(telefone.getTelefoneBtn().getBotaoClicavel());
+            labelFundo.add(labelBarraAvanco);
 
-        tocarTelefone(telefone);
-    }
+            add(labelFundo);
 
-    public void tocarTelefone(Telefone telefone){
-        Timer timer = new Timer(500, e ->{
-            JButton botao = telefone.getTelefoneBtn().getBotaoClicavel();
-            Icon iconeAtual = botao.getIcon();
-            if (iconeAtual == telefone.getImgTelefone()) {
-                botao.setIcon(telefone.getImgTelefoneTocando());
-            } else {
-                botao.setIcon(telefone.getImgTelefone());
-            }
-        });
+            tocarTelefone(telefone);
+        }
 
-        telefone.getTelefoneBtn().getBotaoClicavel().addActionListener(e -> {
-            if(etapa < 2){
-                avancaCena(timer, telefone);
-            }
-                caixaPensamento.addMouseListener(new MouseAdapter() {
-                    public void mouseClicked(MouseEvent e) {
-                        if (etapa >= 2) {
-                            avancaCena(timer, telefone);
+        public void tocarTelefone(Telefone telefone){
+            Timer timer = new Timer(500, e ->{
+                JButton botao = telefone.getTelefoneBtn().getBotaoClicavel();
+                Icon iconeAtual = botao.getIcon();
+                if (iconeAtual == telefone.getImgTelefone()) {
+                    botao.setIcon(telefone.getImgTelefoneTocando());
+                } else {
+                    botao.setIcon(telefone.getImgTelefone());
+                }
+            });
+
+            telefone.getTelefoneBtn().getBotaoClicavel().addActionListener(e -> {
+                if(etapa < 2){
+                    avancaCena(timer, telefone);
+                }
+                    caixaPensamento.addMouseListener(new MouseAdapter() {
+                        public void mouseClicked(MouseEvent e) {
+                            if (etapa >= 2) {
+                                avancaCena(timer, telefone);
+                            }
                         }
-                    }
-                });
-        });
-        timer.start();
-    }
+                    });
+            });
+            timer.start();
+        }
 
 
-    public void avancaCena(Timer timer,Telefone telefone){
-        switch (etapa){
-            case 0:
-                rosangela.atenderTelefone(timer,telefone.getTelefoneBtn(), telefone.getImgTelefone(), labelFundo,caixaDialogo);
-                etapa++;
-                break;
-            case 1:
-                rosangela.desligarTelefone(labelFundo,caixaDialogo);
-                rosangela.escreverDialogo(labelFundo, caixaPensamento, "Preciso sair de casa, nem que seja pela primeira vez este mês,<br> preciso mesmo visitar a minha mãe, saber dessa oportunidade <br> de emprego, faz tanto tempo que eu não trabalho");
-                labelFundo.add(rosangela.getSprite());
-                caixaPensamento.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                labelFundo.revalidate();
-                labelFundo.repaint();
-                etapa++;
-                break;
-            case 2:
-                rosangela.escreverDialogo(labelFundo, caixaPensamento, "Mas como eu vou pedir isso para ele? Ele não vai deixar. <br>Ele não vai me autorizar ir.");
-                etapa++;
-                break;
-            case 3:
-                rosangela.escreverDialogo(labelFundo, caixaPensamento, "Mas como eu vou pedir isso para ele? Ele não vai deixar. <br>Posso começar pensando no que dizer para ele, quem sabe ...");
-                etapa++;
-                break;
-            case 4:
-                frame.trocarTela(new PuzzleEscolha1(frame));;
-                etapa++;
-                break;
+        public void avancaCena(Timer timer,Telefone telefone){
+            switch (etapa){
+                case 0:
+                    rosangela.atenderTelefone(timer,telefone.getTelefoneBtn(), telefone.getImgTelefone(), labelFundo,caixaDialogo);
+                    etapa++;
+                    break;
+                case 1:
+                    rosangela.desligarTelefone(labelFundo,caixaDialogo);
+                    rosangela.escreverDialogo(labelFundo, caixaPensamento, "Preciso sair de casa, nem que seja pela primeira vez este mês,<br> preciso mesmo visitar a minha mãe, saber dessa oportunidade <br> de emprego, faz tanto tempo que eu não trabalho");
+                    labelFundo.add(rosangela.getSprite());
+                    labelFundo.revalidate();
+                    labelFundo.repaint();
+                    etapa++;
+                    break;
+                case 2:
+                    rosangela.escreverDialogo(labelFundo, caixaPensamento, "Mas como eu vou pedir isso para ele? Ele não vai deixar. <br>Ele não vai me autorizar ir.");
+                    etapa++;
+                    break;
+                case 3:
+                    rosangela.escreverDialogo(labelFundo, caixaPensamento, "Posso começar pensando no que dizer para ele, quem sabe ...");
+                    etapa++;
+                    break;
+                case 4:
+                    frame.trocarTela(new PuzzleEscolha1(frame));;
+                    etapa++;
+                    break;
+            }
         }
     }
-}
 
