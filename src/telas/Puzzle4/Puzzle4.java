@@ -26,7 +26,7 @@ public class Puzzle4 extends JPanel{
     private ImageIcon imgRosangelaNormal;
     private Botao telefoneBtn;
     private JLabel labelCaixaTelefone;
-    //Tetando add imagem da rosângela
+    //Tentando add imagem da rosângela
    // private JLabel labelRosangelNormal;
     private CaixaDialogo caixaDialogo;
 
@@ -111,22 +111,17 @@ public class Puzzle4 extends JPanel{
         //caixaDialogo.digitarTexto("Alô, mãe?");
        // caixaDialogo.digitarTexto("Oi, filha? É você, meu bem?");// ← seu texto
         if (indiceDaFala < dialogoMae.length) {
-            
-            // Pega a fala atual da lista e manda digitar
             caixaDialogo.digitarTexto(dialogoMae[indiceDaFala]);
-            
-            // Aumenta o contador (+1) para que, na próxima batida do Timer, venha a próxima fala
+       
             indiceDaFala++; 
             
         } else {
-            // Se as falas acabaram, o diálogo terminou! 
-            // Agora sim nós paramos o Timer.
+      
             timer.stop();
             
-            // Reseta o contador para 0 (caso queira usar o telefone de novo no jogo)
+           // Reseta o contador para 0 (caso seja necessário  usar o telefone de novo no jogo)
             //indiceDaFala = 0; 
-            
-            // Opcional: Se quiser sumir com a caixa de diálogo quando acabar, descomente a linha abaixo:
+         
              labelFundo.remove(caixaDialogo); labelFundo.repaint();
         }
         labelFundo.setComponentZOrder(caixaDialogo, 0);
