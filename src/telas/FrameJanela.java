@@ -10,13 +10,17 @@ public class FrameJanela extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);
-
-        // coloca o menu na janela 
-        setContentPane(new CenaInicial(this));
-        //setContentPane(new MenuInicial(this));
+        
+        setContentPane(new MenuInicial(this));
+        
         pack(); // ← deixa o frame se ajustar ao tamanho do painel
         setLocationRelativeTo(null);
         setVisible(true);
+        
+        /*// coloca o menu na janela 
+        setContentPane(new CenaInicial(this));
+        //
+        
         
             // 1. Configurações básicas da janela principal
            /*setTitle("Meu Jogo");
@@ -31,7 +35,7 @@ public class FrameJanela extends JFrame {
 
             // 3. Mostra a janela já com a cena inicial dentro dela
             setVisible(true);
-            //CenaInicial.contarHistoria();
+            //CenaInicial.contarHistoria();*/
         }
 
         // Esse é o método que você vai chamar DEPOIS para atualizar para o menu
