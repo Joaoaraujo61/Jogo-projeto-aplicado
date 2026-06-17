@@ -31,6 +31,7 @@ public class FrameJanela extends JFrame {
 
             // 3. Mostra a janela já com a cena inicial dentro dela
             setVisible(true);
+            //CenaInicial.contarHistoria();
         }
 
         // Esse é o método que você vai chamar DEPOIS para atualizar para o menu
