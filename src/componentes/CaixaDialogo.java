@@ -31,20 +31,22 @@ public class CaixaDialogo extends JLabel {
         add(labelTexto);
     }	   
     
+    //"Caixa de diálogo" usada na cena inicial
     public CaixaDialogo(int x, int y, Color cor) {
-        setBounds(x, y,  getWidth(), getHeight());
+        setBounds(x, y, 1180, 150);
         setLayout(null);
-        setOpaque(false);
 
-        this.larguraTexto = getWidth() - 250;
+        this.larguraTexto = this.getWidth();
 
 
         labelTexto = new JLabel();
-        labelTexto.setBounds(140, 25, larguraTexto, getHeight()-20);        
-
+        labelTexto.setBounds(10, 10, larguraTexto, 150);
+       
+        this.setBackground(Color.BLACK); 
+        this.setOpaque(true);
         labelTexto.setForeground(Color.WHITE);
         labelTexto.setFont(new Font("Arial", Font.PLAIN, 35));
-      
+     
 
         labelTexto.setVerticalAlignment(JLabel.TOP);
 
