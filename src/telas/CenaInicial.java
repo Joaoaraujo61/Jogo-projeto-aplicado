@@ -8,6 +8,9 @@ import telas.Puzzle1.Puzzle1;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 public class CenaInicial extends JPanel {
 
     private FrameJanela frame;
@@ -36,43 +39,28 @@ public class CenaInicial extends JPanel {
         setLayout(null);
         setPreferredSize(new Dimension(1280, 720));
         this.setBackground(Color.BLACK); 
-       
-        JButton botao = new JButton("Entrar no Jogo");
-        JButton botao1 = new JButton("Digitar texto");
 
-       
-        // Ação do botão para mudar de tela
-        botao.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.trocarTela(new Puzzle1(frame));
-            }
-        });
         
-        botao1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-               contarHistoria();
-            }
-        });
-        
-        this.add(botao);
-        this.add(botao1);
-        botao.setBounds(50, 50, 150, 40);
-        botao1.setBounds(220, 50, 150, 40);
-        
-        caixaDialogo = new CaixaDialogo(150, 500, Color.WHITE);
-       // caixaDialogo.setBounds(100, 500, 1080, 150);
-        //labelFundo.setComponentZOrder(caixaDialogo, 0);
+        caixaDialogo = new CaixaDialogo(120, 500, Color.WHITE);
         this.add(caixaDialogo);
-        //labelFundo.add(caixaDialogo);
+
+        MouseAdapter acaoDeClique = new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                contarHistoria();
+            }
+        };
+
+        this.addMouseListener(acaoDeClique);         
+        labelFundo.addMouseListener(acaoDeClique);   
+        caixaDialogo.addMouseListener(acaoDeClique); 
+        
+        contarHistoria();
 
     }     
 
     public void contarHistoria() {
         if (indiceDaFala < dialogoInicial.length) {
-        	//caixaDialogo.labelTexto.setForeground(Color.WHITE);
-           // label.setFont(new Font("Arial", Font.PLAIN, fontsize));
             caixaDialogo.digitarTexto(dialogoInicial[indiceDaFala]);
             indiceDaFala++; 
         } else {

@@ -40,12 +40,14 @@ public class CaixaDialogo extends JLabel {
 
 
         labelTexto = new JLabel();
-        labelTexto.setBounds(10, 10, larguraTexto, 150);
+        labelTexto.setBounds(20, 20, larguraTexto, 150);
        
         this.setBackground(Color.BLACK); 
         this.setOpaque(true);
         labelTexto.setForeground(Color.WHITE);
-        labelTexto.setFont(new Font("Arial", Font.PLAIN, 35));
+        //Lucida Handwriting Monotype Corsiva Comic Sans MS Consolas New Segoe Script
+        //Courier Georgia Garamond -> itálicas
+        labelTexto.setFont(new Font("Georgia", Font.ITALIC, 35));
      
 
         labelTexto.setVerticalAlignment(JLabel.TOP);
