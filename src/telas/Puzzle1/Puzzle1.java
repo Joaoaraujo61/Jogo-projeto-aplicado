@@ -7,6 +7,13 @@
     import java.awt.*;
     import java.awt.event.MouseAdapter;
     import java.awt.event.MouseEvent;
+    
+    import java.awt.AlphaComposite;
+    import java.awt.Graphics;
+    import java.awt.Graphics2D;
+    import java.awt.Color;
+    import javax.swing.Timer;
+    import javax.swing.JPanel;
 
     public class Puzzle1 extends JPanel {
         private JLabel labelFundo;
@@ -15,6 +22,8 @@
         private  Personagem rosangela;
         private FrameJanela frame;
         private JLabel labelBarraAvanco;
+        
+        private float alphaFade = 1.0f;
 
         private int etapa = 0;
 
@@ -78,6 +87,40 @@
                     });
             });
             timer.start();
+            iniciarFadeIn();
+        }
+        
+        private void iniciarFadeIn() {
+            JPanel painelFade = new JPanel() {
+                @Override
+                protected void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    Graphics2D g2d = (Graphics2D) g.create();
+                    g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alphaFade));
+                    g2d.setColor(Color.BLACK); 
+                    g2d.fillRect(0, 0, 1280, 720);
+                    g2d.dispose();
+                }
+            };
+            
+            painelFade.setBounds(0, 0, 1280, 720);
+            painelFade.setOpaque(false);
+            this.add(painelFade);
+            this.setComponentZOrder(painelFade, 0); 
+
+          
+            Timer timerFade = new Timer(20, e -> {
+                alphaFade -= 0.02f;
+                
+                if (alphaFade <= 0.0f) {
+                    alphaFade = 0.0f;
+                    ((Timer)e.getSource()).stop(); // Para o timer
+                    this.remove(painelFade); 
+                }
+                repaint();
+            });
+            
+            timerFade.start();
         }
 
 

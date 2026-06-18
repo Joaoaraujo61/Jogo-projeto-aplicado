@@ -5,14 +5,22 @@ import java.awt.*;
 import componentes.*;
 import telas.Puzzle1.Puzzle1;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
+import java.awt.AlphaComposite;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 public class CenaInicial extends JPanel {
 
     private FrameJanela frame;
     private CaixaDialogo caixaDialogo;
     private int indiceDaFala = 0;
+    
+    private float alphaFade = 0.0f;
 	
 
     private String[] dialogoInicial = {
@@ -46,13 +54,49 @@ public class CenaInicial extends JPanel {
         contarHistoria();
 
     }     
+    
+    private void iniciarFadeOut() {
+        if (this.getMouseListeners().length > 0) this.removeMouseListener(this.getMouseListeners()[0]);
+        if (caixaDialogo.getMouseListeners().length > 0) caixaDialogo.removeMouseListener(caixaDialogo.getMouseListeners()[0]);
+
+        JPanel painelFade = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                Graphics2D g2d = (Graphics2D) g.create();
+                g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alphaFade));
+                g2d.setColor(Color.BLACK);
+                g2d.fillRect(0, 0, 1280, 720);
+                g2d.dispose();
+            }
+        };
+        
+        painelFade.setBounds(0, 0, 1280, 720);
+        painelFade.setOpaque(false);
+        this.add(painelFade);
+        this.setComponentZOrder(painelFade, 0); 
+
+        Timer timerFade = new Timer(20, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                alphaFade += 0.01f; 
+                if (alphaFade >= 1.0f) {
+                    alphaFade = 1.0f;
+                    ((Timer)e.getSource()).stop();
+                    frame.trocarTela(new Puzzle1(frame)); 
+                }
+                repaint();
+            }
+        });
+        timerFade.start();
+    }
 
     public void contarHistoria() {
         if (indiceDaFala < dialogoInicial.length) {
             caixaDialogo.digitarTexto(dialogoInicial[indiceDaFala]);
             indiceDaFala++; 
         } else {
-        	  frame.trocarTela(new Puzzle1(frame));
+        	iniciarFadeOut();
         }
     }
 }
