@@ -5,9 +5,6 @@ import java.awt.*;
 import componentes.*;
 import telas.Puzzle1.Puzzle1;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -16,8 +13,7 @@ public class CenaInicial extends JPanel {
     private FrameJanela frame;
     private CaixaDialogo caixaDialogo;
     private int indiceDaFala = 0;
-	private JLabel labelFundo;
-
+	
 
     private String[] dialogoInicial = {
         "Eu estava no 2° semestre de medicina de uma universidade federal, <br> quando trombei pelos corredores da faculdade, com um cara chamado <br>Jorjão,  que estava no 6° semestre de Relações Internacionais.",
@@ -27,13 +23,6 @@ public class CenaInicial extends JPanel {
     };
 
     public CenaInicial(FrameJanela frame) {
-	   setLayout(null);
-       setPreferredSize(new Dimension(1280, 720));
-       //Fundo
-       ImageIcon fundo = new ImageIcon(MenuInicial.class.getResource("/assets/salaDeEstar-pixilart.png"));
-       this.labelFundo = new JLabel(fundo);
-       labelFundo.setBounds(0, 0, 1280, 720);
-       labelFundo.setLayout(null);
        
         this.frame = frame;
         setLayout(null);
@@ -52,7 +41,6 @@ public class CenaInicial extends JPanel {
         };
 
         this.addMouseListener(acaoDeClique);         
-        labelFundo.addMouseListener(acaoDeClique);   
         caixaDialogo.addMouseListener(acaoDeClique); 
         
         contarHistoria();
