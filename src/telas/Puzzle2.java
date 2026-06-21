@@ -48,9 +48,9 @@ public class Puzzle2 extends JPanel {
             if (imageCon.agulha != null) {
                 Cursor cursorAgulha = Toolkit.getDefaultToolkit()
                         .createCustomCursor(imageCon.agulha, new Point(0, 0), "agulha");
-
                 setCursor(cursorAgulha);
                 labelFundo.setCursor(cursorAgulha);
+                botaoVestidoRasgadoZoom.getBotaoClicavel().setCursor(cursorAgulha);
             }
         });
 

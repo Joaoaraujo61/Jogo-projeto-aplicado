@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b92d4aa6-1d22-4ecd-8187-bd7921a833da" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/agulha.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/agulha.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/ImageCon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/ImageCon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/componentes/ImageCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/ImageCon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/telas/Puzzle2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/Puzzle2.java" afterDir="false" />
     </list>
