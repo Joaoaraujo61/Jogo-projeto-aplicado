@@ -1,7 +1,4 @@
 package componentes;
-
-import telas.Puzzle2;
-
 import javax.swing.*;
 import java.awt.*;
 
