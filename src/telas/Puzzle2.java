@@ -3,6 +3,8 @@ package telas;
 import componentes.*;
 
 import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
 
 public class Puzzle2 extends JPanel {
     private JLabel labelFundo;
@@ -13,7 +15,7 @@ public class Puzzle2 extends JPanel {
     private Botao botaoCalendarioZoom;
     private JLabel labelBarraAvanco;
 
-    public Puzzle2(FrameJanela frame) {
+    public Puzzle2(FrameJanela frame){
         this.frame = frame;
         ImageCon imageCon = new ImageCon();
 
@@ -40,9 +42,19 @@ public class Puzzle2 extends JPanel {
 
         botaoCalendarioZoom.getBotaoClicavel().addActionListener(e -> tirarZoomCalendario());
 
-        botaoVestidoRasgado.getBotaoClicavel().addActionListener(e -> darZoomVestido());
 
-        botaoVestidoRasgadoZoom.getBotaoClicavel().addActionListener(e -> tirarZoomVestido());
+        botaoVestidoRasgado.getBotaoClicavel().addActionListener(e -> {
+            darZoomVestido();
+            if (imageCon.agulha != null) {
+                Cursor cursorAgulha = Toolkit.getDefaultToolkit()
+                        .createCustomCursor(imageCon.agulha, new Point(0, 0), "agulha");
+
+                setCursor(cursorAgulha);
+                labelFundo.setCursor(cursorAgulha);
+            }
+        });
+
+        //botaoVestidoRasgadoZoom.getBotaoClicavel().addActionListener(e -> tirarZoomVestido());
 
         this.labelFundo = new JLabel(fundo);
         labelFundo.add(botaoVestidoRasgado.getBotaoClicavel());
