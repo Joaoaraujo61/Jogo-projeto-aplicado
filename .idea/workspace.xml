@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b92d4aa6-1d22-4ecd-8187-bd7921a833da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/telas/Puzzle2/Puzzle2Final.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/telas/Puzzle2/Puzzle2Interface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/MenuInicial.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/MenuInicial.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telas/Puzzle2/Puzzle2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/Puzzle2/Puzzle2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telas/Puzzle2/PuzzleCostura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/Puzzle2/PuzzleCostura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" afterPath="$PROJECT_DIR$/.project" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

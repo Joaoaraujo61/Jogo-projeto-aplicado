@@ -60,6 +60,15 @@ public class PuzzleCostura extends JPanel {
         // Adiciona ao PuzzleCostura em ordem: fundo primeiro, linhas por cima
         add(painelLinhas); // por cima do labelFundo
         add(labelFundo);   // embaixo de tudo
+
+        SwingUtilities.invokeLater(() -> {
+            JOptionPane.showMessageDialog(
+                    frame,
+                    "Puzzle 2: costure a roupa ligando os pontos na sequência correta",
+                    "Instrução",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+        });
     }
 
         private void criarPontos(JLabel labelFundo) {
