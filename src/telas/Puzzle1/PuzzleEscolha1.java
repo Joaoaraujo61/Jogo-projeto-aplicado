@@ -3,7 +3,7 @@ package telas.Puzzle1;
 import componentes.CaixaDialogo;
 import componentes.Personagem;
 import telas.FrameJanela;
-import telas.Puzzle2;
+import telas.Puzzle2.Puzzle2;
 
 import javax.swing.*;
 import java.awt.*;

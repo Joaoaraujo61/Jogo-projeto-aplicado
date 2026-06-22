@@ -1,10 +1,10 @@
-package telas;
+package telas.Puzzle2;
 
 import componentes.*;
+import telas.FrameJanela;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 public class Puzzle2 extends JPanel {
     private JLabel labelFundo;
@@ -52,6 +52,8 @@ public class Puzzle2 extends JPanel {
                 labelFundo.setCursor(cursorAgulha);
                 botaoVestidoRasgadoZoom.getBotaoClicavel().setCursor(cursorAgulha);
             }
+            System.out.println("Botão clicado, trocando para PuzzleCostura");
+            frame.trocarTela(new PuzzleCostura(frame));
         });
 
         //botaoVestidoRasgadoZoom.getBotaoClicavel().addActionListener(e -> tirarZoomVestido());
