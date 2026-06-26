@@ -59,9 +59,10 @@
             labelFundo.add(labelBarraAvanco);
 
             add(labelFundo);
-
-            tocarTelefone(telefone);
-        }
+            
+            iniciarFadeIn();
+            tocarTelefone(telefone);            
+        }  
 
         public void tocarTelefone(Telefone telefone){
             Timer timer = new Timer(500, e ->{
@@ -87,7 +88,7 @@
                     });
             });
             timer.start();
-            iniciarFadeIn();
+          
         }
         
         private void iniciarFadeIn() {

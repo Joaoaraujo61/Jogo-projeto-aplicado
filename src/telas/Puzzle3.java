@@ -21,7 +21,6 @@ public class Puzzle3 extends JPanel {
     private JLabel labelFundo;
     private ImageIcon imgTelefone;
     private Botao telefoneBtn;
-    private JButton botao1;
     private CaixaDialogo caixaPensamento;
 
 
@@ -41,16 +40,10 @@ public class Puzzle3 extends JPanel {
         botaoTelefone.setContentAreaFilled(false);
         botaoTelefone.setFocusPainted(false);
        
-        // Configuração do botão auxiliar "Clique aqui"
-        this.botao1 = new JButton("Clique aqui");
-        botao1.setBounds(500, 600, 200, 50);
         
         // Configura as ações de clique
-        botao1.addActionListener(e -> mudaTela());
-        botaoTelefone.addActionListener(e -> mudaTela());
+        botaoTelefone.addActionListener(e -> mudarTela());
 
-        // Adiciona os componentes na tela principal (frente)
-        //this.add(botao1);
         this.add(botaoTelefone);
       
         // Imagem de Fundo (atrás)
@@ -70,41 +63,25 @@ public class Puzzle3 extends JPanel {
         apareceDialogo();
     } 
      
-    void mudaTela() {
-        /*if (frame != null) {
-            frame.trocarTela(new Puzzle4(frame));
-        }*/
-        Timer timer = new Timer(200, evento -> {
-            ((Timer) evento.getSource()).stop();
-            SwingUtilities.invokeLater(() -> {
-                JOptionPane.showMessageDialog(
-                        SwingUtilities.getWindowAncestor(Puzzle3.this),
-                        "Puzzle concluído!"
-                );
-                frame.trocarTela(new Puzzle4(frame));
-            });
-        });
-
-        timer.setRepeats(false);
-        timer.start();
+    void mudarTela() {
+        if (frame != null) {
+            frame.trocarTela(new Puzzle3Jogavel(frame));
+        }
     } 
     
     void apareceDialogo() {
-    	
+    	caixaPensamento.digitarTexto("Ah, não! O Jorjão cortou os fios do telefone, vou ter que concertá-<br> lo para falar com a minha mãe.");
     	 
-    	 Timer timerCaixaPensamento = new Timer(200, evento -> {
-    		 caixaPensamento.digitarTexto("Texto");
-             
-             SwingUtilities.invokeLater(() -> {
-            	 ((Timer) evento.getSource()).stop();
-            	 frame.remove(caixaPensamento);
-            //frame.remove(caixaPensamento);
-         });
-
+    	 Timer timerCaixaPensamento = new Timer(3500, evento -> {
+    		frame.remove(caixaPensamento);
+    		 caixaPensamento.setVisible(false); 
+    	        this.repaint();
+    	 	});
          timerCaixaPensamento.setRepeats(false);
          timerCaixaPensamento.start();
          
     	 }
-    }
 
 }
+
+
