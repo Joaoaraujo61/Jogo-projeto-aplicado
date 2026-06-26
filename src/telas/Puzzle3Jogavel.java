@@ -21,6 +21,7 @@ public class Puzzle3Jogavel extends JPanel {
     private FrameJanela frame; 
     private JLabel labelFundo;
     private Botao telefoneBtn;
+    private JLabel labelFiosDireita;
    
 
     public Puzzle3Jogavel(FrameJanela frame) {
@@ -28,31 +29,20 @@ public class Puzzle3Jogavel extends JPanel {
         
         setLayout(null);
         setPreferredSize(new Dimension(1280, 720));
-        
-        // Imagens do Telefone
-       // this.imgTelefone = new ImageIcon(MenuInicial.class.getResource("/assets/FundoCaixadeFios.png"));
-               
-        // Configuração do botão customizado do telefone
-       /* this.telefoneBtn = new Botao(imgTelefone, 1070, 200);
-        JButton botaoTelefone = telefoneBtn.getBotaoClicavel();
-        botaoTelefone.setBorderPainted(false);
-        botaoTelefone.setContentAreaFilled(false);
-        botaoTelefone.setFocusPainted(false);*/
-       
-        
-        // Configura as ações de clique
-       // botaoTelefone.addActionListener(e -> mudarTela());
-
-      //  this.add(botaoTelefone);
       
-        // Imagem de Fundo (atrás)
+        // Imagem de Fundo 
         ImageIcon fundo = new ImageIcon(MenuInicial.class.getResource("/assets/FundoCaixadeFios.png"));
         this.labelFundo = new JLabel(fundo);
         labelFundo.setBounds(0, 0, 1280, 720);
         this.add(labelFundo); 
-        
   
         this.setComponentZOrder(labelFundo, this.getComponentCount() - 1);
+        
+        ImageIcon imgFiosDireita = new ImageIcon(getClass().getResource("/assets/fiosDireita.png"));
+        this.labelFiosDireita = new JLabel(imgFiosDireita);
+        labelFiosDireita.setBounds(358, 158, imgFiosDireita.getIconWidth(), imgFiosDireita.getIconHeight());
+        labelFiosDireita.setLayout(null);
+        labelFundo.add(labelFiosDireita);
         
       
     } 
@@ -63,7 +53,7 @@ public class Puzzle3Jogavel extends JPanel {
         }
     } 
     
-}
+}  
 
 
 
