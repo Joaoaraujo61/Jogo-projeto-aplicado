@@ -1,6 +1,7 @@
 package telas;
 
 import telas.MenuInicial;
+import telas.Puzzle1.Puzzle1;
 import telas.Puzzle1.PuzzleEscolha1;
 import telas.Puzzle4.Puzzle4;
 import componentes.*;
@@ -21,6 +22,8 @@ public class Puzzle3 extends JPanel {
     private ImageIcon imgTelefone;
     private Botao telefoneBtn;
     private JButton botao1;
+    private CaixaDialogo caixaPensamento;
+
 
     public Puzzle3(FrameJanela frame) {
         this.frame = frame; 
@@ -47,7 +50,7 @@ public class Puzzle3 extends JPanel {
         botaoTelefone.addActionListener(e -> mudaTela());
 
         // Adiciona os componentes na tela principal (frente)
-        this.add(botao1);
+        //this.add(botao1);
         this.add(botaoTelefone);
       
         // Imagem de Fundo (atrás)
@@ -55,10 +58,17 @@ public class Puzzle3 extends JPanel {
         this.labelFundo = new JLabel(fundo);
         labelFundo.setBounds(0, 0, 1280, 720);
         this.add(labelFundo); 
+        
+        //Adicionando a caixa de pensamento
+        ImageIcon imgCaixaPensamento = new ImageIcon(Puzzle1.class.getResource("/assets/caixaDePensamento.png"));
+        this.caixaPensamento = new CaixaDialogo(imgCaixaPensamento, 70, 500, Color.BLACK);
+        caixaPensamento.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        this.add(caixaPensamento);
 
-        // Garante que o fundo fique na última camada
         this.setComponentZOrder(labelFundo, this.getComponentCount() - 1);
-    } // <- Fecha o construtor corretamente aqui
+        
+        apareceDialogo();
+    } 
      
     void mudaTela() {
         /*if (frame != null) {
@@ -77,6 +87,24 @@ public class Puzzle3 extends JPanel {
 
         timer.setRepeats(false);
         timer.start();
-    } // <- Fecha o método mudaTela aqui
+    } 
+    
+    void apareceDialogo() {
+    	
+    	 
+    	 Timer timerCaixaPensamento = new Timer(200, evento -> {
+    		 caixaPensamento.digitarTexto("Texto");
+             
+             SwingUtilities.invokeLater(() -> {
+            	 ((Timer) evento.getSource()).stop();
+            	 frame.remove(caixaPensamento);
+            //frame.remove(caixaPensamento);
+         });
+
+         timerCaixaPensamento.setRepeats(false);
+         timerCaixaPensamento.start();
+         
+    	 }
+    }
 
 }

@@ -13,6 +13,8 @@ public class Texto {
         
         // Aumentamos a altura para 300 e descemos o Y para 20 para dar espaço e não cortar!
         label.setBounds(400, 20, 1500, 300);
+        //label.setBounds(200, 10, 1500, 100);
+
         
         // Usamos a variável 'fontsize' real que vem lá do jogo
         label.setFont(new Font("Arial", Font.PLAIN, fontsize));

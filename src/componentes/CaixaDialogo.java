@@ -15,11 +15,15 @@ public class CaixaDialogo extends JLabel {
         setLayout(null);
         setOpaque(false);
 
+        //this.larguraTexto = imagem.getIconWidth() - 150;
         this.larguraTexto = imagem.getIconWidth() - 250;
 
 
         labelTexto = new JLabel();
-        labelTexto.setBounds(140, 25, larguraTexto, imagem.getIconHeight()-20);
+        //labelTexto.setBounds(140, 25, larguraTexto, imagem.getIconHeight()-20);
+        //Novo tamanho não fica saindo da caixa de pensamento
+        labelTexto.setBounds(140, 35, larguraTexto, imagem.getIconHeight()-20);
+
         
 
         labelTexto.setForeground(cor);
@@ -45,8 +49,6 @@ public class CaixaDialogo extends JLabel {
         this.setBackground(Color.BLACK); 
         this.setOpaque(true);
         labelTexto.setForeground(Color.WHITE);
-        //Lucida Handwriting Monotype Corsiva Comic Sans MS Consolas New Segoe Script
-        //Courier Georgia Garamond -> itálicas
         labelTexto.setFont(new Font("Georgia", Font.ITALIC, 35));
      
 
