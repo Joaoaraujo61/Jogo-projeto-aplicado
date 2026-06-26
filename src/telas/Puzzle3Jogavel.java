@@ -20,7 +20,6 @@ public class Puzzle3Jogavel extends JPanel {
     
     private FrameJanela frame; 
     private JLabel labelFundo;
-    private Botao telefoneBtn;
     private JLabel labelFiosDireita;
     private JLabel labelFioVerde;
     private JLabel labelFioVermelho;
@@ -28,9 +27,13 @@ public class Puzzle3Jogavel extends JPanel {
     
     private int mouseX;
     private int mouseY;
+    
+    final int origX = 358;
+    final int destinoX = 358; 
    
-    private int origX;
-    private int origY;
+    //private int origX;
+   // private int origY;
+    private boolean posicao;
 
     public Puzzle3Jogavel(FrameJanela frame) {
         this.frame = frame; 
@@ -72,21 +75,22 @@ public class Puzzle3Jogavel extends JPanel {
         this.setComponentZOrder(labelFioVermelho, 2);
         this.setComponentZOrder(labelFiosDireita, 3);
         
-        tornarArrastavelComEncaixe(labelFioAzul, 260);
-       // tornarArrastavelComEncaixe(this.labelFioVerde);
-       // tornarArrastavelComEncaixe(this.labelFioVermelho);
+        tornarArrastavel(labelFioAzul, 260, 350); // posição final do verde
+        tornarArrastavel(labelFioVerde, 350, 420); // posição final do vermelho
+        tornarArrastavel(labelFioVermelho, 420, 260); // posição final do Azul
     } 
     
-    private void tornarArrastavelComEncaixe(JLabel fio, int origY) {
+    private void tornarArrastavel(JLabel fio, int origY, int destinoY) {
     	
         // 1. Posição de ORIGEM (Onde o fio começa no seu construtor)
-        final int origX = 358;
+       // final int origX = 358;
+       // final int destinoX = 358; 
        // final int origY = 158;
 
         // 2. Posição do DESTINO CORRETO (Onde ele deve ser ligado)
         // Altere esses valores para as coordenadas X e Y onde o fio verde DEVE encaixar!
-        final int destinoX = 358; 
-        final int destinoY = 420;
+        
+        //final int destinoY = 420;
 
         // Margem de erro em pixels (Se o jogador soltar a até 40px do destino, o jogo aceita)
         final int MARGEM_ENCAIXE = 20; 
@@ -112,16 +116,19 @@ public class Puzzle3Jogavel extends JPanel {
                 if (distanciaAoDestino <= MARGEM_ENCAIXE) {
                     // Ganhou! O fio gruda perfeitamente na posição correta
                     fio.setLocation(destinoX, destinoY);
+                    posicao = true;
+                    
                     
                     // Aqui você pode chamar a função para avançar de tela ou liberar o puzzle!
                     // mudarTela(); 
                 } else {
                     // Errou! O fio volta magicamente para o começo
                     fio.setLocation(origX, origY);
-                    System.out.println("Errou o alvo, voltando para a origem.");
+                    posicao = false;
+                    
                 }
 
-                repaint(); // Atualiza a tela
+                repaint(); 
             }
         });
 
