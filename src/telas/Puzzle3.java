@@ -19,11 +19,7 @@ public class Puzzle3 extends JPanel {
     private FrameJanela frame; 
     private JLabel labelFundo;
     private ImageIcon imgTelefone;
-    private ImageIcon imgTelefoneTocando;
-    private ImageIcon imgRosangelaNormal;
     private Botao telefoneBtn;
-    private JLabel labelCaixaTelefone;
-    private CaixaDialogo caixaDialogo;
     private JButton botao1;
 
     public Puzzle3(FrameJanela frame) {
