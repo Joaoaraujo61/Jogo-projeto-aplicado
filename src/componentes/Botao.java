@@ -31,6 +31,24 @@ public class Botao {
         botaoClicavel.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
     }
+    
+    //Outro construtor que não pede um ícone como parâmetro 
+    public Botao(int largura, int altura, int posicaoX,int posicaoY){
+        this.largura = icone.getIconWidth();
+        this.altura = icone.getIconHeight();
+        this.posicaoY = posicaoY;
+        this.posicaoX = posicaoX;
+
+        botaoClicavel = new JButton(icone);
+        botaoClicavel.setBounds(posicaoX, posicaoY, largura, altura);
+
+        botaoClicavel.setBorderPainted(false);
+        botaoClicavel.setContentAreaFilled(false);
+        botaoClicavel.setFocusPainted(false);
+        botaoClicavel.setOpaque(false);
+        botaoClicavel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+    }
     public void configuracoesPadrao(){
         this.getBotaoClicavel().setBorderPainted(false);
         this.getBotaoClicavel().setContentAreaFilled(false);

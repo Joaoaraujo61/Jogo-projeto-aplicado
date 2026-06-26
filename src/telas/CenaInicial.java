@@ -14,6 +14,11 @@ import java.awt.AlphaComposite;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
+import javax.swing.JComponent;
+import javax.swing.KeyStroke;
+import javax.swing.AbstractAction;
+import java.awt.event.ActionEvent;
+
 public class CenaInicial extends JPanel {
 
     private FrameJanela frame;
@@ -52,8 +57,21 @@ public class CenaInicial extends JPanel {
         caixaDialogo.addMouseListener(acaoDeClique); 
         
         contarHistoria();
+        
+        this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+        	    KeyStroke.getKeyStroke("SPACE"), "avancarHistoria"
+        	);
+
+        	this.getActionMap().put("avancarHistoria", new AbstractAction() {
+        	    @Override
+        	    public void actionPerformed(ActionEvent e) {
+        	        contarHistoria();
+        	    }
+        	});
 
     }     
+    
+    
     
     private void iniciarFadeOut() {
         if (this.getMouseListeners().length > 0) this.removeMouseListener(this.getMouseListeners()[0]);

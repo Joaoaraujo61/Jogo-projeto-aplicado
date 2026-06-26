@@ -1,7 +1,6 @@
 package telas.Puzzle4;
-import telas.MenuInicial;
 
-//package telas;
+import telas.MenuInicial;
 
 import componentes.*;
 import telas.FrameJanela;
@@ -26,8 +25,6 @@ public class Puzzle4 extends JPanel{
     private ImageIcon imgRosangelaNormal;
     private Botao telefoneBtn;
     private JLabel labelCaixaTelefone;
-    //Tentando add imagem da rosângela
-   // private JLabel labelRosangelNormal;
     private CaixaDialogo caixaDialogo;
 
     public Puzzle4(JFrame frame) {
@@ -101,10 +98,7 @@ public class Puzzle4 extends JPanel{
         telefoneBtn.getBotaoClicavel().setIcon(imgTelefone);
 
         labelFundo.add(caixaDialogo);
-        //como add imagem da Rosângela?
-        //labelFundo.add(imgRosangelaNormal);
         labelFundo.setComponentZOrder(caixaDialogo, 0);
-        //labelFundo.setComponentZOrder(labelRosangelaNormal, 1);
         labelFundo.revalidate();
         labelFundo.repaint();
 
