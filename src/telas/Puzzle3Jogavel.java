@@ -1,39 +1,31 @@
 package telas;
 
-
-import telas.MenuInicial;
-import telas.Puzzle1.Puzzle1;
-import telas.Puzzle1.PuzzleEscolha1;
 import telas.Puzzle4.Puzzle4;
-import componentes.*;
-import telas.FrameJanela;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-import componentes.Botao;
-import componentes.CaixaDialogo;
 
 public class Puzzle3Jogavel extends JPanel {
-    
-    private FrameJanela frame; 
+	private static final long serialVersionUID = 1L;
+	private FrameJanela frame; 
     private JLabel labelFundo;
     private JLabel labelFiosDireita;
     private JLabel labelFioVerde;
     private JLabel labelFioVermelho;
     private JLabel labelFioAzul;
     
-    private int mouseX;
-    private int mouseY;
     
-    final int origX = 358;
-    final int destinoX = 358; 
-   
-    //private int origX;
-   // private int origY;
-    private boolean posicao;
+    private final Point[] slotsFios = {
+        new Point(358, 260), // Slot 0
+        new Point(358, 350), // Slot 1
+        new Point(358, 420)  // Slot 2
+    };
+    private int[] slotAtualDoFio = {0, 1, 2};
+
+    private JLabel[] labelFios = new JLabel[3];
 
     public Puzzle3Jogavel(FrameJanela frame) {
         this.frame = frame; 
@@ -41,115 +33,134 @@ public class Puzzle3Jogavel extends JPanel {
         setLayout(null);
         setPreferredSize(new Dimension(1280, 720));
         
-     
+        // Fios Fixos da Direita
         ImageIcon imgFiosDireita = new ImageIcon(getClass().getResource("/assets/fiosDireita.png"));
         this.labelFiosDireita = new JLabel(imgFiosDireita);
         labelFiosDireita.setBounds(358, 158, imgFiosDireita.getIconWidth(), imgFiosDireita.getIconHeight());
         this.add(labelFiosDireita); 
         
-        ImageIcon imgfioAzul= new ImageIcon(getClass().getResource("/assets/fioAzul.png"));
+        // Fio Azul (ID 0)
+        ImageIcon imgfioAzul = new ImageIcon(getClass().getResource("/assets/fioAzul.png"));
         this.labelFioAzul = new JLabel(imgfioAzul);
-        labelFioAzul.setBounds(358, 260, imgfioAzul.getIconWidth(), imgfioAzul.getIconHeight());
+        labelFioAzul.setBounds(slotsFios[0].x, slotsFios[0].y, imgfioAzul.getIconWidth(), imgfioAzul.getIconHeight());
+        this.labelFios[0] = this.labelFioAzul; 
+        configurarFioComTroca(this.labelFioAzul, 0); 
         this.add(labelFioAzul); 
         
+        // Fio Verde (ID 1)
         ImageIcon imgFioVerde = new ImageIcon(getClass().getResource("/assets/fioVerde.png"));
         this.labelFioVerde = new JLabel(imgFioVerde);
-        labelFioVerde.setBounds(358, 350, imgFioVerde.getIconWidth(), imgFioVerde.getIconHeight());
+        labelFioVerde.setBounds(slotsFios[1].x, slotsFios[1].y, imgFioVerde.getIconWidth(), imgFioVerde.getIconHeight());
+        this.labelFios[1] = this.labelFioVerde; 
+        configurarFioComTroca(this.labelFioVerde, 1); 
         this.add(labelFioVerde); 
         
-      
-        ImageIcon imgfioVermelho= new ImageIcon(getClass().getResource("/assets/fioVermelho.png"));
+        // Fio Vermelho (ID 2)
+        ImageIcon imgfioVermelho = new ImageIcon(getClass().getResource("/assets/fioVermelho.png"));
         this.labelFioVermelho = new JLabel(imgfioVermelho);
-        labelFioVermelho.setBounds(358, 420, imgfioVermelho.getIconWidth(), imgfioVermelho.getIconHeight());
+        labelFioVermelho.setBounds(slotsFios[2].x, slotsFios[2].y, imgfioVermelho.getIconWidth(), imgfioVermelho.getIconHeight());
+        this.labelFios[2] = this.labelFioVermelho; 
+        configurarFioComTroca(this.labelFioVermelho, 2); 
         this.add(labelFioVermelho); 
       
+        // Imagem de Fundo
         ImageIcon fundo = new ImageIcon(MenuInicial.class.getResource("/assets/FundoCaixadeFios.png"));
         this.labelFundo = new JLabel(fundo);
         labelFundo.setBounds(0, 0, 1280, 720);
         this.add(labelFundo); 
   
+        // Configura a ordem das camadas
         this.setComponentZOrder(labelFundo, this.getComponentCount() - 1); 
-       
         this.setComponentZOrder(labelFioAzul, 0);
         this.setComponentZOrder(labelFioVerde, 1);
         this.setComponentZOrder(labelFioVermelho, 2);
         this.setComponentZOrder(labelFiosDireita, 3);
-        
-        tornarArrastavel(labelFioAzul, 260, 350); // posição final do verde
-        tornarArrastavel(labelFioVerde, 350, 420); // posição final do vermelho
-        tornarArrastavel(labelFioVermelho, 420, 260); // posição final do Azul
     } 
     
-    private void tornarArrastavel(JLabel fio, int origY, int destinoY) {
-    	
-        // 1. Posição de ORIGEM (Onde o fio começa no seu construtor)
-       // final int origX = 358;
-       // final int destinoX = 358; 
-       // final int origY = 158;
+    private void configurarFioComTroca(JLabel fioInstancia, int idDoFio) {
+        final Point cliqueInicial = new Point();
+        final Point posicaoOriginal = new Point(); 
 
-        // 2. Posição do DESTINO CORRETO (Onde ele deve ser ligado)
-        // Altere esses valores para as coordenadas X e Y onde o fio verde DEVE encaixar!
-        
-        //final int destinoY = 420;
-
-        // Margem de erro em pixels (Se o jogador soltar a até 40px do destino, o jogo aceita)
-        final int MARGEM_ENCAIXE = 20; 
-
-        fio.setCursor(new Cursor(Cursor.HAND_CURSOR));
-
-        fio.addMouseListener(new java.awt.event.MouseAdapter() {
+        fioInstancia.addMouseListener(new MouseAdapter() {
             @Override
-            public void mousePressed(java.awt.event.MouseEvent e) {
-            	 mouseX = e.getX();
-            	 mouseY = e.getY();
+            public void mousePressed(MouseEvent e) {
+                cliqueInicial.setLocation(e.getPoint());
+                posicaoOriginal.setLocation(fioInstancia.getLocation()); 
+                fioInstancia.getParent().setComponentZOrder(fioInstancia, 0);
             }
 
-            // NOVO: Quando o jogador SOLTA o botão do mouse
             @Override
-            public void mouseReleased(java.awt.event.MouseEvent e) {
-                int atualX = fio.getX();
-                int atualY = fio.getY();
+            public void mouseReleased(MouseEvent e) {
+                int slotMaisProximo = -1;
+                double menorDistancia = 100.0; 
 
-                // Calcula a distância usando a fórmula de distância entre dois pontos (Teorema de Pitágoras)
-                double distanciaAoDestino = Math.sqrt(Math.pow(atualX - destinoX, 2) + Math.pow(atualY - destinoY, 2));
-
-                if (distanciaAoDestino <= MARGEM_ENCAIXE) {
-                    // Ganhou! O fio gruda perfeitamente na posição correta
-                    fio.setLocation(destinoX, destinoY);
-                    posicao = true;
-                    
-                    
-                    // Aqui você pode chamar a função para avançar de tela ou liberar o puzzle!
-                    // mudarTela(); 
-                } else {
-                    // Errou! O fio volta magicamente para o começo
-                    fio.setLocation(origX, origY);
-                    posicao = false;
-                    
+                for (int i = 0; i < slotsFios.length; i++) {
+                    double dist = fioInstancia.getLocation().distance(slotsFios[i]);
+                    if (dist < menorDistancia) {
+                        menorDistancia = dist;
+                        slotMaisProximo = i;
+                    }
                 }
 
-                repaint(); 
+                int slotAntigo = slotAtualDoFio[idDoFio];
+                
+                if (slotMaisProximo != -1 && slotMaisProximo != slotAntigo) {
+                    int fioParaTrocar = -1;
+                    for (int f = 0; f < slotAtualDoFio.length; f++) {
+                        if (slotAtualDoFio[f] == slotMaisProximo) {
+                            fioParaTrocar = f;
+                            break;
+                        }
+                    }
+
+                    if (fioParaTrocar != -1) {
+                        labelFios[fioParaTrocar].setLocation(slotsFios[slotAntigo]);
+                        slotAtualDoFio[fioParaTrocar] = slotAntigo;
+
+                        fioInstancia.setLocation(slotsFios[slotMaisProximo]);
+                        slotAtualDoFio[idDoFio] = slotMaisProximo;
+                      
+                        
+                        verificarPuzzleResolvido();
+                    }
+                } else {
+                    fioInstancia.setLocation(posicaoOriginal);
+                }
+                
+                fioInstancia.getParent().repaint();
             }
         });
 
-        fio.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        fioInstancia.addMouseMotionListener(new MouseAdapter() {
             @Override
-            public void mouseDragged(java.awt.event.MouseEvent e) {
-                int novoX = fio.getX() + e.getX() - mouseX;
-                int novoY = fio.getY() + e.getY() - mouseY;
-                fio.setLocation(novoX, novoY);
-                repaint();
+            public void mouseDragged(MouseEvent e) {
+                int xJanela = fioInstancia.getX() + e.getX();
+                int yJanela = fioInstancia.getY() + e.getY();
+                fioInstancia.setLocation(xJanela - cliqueInicial.x, yJanela - cliqueInicial.y);
+                fioInstancia.getParent().repaint();
             }
         });
     }
-     
-    void mudarTela() {
-        if (frame != null) {
-            frame.trocarTela(new Puzzle4(frame));
-        }
-    } 
-    
-}  
+
+    private void verificarPuzzleResolvido() {	
+        if (slotAtualDoFio[0] == 1 && slotAtualDoFio[1] == 2 && slotAtualDoFio[2] == 0) {
+        	   Timer timer = new Timer(250, evento -> {
+                   ((Timer) evento.getSource()).stop();
+                   SwingUtilities.invokeLater(() -> {
+                       JOptionPane.showMessageDialog(
+                               SwingUtilities.getWindowAncestor(Puzzle3Jogavel.this),
+                               "Puzzle concluído!"
+                       );
+                       frame.trocarTela(new Puzzle4(frame));
+                   });
+               });
+
+               timer.setRepeats(false);
+               timer.start();
+          
+    	}
+      }
+}
 
 
 

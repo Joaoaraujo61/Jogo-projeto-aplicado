@@ -72,7 +72,7 @@ public class Puzzle3 extends JPanel {
     void apareceDialogo() {
     	caixaPensamento.digitarTexto("Ah, não! O Jorjão cortou os fios do telefone, vou ter que concertá-<br> lo para falar com a minha mãe.");
     	 
-    	 Timer timerCaixaPensamento = new Timer(3500, evento -> {
+    	 Timer timerCaixaPensamento = new Timer(4000, evento -> {
     		frame.remove(caixaPensamento);
     		 caixaPensamento.setVisible(false); 
     	        this.repaint();
