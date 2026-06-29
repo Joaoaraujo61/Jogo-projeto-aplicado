@@ -1,7 +1,7 @@
-package telas.Puzzle4;
+package telas;
 
 import telas.MenuInicial;
-
+import telas.Puzzle3Jogavel;
 import componentes.*;
 import telas.FrameJanela;
 
@@ -19,15 +19,18 @@ import java.awt.*;
 
 
 public class Puzzle4 extends JPanel{
+	
+    private FrameJanela frame; 
 	private JLabel labelFundo;
     private ImageIcon imgTelefone;
     private ImageIcon imgTelefoneTocando;
-    private ImageIcon imgRosangelaNormal;
     private Botao telefoneBtn;
     private JLabel labelCaixaTelefone;
     private CaixaDialogo caixaDialogo;
 
-    public Puzzle4(JFrame frame) {
+    public Puzzle4(FrameJanela frame) {
+    	
+    	this.frame =  frame;
         setLayout(null);
         setPreferredSize(new Dimension(1280, 720));
         //Fundo
@@ -44,10 +47,6 @@ public class Puzzle4 extends JPanel{
         botao.setContentAreaFilled(false);
         botao.setFocusPainted(false);
         this.imgTelefoneTocando = new ImageIcon(MenuInicial.class.getResource("/assets/telefoneTocando.png"));
-        
-        //Tentando adicionar a Imagem da  Rosângela normal
-        /*ImageIcon rosangelaNormal = new ImageIcon(MenuInicial.class.getResource("/assets/RosangelaNormal.png"));
-        this.imgRosangelaNormal = new JLabel(labelRosangelaNormal);*/
         
 
         //Caixa Telefone
@@ -110,7 +109,7 @@ public class Puzzle4 extends JPanel{
         } else {
       
             timer.stop();
-            
+            frame.trocarTela(new CenaFinal(frame));
            // Reseta o contador para 0 (caso seja necessário  usar o telefone de novo no jogo)
             //indiceDaFala = 0; 
          

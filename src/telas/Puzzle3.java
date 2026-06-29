@@ -3,7 +3,6 @@ package telas;
 import telas.MenuInicial;
 import telas.Puzzle1.Puzzle1;
 import telas.Puzzle1.PuzzleEscolha1;
-import telas.Puzzle4.Puzzle4;
 import componentes.*;
 import telas.FrameJanela;
 
@@ -46,7 +45,7 @@ public class Puzzle3 extends JPanel {
 
         this.add(botaoTelefone);
       
-        // Imagem de Fundo (atrás)
+        // Imagem de Fundo 
         ImageIcon fundo = new ImageIcon(MenuInicial.class.getResource("/assets/salaDeEstar-pixilart.png"));
         this.labelFundo = new JLabel(fundo);
         labelFundo.setBounds(0, 0, 1280, 720);
@@ -77,6 +76,7 @@ public class Puzzle3 extends JPanel {
     		 caixaPensamento.setVisible(false); 
     	        this.repaint();
     	 	});
+    	 
          timerCaixaPensamento.setRepeats(false);
          timerCaixaPensamento.start();
          

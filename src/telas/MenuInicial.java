@@ -5,7 +5,6 @@ import javax.swing.*;
 
 import componentes.Botao;
 import telas.Puzzle1.Puzzle1;
-import telas.Puzzle4.Puzzle4;
 //import telas.Puzzle4;
 
 
