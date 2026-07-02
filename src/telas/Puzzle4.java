@@ -64,7 +64,7 @@ public class Puzzle4 extends JPanel{
     private String[] dialogoMae = {
 	    "Alô, mãe?",
 	    "Oi, filha? É você, meu bem?",
-	    "<html>Sim, sou eu sim. Preciso de ajuda, eu sei que faz muito<br>tempo que não visito você, mas hoje eu insisti para o<br>ricardo para poder sair, mas ele saiu de casa e levou a<br> chave</html>",
+	    "<html>Sim, sou eu sim. Preciso de ajuda, eu sei que faz muito<br>tempo que não visito você, mas hoje eu insisti para o<br>Jorjão para poder sair, mas ele saiu de casa e levou a<br> chave.</html>",
 	    "<html>Minha filha… Não acredito ser a sua voz que estou ouvin-<br>do, e acredito menos ainda que esse cara tenha feito isso<br> com a minha filinha.</html>",
 	    "<html>Ah, mãe! Você sabe como é o Jorjão, ele tem esses desli-<br>zes, deve ter levado a chave sem querer e você sabe que<br> eu não tenho uma chave, porque ele se preocupa comigo,<br> tem medo de eu ser roubada, essas coisas…</html>",
 	    "<html>Você entende, né!? O papai também era atencioso.</html>",
