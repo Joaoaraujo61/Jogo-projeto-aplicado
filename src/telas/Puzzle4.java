@@ -109,7 +109,8 @@ public class Puzzle4 extends JPanel{
         } else {
       
             timer.stop();
-            frame.trocarTela(new CenaFinal(frame));
+            //frame.trocarTela(new CenaFinal(frame));
+            frame.trocarTela(new Puzzle5(frame));
            // Reseta o contador para 0 (caso seja necessário  usar o telefone de novo no jogo)
             //indiceDaFala = 0; 
          
