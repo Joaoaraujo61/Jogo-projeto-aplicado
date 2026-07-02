@@ -95,6 +95,7 @@ public class Puzzle5 extends JPanel {
         trocarFundo("/assets/CofreAberto.png");
 
         JOptionPane.showMessageDialog(this, "Puzzle 5 concluído!");
+        frame.trocarTela(new Puzzle6(frame));
     }
 
     private void trocarFundo(String caminho) {
