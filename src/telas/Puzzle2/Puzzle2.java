@@ -1,0 +1,96 @@
+package telas.Puzzle2;
+
+import componentes.*;
+import telas.FrameJanela;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class Puzzle2 extends JPanel implements Puzzle2Interface {
+    private JLabel labelFundo;
+    private FrameJanela frame;
+    private Botao botaoVestidoRasgado;
+    private Botao botaoVestidoRasgadoZoom;
+    private Botao botaoCalendario;
+    private Botao botaoCalendarioZoom;
+    private JLabel labelBarraAvanco;
+
+    public Puzzle2(FrameJanela frame) {
+        this.frame = frame;
+        ImageCon imageCon = new ImageCon();
+
+        ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/1-6.png"));
+        this.labelBarraAvanco = new JLabel(imgBarra);
+        labelBarraAvanco.setBounds(0, 0, imgBarra.getIconWidth(), imgBarra.getIconHeight());
+
+        ImageIcon fundo = new ImageIcon(Puzzle2.class.getResource("/assets/QuartRosalngelaSemVestido.png"));
+
+        this.botaoVestidoRasgado = new Botao(imageCon.vestidoRasgadoNoCabide, 1070, 220);
+        botaoVestidoRasgado.configuracoesPadrao();
+
+        this.botaoVestidoRasgadoZoom = new Botao(imageCon.vestidoRasgado, 0, 0);
+        botaoVestidoRasgadoZoom.configuracoesPadrao();
+
+        this.botaoCalendario = new Botao(imageCon.calendario, 150, 270);
+        botaoCalendario.configuracoesPadrao();
+
+        this.botaoCalendarioZoom = new Botao(imageCon.calendarioZoom, 0, 0);
+        botaoCalendarioZoom.configuracoesPadrao();
+
+        this.labelFundo = new JLabel(fundo);
+        labelFundo.setBounds(0, 0, 1280, 720);
+        labelFundo.setLayout(null);
+        labelFundo.add(botaoVestidoRasgado.getBotaoClicavel());
+        labelFundo.add(labelBarraAvanco);
+        labelFundo.add(botaoCalendario.getBotaoClicavel());
+
+        botaoCalendario.getBotaoClicavel().addActionListener(e -> darZoomCalendario());
+        botaoCalendarioZoom.getBotaoClicavel().addActionListener(e -> tirarZoomCalendario());
+
+        botaoVestidoRasgado.getBotaoClicavel().addActionListener(e -> {
+            frame.trocarTela(new PuzzleCostura(frame));
+        });
+
+        add(labelFundo);
+    }
+
+    @Override
+    public void darZoomCalendario() {
+        labelFundo.add(botaoCalendarioZoom.getBotaoClicavel());
+        labelFundo.remove(botaoVestidoRasgado.getBotaoClicavel());
+        labelFundo.remove(botaoCalendario.getBotaoClicavel());
+        labelFundo.remove(labelBarraAvanco);
+        labelFundo.revalidate();
+        labelFundo.repaint();
+    }
+
+    @Override
+    public void tirarZoomCalendario() {
+        labelFundo.remove(botaoCalendarioZoom.getBotaoClicavel());
+        labelFundo.add(botaoVestidoRasgado.getBotaoClicavel());
+        labelFundo.add(botaoCalendario.getBotaoClicavel());
+        labelFundo.add(labelBarraAvanco);
+        labelFundo.revalidate();
+        labelFundo.repaint();
+    }
+
+    @Override
+    public void darZoomVestido() {
+        labelFundo.remove(botaoVestidoRasgado.getBotaoClicavel());
+        labelFundo.remove(botaoCalendario.getBotaoClicavel());
+        labelFundo.add(botaoVestidoRasgadoZoom.getBotaoClicavel());
+        labelFundo.remove(labelBarraAvanco);
+        labelFundo.revalidate();
+        labelFundo.repaint();
+    }
+
+    @Override
+    public void tirarZoomVestido() {
+        labelFundo.remove(botaoVestidoRasgadoZoom.getBotaoClicavel());
+        labelFundo.add(botaoVestidoRasgado.getBotaoClicavel());
+        labelFundo.add(botaoCalendario.getBotaoClicavel());
+        labelFundo.add(labelBarraAvanco);
+        labelFundo.revalidate();
+        labelFundo.repaint();
+    }
+}

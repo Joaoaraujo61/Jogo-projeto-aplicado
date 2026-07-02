@@ -3,6 +3,7 @@ package telas.Puzzle1;
 import componentes.CaixaDialogo;
 import componentes.Personagem;
 import telas.FrameJanela;
+import telas.Puzzle2.Puzzle2;
 
 import javax.swing.*;
 import java.awt.*;
@@ -105,7 +106,7 @@ public class PuzzleEscolha1 extends JPanel {
             bloquearOpcao(opcao4);
         });
         opcao3.addActionListener(e -> {
-            mostrarResposta("Consulta na UBS? Não me lembro disso. Mas tudo bem,<br> vá, mas troque de roupa antes, não quero que os médicos te vejam assim...");
+            mostrarResposta("Consulta na UBS? Não me lembro disso. Mas tudo bem,<br> vá, mas troque de roupa antes, não quero que os <br>médicos te vejam assim...");
             desabilitarTodas();
 
             Timer timer = new Timer(3500, evento -> {
@@ -115,7 +116,7 @@ public class PuzzleEscolha1 extends JPanel {
                             SwingUtilities.getWindowAncestor(PuzzleEscolha1.this),
                             "Puzzle concluído!"
                     );
-                    // frame.trocarTela(new PuzzleRoupa(frame));
+                    frame.trocarTela(new Puzzle2(frame));
                 });
             });
 
