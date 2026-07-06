@@ -134,6 +134,7 @@ public class PuzzleCostura extends JPanel {
             Timer timer = new Timer(1000, ev -> {
                 ((Timer) ev.getSource()).stop();
                 frame.trocarTela(new Puzzle2Final(frame));
+                //frame.trocarTela(new Puzzle3(frame));
             });
             timer.setRepeats(false);
             timer.start();

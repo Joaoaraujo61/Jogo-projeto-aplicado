@@ -7,8 +7,6 @@ import componentes.Botao;
 import telas.Puzzle1.Puzzle1;
 import telas.Puzzle2.Puzzle2;
 import telas.Puzzle2.PuzzleCostura;
-import telas.Puzzle4.Puzzle4;
-//import telas.Puzzle4;
 
 
 import java.awt.*;
@@ -47,11 +45,11 @@ public class MenuInicial extends JPanel{
         add(labelFundo);
 
         botaoComecar.getBotaoClicavel().addActionListener(e ->{
-            frame.trocarTela(new Puzzle1(frame));
+        	frame.trocarTela(new CenaInicial(frame));
         });
-        //Abrindo o puzzle4 quando clica no botão continuar
+        
         botaoContinuar.getBotaoClicavel().addActionListener(e ->{
-            frame.trocarTela(new Puzzle4(frame));
+           // frame.trocarTela(new Puzzle3(frame));
         });
     }
 }

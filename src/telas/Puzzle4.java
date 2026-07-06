@@ -1,8 +1,7 @@
-package telas.Puzzle4;
+package telas;
+
 import telas.MenuInicial;
-
-//package telas;
-
+import telas.Puzzle3Jogavel;
 import componentes.*;
 import telas.FrameJanela;
 
@@ -20,17 +19,18 @@ import java.awt.*;
 
 
 public class Puzzle4 extends JPanel{
+	
+    private FrameJanela frame; 
 	private JLabel labelFundo;
     private ImageIcon imgTelefone;
     private ImageIcon imgTelefoneTocando;
-    private ImageIcon imgRosangelaNormal;
     private Botao telefoneBtn;
     private JLabel labelCaixaTelefone;
-    //Tetando add imagem da rosângela
-   // private JLabel labelRosangelNormal;
     private CaixaDialogo caixaDialogo;
 
-    public Puzzle4(JFrame frame) {
+    public Puzzle4(FrameJanela frame) {
+    	
+    	this.frame =  frame;
         setLayout(null);
         setPreferredSize(new Dimension(1280, 720));
         //Fundo
@@ -48,10 +48,6 @@ public class Puzzle4 extends JPanel{
         botao.setFocusPainted(false);
         this.imgTelefoneTocando = new ImageIcon(MenuInicial.class.getResource("/assets/telefoneTocando.png"));
         
-        //Tentando adicionar a Imagem da  Rosângela normal
-        /*ImageIcon rosangelaNormal = new ImageIcon(MenuInicial.class.getResource("/assets/RosangelaNormal.png"));
-        this.imgRosangelaNormal = new JLabel(labelRosangelaNormal);*/
-        
 
         //Caixa Telefone
         ImageIcon caixaTelefone = new ImageIcon(MenuInicial.class.getResource("/assets/DialogoTelefone.png"));
@@ -68,7 +64,7 @@ public class Puzzle4 extends JPanel{
     private String[] dialogoMae = {
 	    "Alô, mãe?",
 	    "Oi, filha? É você, meu bem?",
-	    "<html>Sim, sou eu sim. Preciso de ajuda, eu sei que faz muito<br>tempo que não visito você, mas hoje eu insisti para o<br>ricardo para poder sair, mas ele saiu de casa e levou a<br> chave</html>",
+	    "<html>Sim, sou eu sim. Preciso de ajuda, eu sei que faz muito<br>tempo que não visito você, mas hoje eu insisti para o<br>Jorjão para poder sair, mas ele saiu de casa e levou a<br> chave.</html>",
 	    "<html>Minha filha… Não acredito ser a sua voz que estou ouvin-<br>do, e acredito menos ainda que esse cara tenha feito isso<br> com a minha filinha.</html>",
 	    "<html>Ah, mãe! Você sabe como é o Jorjão, ele tem esses desli-<br>zes, deve ter levado a chave sem querer e você sabe que<br> eu não tenho uma chave, porque ele se preocupa comigo,<br> tem medo de eu ser roubada, essas coisas…</html>",
 	    "<html>Você entende, né!? O papai também era atencioso.</html>",
@@ -101,32 +97,22 @@ public class Puzzle4 extends JPanel{
         telefoneBtn.getBotaoClicavel().setIcon(imgTelefone);
 
         labelFundo.add(caixaDialogo);
-        //como add imagem da Rosângela?
-        //labelFundo.add(imgRosangelaNormal);
         labelFundo.setComponentZOrder(caixaDialogo, 0);
-        //labelFundo.setComponentZOrder(labelRosangelaNormal, 1);
         labelFundo.revalidate();
         labelFundo.repaint();
 
-        //caixaDialogo.digitarTexto("Alô, mãe?");
-       // caixaDialogo.digitarTexto("Oi, filha? É você, meu bem?");// ← seu texto
         if (indiceDaFala < dialogoMae.length) {
-            
-            // Pega a fala atual da lista e manda digitar
             caixaDialogo.digitarTexto(dialogoMae[indiceDaFala]);
-            
-            // Aumenta o contador (+1) para que, na próxima batida do Timer, venha a próxima fala
+       
             indiceDaFala++; 
             
         } else {
-            // Se as falas acabaram, o diálogo terminou! 
-            // Agora sim nós paramos o Timer.
+      
             timer.stop();
-            
-            // Reseta o contador para 0 (caso queira usar o telefone de novo no jogo)
+            frame.trocarTela(new CenaFinal(frame));
+           // Reseta o contador para 0 (caso seja necessário  usar o telefone de novo no jogo)
             //indiceDaFala = 0; 
-            
-            // Opcional: Se quiser sumir com a caixa de diálogo quando acabar, descomente a linha abaixo:
+         
              labelFundo.remove(caixaDialogo); labelFundo.repaint();
         }
         labelFundo.setComponentZOrder(caixaDialogo, 0);
