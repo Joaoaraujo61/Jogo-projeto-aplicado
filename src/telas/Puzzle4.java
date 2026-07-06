@@ -71,8 +71,8 @@ public class Puzzle4 extends JPanel{
 	    "<html>Meu amor, o seu pai era sim atencioso de verdade,<br> mas não possessivo como o seu marido. Eu não faço<br> ideia de como você acabou se casando com um cara<br> como o Jorjão.</html>",
 	    "Mãe…",
 	    "<html>Não, me deixa terminar. Nada do que ele faz é atenção,<br> meu amor, ele só quer te prender, te impedir de sair de<br> casa, de usar a roupa que tem vontade, de falar comigo,<br> só quer que você fique aí presa cuidando dele e da casa.</html>",
-	    "Vem para cá, eu te ajudo!", 
-	    "Como?",
+	    "Pega um dinheiro e vem pra cá, eu te ajudo!", 
+	    "OK, vou procurar onde o Jorjão guarda o dinheiro dele.",
     };
     
     private int indiceDaFala = 0;
@@ -109,11 +109,7 @@ public class Puzzle4 extends JPanel{
         } else {
       
             timer.stop();
-            //frame.trocarTela(new CenaFinal(frame));
-            frame.trocarTela(new Puzzle5(frame));
-           // Reseta o contador para 0 (caso seja necessário  usar o telefone de novo no jogo)
-            //indiceDaFala = 0; 
-         
+            frame.trocarTela(new Puzzle5(frame));        
              labelFundo.remove(caixaDialogo); labelFundo.repaint();
         }
         labelFundo.setComponentZOrder(caixaDialogo, 0);

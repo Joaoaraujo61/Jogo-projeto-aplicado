@@ -47,8 +47,9 @@
             Telefone telefone = new Telefone();
 
             //Caixa Telefone
-            ImageIcon imgCaixaTelefone = new ImageIcon(Puzzle1.class.getResource("/assets/DialogoTelefone.png"));
-            this.caixaDialogo = new CaixaDialogo(imgCaixaTelefone, 80, 500, Color.white);
+            ImageIcon imgCaixaTelefone = new ImageIcon(Puzzle1.class.getResource("/assets/DialogoTelefoneMae.png"));
+            this.caixaDialogo = new CaixaDialogo(imgCaixaTelefone, 101, 452, Color.BLACK);
+            this.caixaDialogo.ajustarMargensTexto(125, 55);
 
             //Caiaxa Pensamento
             ImageIcon imgCaixaPensamento = new ImageIcon(Puzzle1.class.getResource("/assets/caixaDePensamento.png"));

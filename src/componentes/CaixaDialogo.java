@@ -14,14 +14,13 @@ public class CaixaDialogo extends JLabel {
         setBounds(x, y, imagem.getIconWidth(), imagem.getIconHeight());
         setLayout(null);
         setOpaque(false);
+        
 
-        //this.larguraTexto = imagem.getIconWidth() - 150;
-        this.larguraTexto = imagem.getIconWidth() - 250;
+        this.larguraTexto = imagem.getIconWidth() - 150;
+        //this.larguraTexto = imagem.getIconWidth() - 250;
 
 
         labelTexto = new JLabel();
-        //labelTexto.setBounds(140, 25, larguraTexto, imagem.getIconHeight()-20);
-        //Novo tamanho não fica saindo da caixa de pensamento
         labelTexto.setBounds(140, 35, larguraTexto, imagem.getIconHeight()-20);
 
         
@@ -55,7 +54,11 @@ public class CaixaDialogo extends JLabel {
         labelTexto.setVerticalAlignment(JLabel.TOP);
 
         add(labelTexto);
-    }	 
+    }	
+    
+    public void ajustarMargensTexto(int novoX, int novoY) {
+        labelTexto.setBounds(novoX, novoY, labelTexto.getWidth(), labelTexto.getHeight());
+    }
 
     public void digitarTexto(String texto) {
         if (timerDigitando != null) timerDigitando.stop();
