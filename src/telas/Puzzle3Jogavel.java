@@ -11,6 +11,7 @@ public class Puzzle3Jogavel extends JPanel {
 	private FrameJanela frame; 
     private JLabel labelFundo;
     private JLabel labelFiosDireita;
+    private JLabel labelFiosConectados;
     private JLabel labelFioVerde;
     private JLabel labelFioVermelho;
     private JLabel labelFioAzul;
@@ -36,6 +37,12 @@ public class Puzzle3Jogavel extends JPanel {
         this.labelFiosDireita = new JLabel(imgFiosDireita);
         labelFiosDireita.setBounds(358, 158, imgFiosDireita.getIconWidth(), imgFiosDireita.getIconHeight());
         this.add(labelFiosDireita); 
+        
+        // Fios Conectados
+        ImageIcon imgFiosConectados = new ImageIcon(getClass().getResource("/assets/fiosConectados.png"));
+        this.labelFiosConectados = new JLabel(imgFiosConectados);
+        labelFiosConectados.setBounds(358, 158, imgFiosConectados.getIconWidth(), imgFiosConectados.getIconHeight());
+        //this.add(labelFiosConectados); 
         
         // Fio Azul (ID 0)
         ImageIcon imgfioAzul = new ImageIcon(getClass().getResource("/assets/fioAzul.png"));
@@ -142,13 +149,20 @@ public class Puzzle3Jogavel extends JPanel {
 
     private void verificarPuzzleResolvido() {	
         if (slotAtualDoFio[0] == 1 && slotAtualDoFio[1] == 2 && slotAtualDoFio[2] == 0) {
-        	   Timer timer = new Timer(250, evento -> {
+        	this.add(labelFiosConectados);
+        	this.remove(labelFiosDireita);
+        	labelFioAzul.setVisible(false);
+        	labelFioVerde.setVisible(false);
+        	labelFioVermelho.setVisible(false);
+            this.setComponentZOrder(labelFiosConectados, 3);
+          
+        	   Timer timer = new Timer(500, evento -> {
                    ((Timer) evento.getSource()).stop();
                    SwingUtilities.invokeLater(() -> {
                        JOptionPane.showMessageDialog(
                                SwingUtilities.getWindowAncestor(Puzzle3Jogavel.this),
                                "Puzzle concluído!"
-                       );
+                       );                      
                        frame.trocarTela(new Puzzle4(frame));
                    });
                });
