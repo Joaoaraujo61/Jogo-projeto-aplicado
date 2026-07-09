@@ -6,6 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="b92d4aa6-1d22-4ecd-8187-bd7921a833da" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/Botao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/Botao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/CaixaDialogo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/CaixaDialogo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/Texto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/Texto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/FrameJanela.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/FrameJanela.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/MenuInicial.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/MenuInicial.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle1/Puzzle1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle1/Puzzle1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle1/Puzzle1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle1/Puzzle1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle1/PuzzleEscolha1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle1/PuzzleEscolha1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2/Puzzle2Final.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2/Puzzle2Final.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2/PuzzleCostura.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2/PuzzleCostura.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle4/Puzzle4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/componentes/LinhasCosturaPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/LinhasCosturaPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/telas/MenuInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/MenuInicial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/telas/Puzzle2/PuzzleCostura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/Puzzle2/PuzzleCostura.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,19 +46,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/dev/Jogo-projeto-aplicado/src/assets&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "dev",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/dev/Jogo-projeto-aplicado/src/assets",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\dev\Jogo-projeto-aplicado\src\assets" />

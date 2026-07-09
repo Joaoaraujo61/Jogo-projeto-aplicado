@@ -17,12 +17,20 @@ public class PuzzleCostura extends JPanel {
     private Point[] sequencia = {
             new Point(780, 140),  // ponto 1 — borda esquerda do rasgo, topo
             new Point(890, 140),  // ponto 2 — borda direita do rasgo, topo
-            new Point(780, 240),  // ponto 3 — borda esquerda, meio
-            new Point(890, 240),  // ponto 4 — borda direita, meio
-            new Point(780, 340),  // ponto 5 — borda esquerda, abaixo do meio
-            new Point(890, 340),  // ponto 6 — borda direita, abaixo do meio
-            new Point(780, 440),  // ponto 7 — borda esquerda, baixo
+            new Point(780, 190),  // ponto 3 — borda esquerda, meio
+            new Point(890, 190),  // ponto 4 — borda direita, meio
+            new Point(780, 240),  // ponto 5 — borda esquerda, abaixo do meio
+            new Point(890, 240),  // ponto 6 — borda direita, abaixo do meio
+            new Point(780, 290),  // ponto 7 — borda esquerda, baixo
+            new Point(890, 290),
+            new Point(780, 340),
+            new Point(890, 340),
+            new Point(780, 390),
+            new Point(890, 390),
+            new Point(780, 440),
             new Point(890, 440),
+            new Point(780, 490),
+            new Point(890, 490),
     };
 
     private int indiceAtual = 0;
@@ -53,7 +61,7 @@ public class PuzzleCostura extends JPanel {
         }
         if (imgAgulha != null) {
             Cursor cursorAgulha = Toolkit.getDefaultToolkit()
-                    .createCustomCursor(imgAgulha, new Point(0, 0), "agulha");
+                    .createCustomCursor(imgAgulha, new Point(1, 23), "agulha");
             setCursor(cursorAgulha);
         }
 
