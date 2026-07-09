@@ -75,26 +75,19 @@ public class Puzzle5 extends JPanel {
        fundo.add(cofre);
    }
    
-// 2. Dentro do seu construtor ou método de inicialização:
+
    public void configurarVisorCofre(JLabel labelFundoCofre) {
-       // Cria o rótulo de texto com uma fonte que lembre um cofre/digital
        this.labelVisorSenha = new JLabel("");
       
-       // Customize o estilo: Cor, Fonte e Alinhamento Centralizado
-       labelVisorSenha.setForeground(Color.GREEN); // Ou Color.BLACK, depende do seu asset
-       labelVisorSenha.setFont(new Font("Monospaced", Font.BOLD, 30)); // Fonte estilo relógio digital
+      
+       labelVisorSenha.setForeground(Color.GREEN); 
+       labelVisorSenha.setFont(new Font("Monospaced", Font.BOLD, 30)); 
        labelVisorSenha.setHorizontalAlignment(SwingConstants.CENTER);
-      
-       // CALIBRAÇÃO: Defina a posição exata onde fica o "vidro" do visor no seu asset
-       // Exemplo: X=500, Y=200, Largura=200, Altura=50
+       
        labelVisorSenha.setBounds(657, 284, 134, 45);
-      
-       // Adicione o visor EM CIMA da imagem de fundo do cofre
-       //labelFundoCofre.add(labelVisorSenha);
+       
        fundo.add(labelVisorSenha);
-      
-       // Garante que o visor fique na camada da frente
-       labelFundoCofre.setComponentZOrder(labelVisorSenha, 0);
+    
        fundo.setComponentZOrder(labelVisorSenha, 0);
    }
    private void mostrarCofreFechado() {
@@ -157,7 +150,7 @@ public class Puzzle5 extends JPanel {
        trocarFundo("/assets/CofreAbertoDinheiro.png");
        JButton dinheiro = criarBotao(500, 390, 260, 150);
        dinheiro.addActionListener(e -> {
-           JOptionPane.showMessageDialog(this, "Você pegou o dinheiro!");
+          // JOptionPane.showMessageDialog(this, "Você pegou o dinheiro!");
            mostrarCofreAberto();
        });
        fundo.add(dinheiro);

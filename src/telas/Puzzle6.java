@@ -41,21 +41,13 @@ public class Puzzle6 extends JPanel {
         trocarFundo("/assets/SalaComPorta.png");
 
         JButton planta = criarBotao(950, 250, 250, 350);
-        planta.addActionListener(e -> mostrarPlanta());
+        planta.addActionListener(e -> mostrarZoomPlanta());
         fundo.add(planta);
 
         JButton porta = criarBotao(510, 80, 290, 470);
         porta.addActionListener(e -> mostrarPortaZoom());
         fundo.add(labelBarraAvanco);
         fundo.add(porta);
-    }
-
-    private void mostrarPlanta() {
-        trocarFundo("/assets/plantaDaSala.png");
-
-        JButton vaso = criarBotao(0, 0, 1280, 720);
-        vaso.addActionListener(e -> mostrarZoomPlanta());
-        fundo.add(vaso);
     }
 
     private void mostrarZoomPlanta() {
@@ -89,7 +81,7 @@ public class Puzzle6 extends JPanel {
 
     private void tentarAbrirFechadura() {
         if (!pegouGrampo) {
-            trocarFundo("/assets/fechadurazoom.png");
+            //trocarFundo("/assets/fechadurazoom2.png");
 
             JOptionPane.showMessageDialog(
                     this,
