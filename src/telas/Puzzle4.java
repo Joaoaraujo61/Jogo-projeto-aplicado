@@ -32,6 +32,7 @@ public class Puzzle4 extends JPanel{
     	this.frame =  frame;
         setLayout(null);
         setPreferredSize(new Dimension(1280, 720));
+        
         //Fundo
         ImageIcon fundo = new ImageIcon(MenuInicial.class.getResource("/assets/salaDeEstar-pixilart.png"));
         this.labelFundo = new JLabel(fundo);
@@ -39,8 +40,10 @@ public class Puzzle4 extends JPanel{
         labelFundo.setLayout(null);
         
         this.rosangela = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/RosangelaNormal.png")), -120, 230);
-        this.odete = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/Odete2.png")), 850, 320);
+        this.odete = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/Odete.png")), 737, 291);
+        //this.odete = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/Odete2.png")), 850, 320);
         
+        //Barra de progresso
         ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/barras-de-avanco/3-6.png"));
         this.labelBarraAvanco = new JLabel(imgBarra);
         labelBarraAvanco.setBounds(0, 0, imgBarra.getIconWidth(), imgBarra.getIconHeight());

@@ -50,7 +50,7 @@ public class MenuInicial extends JPanel{
         });
         
         botaoContinuar.getBotaoClicavel().addActionListener(e ->{
-           frame.trocarTela(new Puzzle6(frame));
+           frame.trocarTela(new Puzzle4(frame));
         });
     }
 }

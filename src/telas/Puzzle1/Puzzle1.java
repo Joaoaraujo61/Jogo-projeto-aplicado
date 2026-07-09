@@ -12,14 +12,13 @@
     import java.awt.Graphics;
     import java.awt.Graphics2D;
     import java.awt.Color;
-    import javax.swing.Timer;
-    import javax.swing.JPanel;
 
     public class Puzzle1 extends JPanel {
         private JLabel labelFundo;
         private CaixaDialogo caixaDialogo;
         private CaixaDialogo caixaPensamento;
         private  Personagem rosangela;
+        private Personagem odete;
         private FrameJanela frame;
         private JLabel labelBarraAvanco;
         
@@ -29,10 +28,15 @@
 
         public Puzzle1(FrameJanela frame) {
             this.frame = frame;
-            this.rosangela = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/RosangelaNormal.png")), -70, 250);
+         
             setLayout(null);
             setPreferredSize(new Dimension(1280, 720));
-
+            
+            //personagens
+            this.odete = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/Odete.png")), 737, 291);
+            this.rosangela = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/RosangelaNormal.png")), -70, 250);
+            
+            //Barra de progresso
             ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/barras-de-avanco/0-6.png"));
             this.labelBarraAvanco = new JLabel(imgBarra);
             labelBarraAvanco.setBounds(0, 0, imgBarra.getIconWidth(), imgBarra.getIconHeight());
@@ -47,19 +51,23 @@
             Telefone telefone = new Telefone();
 
             //Caixa Telefone
-            ImageIcon imgCaixaTelefone = new ImageIcon(Puzzle1.class.getResource("/assets/DialogoTelefoneMae.png"));
-            this.caixaDialogo = new CaixaDialogo(imgCaixaTelefone, 101, 452, Color.BLACK);
-            this.caixaDialogo.ajustarMargensTexto(125, 55);
+           // ImageIcon imgCaixaTelefone = new ImageIcon(Puzzle1.class.getResource("/assets/DialogoTelefoneMae.png"));
+            ImageIcon imgCaixaTelefone = new ImageIcon(Puzzle1.class.getResource("/assets/DialogoTelefone.png"));
+            //this.caixaDialogo = new CaixaDialogo(imgCaixaTelefone, 101, 452, Color.BLACK);
+            this.caixaDialogo = new CaixaDialogo(imgCaixaTelefone, 80, 500, Color.BLACK);
+
+           // this.caixaDialogo.ajustarMargensTexto(125, 55);
 
             //Caiaxa Pensamento
             ImageIcon imgCaixaPensamento = new ImageIcon(Puzzle1.class.getResource("/assets/caixaDePensamento.png"));
             this.caixaPensamento = new CaixaDialogo(imgCaixaPensamento, 70, 500, Color.BLACK);
             caixaPensamento.setCursor(new Cursor(Cursor.HAND_CURSOR));
-
+            
+            add(labelFundo);
             labelFundo.add(telefone.getTelefoneBtn().getBotaoClicavel());
             labelFundo.add(labelBarraAvanco);
-
-            add(labelFundo);
+            //labelFundo.add(odete.getSprite());
+         
             
             iniciarFadeIn();
             tocarTelefone(telefone);            
@@ -129,11 +137,12 @@
         public void avancaCena(Timer timer,Telefone telefone){
             switch (etapa){
                 case 0:
+                	labelFundo.add(odete.getSprite());
                     rosangela.atenderTelefone(timer,telefone.getTelefoneBtn(), telefone.getImgTelefone(), labelFundo,caixaDialogo);
                     etapa++;
                     break;
                 case 1:
-                    rosangela.desligarTelefone(labelFundo,caixaDialogo);
+                    rosangela.desligarTelefone(labelFundo,caixaDialogo, odete);
                     rosangela.escreverDialogo(labelFundo, caixaPensamento, "Preciso sair de casa, nem que seja pela primeira vez este mês,<br> preciso mesmo visitar a minha mãe, saber dessa oportunidade <br> de emprego, faz tanto tempo que eu não trabalho");
                     labelFundo.add(rosangela.getSprite());
                     labelFundo.revalidate();
