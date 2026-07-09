@@ -22,13 +22,15 @@ public class Puzzle2Final extends JPanel implements Puzzle2Interface {
         ImageCon imageCon = new ImageCon();
         setLayout(null);
         // barra 2-6
-        ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/2-6.png"));
+        ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/barras-de-avanco/2-6.png"));
         this.labelBarraAvanco = new JLabel(imgBarra);
         labelBarraAvanco.setBounds(0, 0, imgBarra.getIconWidth(), imgBarra.getIconHeight());
 
         ImageIcon fundo = new ImageIcon(getClass().getResource("/assets/QuartRosalngelaSemVestido.png"));
 
         // vestido já costurado no cabide — troque pelo asset correto
+       //ImageIcon imgVestidoCosturado = new ImageIcon(getClass().getResource("/assets/2-6.png"));
+        //this.botaoVestidoCosturado = new Botao(imageCon.vestidoRasgadoNoCabide, 1070, 220);
         this.botaoVestidoCosturado = new Botao(imageCon.vestidoRasgadoNoCabide, 1070, 220);
         botaoVestidoCosturado.configuracoesPadrao();
 

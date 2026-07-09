@@ -33,7 +33,7 @@
             setLayout(null);
             setPreferredSize(new Dimension(1280, 720));
 
-            ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/0-6.png"));
+            ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/barras-de-avanco/0-6.png"));
             this.labelBarraAvanco = new JLabel(imgBarra);
             labelBarraAvanco.setBounds(0, 0, imgBarra.getIconWidth(), imgBarra.getIconHeight());
             labelBarraAvanco.setLayout(null);
@@ -47,8 +47,9 @@
             Telefone telefone = new Telefone();
 
             //Caixa Telefone
-            ImageIcon imgCaixaTelefone = new ImageIcon(Puzzle1.class.getResource("/assets/DialogoTelefone.png"));
-            this.caixaDialogo = new CaixaDialogo(imgCaixaTelefone, 80, 500, Color.white);
+            ImageIcon imgCaixaTelefone = new ImageIcon(Puzzle1.class.getResource("/assets/DialogoTelefoneMae.png"));
+            this.caixaDialogo = new CaixaDialogo(imgCaixaTelefone, 101, 452, Color.BLACK);
+            this.caixaDialogo.ajustarMargensTexto(125, 55);
 
             //Caiaxa Pensamento
             ImageIcon imgCaixaPensamento = new ImageIcon(Puzzle1.class.getResource("/assets/caixaDePensamento.png"));

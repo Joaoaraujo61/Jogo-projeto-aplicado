@@ -7,6 +7,7 @@ public class Puzzle6 extends JPanel {
 
     private JLabel fundo;
     private boolean pegouGrampo = false;
+    private JLabel labelBarraAvanco;
 
     public Puzzle6(FrameJanela frame) {
         setLayout(null);
