@@ -1,18 +1,40 @@
 package telas;
 
 import javax.swing.*;
+
+import componentes.Botao;
+
 import java.awt.*;
 
 public class Puzzle6 extends JPanel {
 
     private JLabel fundo;
+    private JLabel labelFundo;
     private boolean pegouGrampo = false;
     private JLabel labelBarraAvanco;
+    private FrameJanela frame;
+
+    
 
     public Puzzle6(FrameJanela frame) {
-        setLayout(null);
-        setPreferredSize(new Dimension(1280, 720));
-        mostrarSala();
+		this.frame = frame;
+		
+		setLayout(null);
+		setPreferredSize(new Dimension(1280, 720));
+		
+		/*//Fundo
+		ImageIcon fundo = new ImageIcon(MenuInicial.class.getResource("/assets/salaDeEstar-pixilart.png"));
+		this.labelFundo = new JLabel(fundo);
+		labelFundo.setBounds(0, 0, 1280, 720);
+		labelFundo.setLayout(null);*/
+	  
+		//Imagem barra de avanço
+		ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/barras-de-avanco/5-6.png"));
+		this.labelBarraAvanco = new JLabel(imgBarra);
+		labelBarraAvanco.setBounds(0, 0, imgBarra.getIconWidth(), imgBarra.getIconHeight());
+		labelBarraAvanco.setLayout(null);
+		//this.add(labelBarraAvanco);
+		mostrarSala();
     }
 
     private void mostrarSala() {
@@ -24,6 +46,7 @@ public class Puzzle6 extends JPanel {
 
         JButton porta = criarBotao(510, 80, 290, 470);
         porta.addActionListener(e -> mostrarPortaZoom());
+        fundo.add(labelBarraAvanco);
         fundo.add(porta);
     }
 
@@ -100,12 +123,13 @@ public class Puzzle6 extends JPanel {
     }
 
     private void mostrarFinal() {
-        trocarFundo("/assets/SalaSemAPorta.png");
+        //trocarFundo("/assets/SalaSemAPorta.png");
 
         JOptionPane.showMessageDialog(
                 this,
                 "Parabéns!\nVocê conseguiu sair."
         );
+        frame.trocarTela(new CenaFinal(frame));     
     }
 
     private void trocarFundo(String caminho) {

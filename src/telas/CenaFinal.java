@@ -26,12 +26,12 @@ public class CenaFinal  extends JPanel {
         setPreferredSize(new Dimension(1280, 720));
   
       quadrosCenaFinal = new ImageIcon[] {
-    		  new ImageIcon(MenuInicial.class.getResource("/assets/cenaFinal1.png")),
-    		  new ImageIcon(MenuInicial.class.getResource("/assets/cenaFinal2.png")),
-    		  new ImageIcon(MenuInicial.class.getResource("/assets/cenaFinal3.png")),
-    		  new ImageIcon(MenuInicial.class.getResource("/assets/cenaFinal4.png")),
-    		  new ImageIcon(MenuInicial.class.getResource("/assets/cenaFinal5.png")),
-    		  new ImageIcon(MenuInicial.class.getResource("/assets/cenaFinal6.png")),
+    		  new ImageIcon(MenuInicial.class.getResource("/assets/cenas-finais/cenaFinal1.png")),
+    		  new ImageIcon(MenuInicial.class.getResource("/assets/cenas-finais/cenaFinal2.png")),
+    		  new ImageIcon(MenuInicial.class.getResource("/assets/cenas-finais/cenaFinal3.png")),
+    		  new ImageIcon(MenuInicial.class.getResource("/assets/cenas-finais/cenaFinal4.png")),
+    		  new ImageIcon(MenuInicial.class.getResource("/assets/cenas-finais/cenaFinal5.png")),
+    		  new ImageIcon(MenuInicial.class.getResource("/assets/cenas-finais/cenaFinal6.png")),
       };
       
         this.labelFundo = new JLabel(quadrosCenaFinal[1]);
