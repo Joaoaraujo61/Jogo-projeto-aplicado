@@ -21,6 +21,7 @@ public class Puzzle3 extends JPanel {
     private ImageIcon imgTelefone;
     private Botao telefoneBtn;
     private CaixaDialogo caixaPensamento;
+    private JLabel labelBarraAvanco;
 
 
     public Puzzle3(FrameJanela frame) {
@@ -28,6 +29,12 @@ public class Puzzle3 extends JPanel {
         
         setLayout(null);
         setPreferredSize(new Dimension(1280, 720));
+        
+        ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/barras-de-avanco/2-6.png"));
+        this.labelBarraAvanco = new JLabel(imgBarra);
+        labelBarraAvanco.setBounds(0, 0, imgBarra.getIconWidth(), imgBarra.getIconHeight());
+        labelBarraAvanco.setLayout(null);
+        this.add(labelBarraAvanco);
         
         // Imagens do Telefone
         this.imgTelefone = new ImageIcon(MenuInicial.class.getResource("/assets/telefoneRompido.png"));

@@ -33,7 +33,7 @@
             setLayout(null);
             setPreferredSize(new Dimension(1280, 720));
 
-            ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/0-6.png"));
+            ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/barras-de-avanco/0-6.png"));
             this.labelBarraAvanco = new JLabel(imgBarra);
             labelBarraAvanco.setBounds(0, 0, imgBarra.getIconWidth(), imgBarra.getIconHeight());
             labelBarraAvanco.setLayout(null);

@@ -25,6 +25,7 @@ public class Puzzle4 extends JPanel{
     private CaixaDialogo caixaDialogo;
     private  Personagem rosangela;
     private Personagem odete;
+    private JLabel labelBarraAvanco;
 
     public Puzzle4(FrameJanela frame) {
     	
@@ -39,6 +40,12 @@ public class Puzzle4 extends JPanel{
         
         this.rosangela = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/RosangelaNormal.png")), -120, 230);
         this.odete = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/Odete2.png")), 850, 320);
+        
+        ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/barras-de-avanco/3-6.png"));
+        this.labelBarraAvanco = new JLabel(imgBarra);
+        labelBarraAvanco.setBounds(0, 0, imgBarra.getIconWidth(), imgBarra.getIconHeight());
+        labelBarraAvanco.setLayout(null);
+        labelFundo.add(labelBarraAvanco);
 
 
         //Imagem Telefone
@@ -69,14 +76,12 @@ public class Puzzle4 extends JPanel{
 	    "<html>Sim, sou eu sim. Preciso de ajuda, eu sei que faz muito<br>tempo que não visito você, mas hoje eu insisti para o<br>Jorjão para poder sair, mas ele saiu de casa e levou a<br> chave.</html>",
 	    "<html>Minha filha… Não acredito ser a sua voz que estou ouvin-<br>do, e acredito menos ainda que esse cara tenha feito isso<br> com a minha filinha.</html>",
 	    "<html>Ah, mãe! Você sabe como é o Jorjão, ele tem esses desli-<br>zes, deve ter levado a chave sem querer e você sabe que<br> eu não tenho uma chave, porque ele se preocupa comigo,<br> tem medo de eu ser roubada, essas coisas…</html>",
-	    //"<html>Você entende, né!? O papai também era atencioso.</html>",
-	   // "<html>Meu amor, o seu pai era sim atencioso de verdade,<br> mas não possessivo como o seu marido. Eu não faço<br> ideia de como você acabou se casando com um cara<br> como o Jorjão.</html>",
 	    "<html>O seu pai era tão atencioso, e nem um pouco possessivo como<br> o seu marido. Eu não faço<br> ideia de como você acabou se casando com um cara<br> como o Jorjão.</html>",
 	    "Mãe…",
 	    "<html>Não, me deixa terminar. Nada do que ele faz é atenção,<br> meu amor, ele só quer te prender, te impedir de sair de<br> casa, de usar a roupa que tem vontade, de falar comigo,<br> só quer que você fique aí presa cuidando dele e da casa.</html>",
 	    "E como eu poderia sair daqui? Não posso!",
-	    "Acha um dinheiro aí e pega um ônibus, vem pra cá, eu te ajudo!", 
-	    "Vou procurar onde o Jorjão guarda o dinheiro dele.",
+	    "Deve ter algumd dinehrio na sua casa, pegue um ônibus, vem pra cá, eu te ajudo!", 
+	    "Ok! Vou procurar nos armários aqui da sala, deve ter algum dinheiro do Jorjão aqui.",
     };
     
     private int indiceDaFala = 0;

@@ -1,6 +1,9 @@
 package telas;
 
 import javax.swing.*;
+
+import componentes.Botao;
+
 import java.awt.*;
 
 public class Puzzle5 extends JPanel {
@@ -9,14 +12,61 @@ public class Puzzle5 extends JPanel {
     private JLabel fundo;
     private String senhaDigitada = "";
     private final String SENHA = "581831";
-
+    private JLabel labelFundo;
+    private JLabel labelBarraAvanco;
+    private JLabel labelImgTelefone;
+    private ImageIcon imgArmarioSozinho;
+    private Botao btnArmarioSozinho;
+    
     public Puzzle5(FrameJanela frame) {
         this.frame = frame;
 
         setLayout(null);
         setPreferredSize(new Dimension(1280, 720));
-
-        mostrarArmario();
+        
+        //Fundo
+        ImageIcon fundo = new ImageIcon(MenuInicial.class.getResource("/assets/salaDeEstar-pixilart.png"));
+        this.labelFundo = new JLabel(fundo);
+        labelFundo.setBounds(0, 0, 1280, 720);
+        labelFundo.setLayout(null);
+       
+        //Imagem barra de avanço
+        ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/barras-de-avanco/4-6.png"));
+        this.labelBarraAvanco = new JLabel(imgBarra);
+        labelBarraAvanco.setBounds(0, 0, imgBarra.getIconWidth(), imgBarra.getIconHeight());
+        labelBarraAvanco.setLayout(null);
+        labelFundo.add(labelBarraAvanco);
+        
+        //Imagem Telefone
+        ImageIcon imgTelefone = new ImageIcon(MenuInicial.class.getResource("/assets/telefone.png"));
+        this.labelImgTelefone = new JLabel(imgTelefone);
+        labelImgTelefone.setBounds(1070, 200, imgTelefone.getIconWidth(), imgTelefone.getIconHeight());
+        labelImgTelefone.setLayout(null);
+        labelFundo.add(labelImgTelefone);
+        
+      //Botão armário
+        this.imgArmarioSozinho = new ImageIcon(MenuInicial.class.getResource("/assets/ArmarioSozinho.png"));
+        this.btnArmarioSozinho = new Botao(imgArmarioSozinho, 111, 69);
+        JButton botao = btnArmarioSozinho.getBotaoClicavel();
+        botao.setBorderPainted(false);
+        botao.setContentAreaFilled(false);
+        botao.setFocusPainted(false);
+        labelFundo.add(btnArmarioSozinho.getBotaoClicavel());
+        
+        
+        SwingUtilities.invokeLater(() -> {
+            JOptionPane.showMessageDialog(
+                    frame,
+                    "Procure por dinheiro nesta sala",
+                    "Instrução",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+        });
+        
+         add(labelFundo);
+         btnArmarioSozinho.getBotaoClicavel().addActionListener(e -> mostrarArmario());
+     
+         
     }
 
     private void mostrarArmario() {

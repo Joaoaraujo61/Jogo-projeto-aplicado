@@ -18,10 +18,10 @@ public class Puzzle3Jogavel extends JPanel {
     
     
     private final Point[] slotsFios = {
-        new Point(358, 260), // Slot 0
-        new Point(358, 350), // Slot 1
-        new Point(358, 420)  // Slot 2
-    };
+        new Point(390, 260), // Slot 0
+        new Point(390, 350), // Slot 1
+        new Point(390, 420)  // Slot 2
+    }; //X: Anteriormente tinha o valor de 358
     private int[] slotAtualDoFio = {0, 1, 2};
 
     private JLabel[] labelFios = new JLabel[3];
@@ -80,6 +80,15 @@ public class Puzzle3Jogavel extends JPanel {
         this.setComponentZOrder(labelFioVerde, 1);
         this.setComponentZOrder(labelFioVermelho, 2);
         this.setComponentZOrder(labelFiosDireita, 3);
+        
+        SwingUtilities.invokeLater(() -> {
+            JOptionPane.showMessageDialog(
+                    frame,
+                    "Ordene corretamente os fios do lado esquerdo",
+                    "Instrução",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+        });
     } 
     
     private void configurarFioComTroca(JLabel fioInstancia, int idDoFio) {
