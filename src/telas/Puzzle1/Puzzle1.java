@@ -58,7 +58,7 @@
 
            // this.caixaDialogo.ajustarMargensTexto(125, 55);
 
-            //Caiaxa Pensamento
+            //Caixa Pensamento
             ImageIcon imgCaixaPensamento = new ImageIcon(Puzzle1.class.getResource("/assets/caixaDePensamento.png"));
             this.caixaPensamento = new CaixaDialogo(imgCaixaPensamento, 70, 500, Color.BLACK);
             caixaPensamento.setCursor(new Cursor(Cursor.HAND_CURSOR));
