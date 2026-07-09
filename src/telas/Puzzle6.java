@@ -17,13 +17,6 @@ public class Puzzle6 extends JPanel {
 
     private void mostrarSala() {
         trocarFundo("/assets/SalaComPorta.png");
-        
-        //Imagem barra de avanço
-        ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/barras-de-avanco/5-6.png"));
-        this.labelBarraAvanco = new JLabel(imgBarra);
-        labelBarraAvanco.setBounds(0, 0, imgBarra.getIconWidth(), imgBarra.getIconHeight());
-        labelBarraAvanco.setLayout(null);
-        this.add(labelBarraAvanco);
 
         JButton planta = criarBotao(950, 250, 250, 350);
         planta.addActionListener(e -> mostrarPlanta());
