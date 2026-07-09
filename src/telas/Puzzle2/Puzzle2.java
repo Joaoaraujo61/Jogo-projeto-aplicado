@@ -6,7 +6,7 @@ import telas.FrameJanela;
 import javax.swing.*;
 import java.awt.*;
 
-public class Puzzle2 extends JPanel implements Puzzle2Interface {
+public class Puzzle2 extends JPanel{
     private JLabel labelFundo;
     private FrameJanela frame;
     private Botao botaoVestidoRasgado;
@@ -44,53 +44,18 @@ public class Puzzle2 extends JPanel implements Puzzle2Interface {
         labelFundo.add(labelBarraAvanco);
         labelFundo.add(botaoCalendario.getBotaoClicavel());
 
-        botaoCalendario.getBotaoClicavel().addActionListener(e -> darZoomCalendario());
-        botaoCalendarioZoom.getBotaoClicavel().addActionListener(e -> tirarZoomCalendario());
-
         botaoVestidoRasgado.getBotaoClicavel().addActionListener(e -> {
             frame.trocarTela(new PuzzleCostura(frame));
         });
+        botaoCalendario.getBotaoClicavel().addActionListener(e->{
+            JOptionPane.showMessageDialog(
+                    frame,
+                    "Conclua o puzzle 2 para olhar o calendário!",
+                    "Instrução",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+        });
 
         add(labelFundo);
-    }
-
-    @Override
-    public void darZoomCalendario() {
-        labelFundo.add(botaoCalendarioZoom.getBotaoClicavel());
-        labelFundo.remove(botaoVestidoRasgado.getBotaoClicavel());
-        labelFundo.remove(botaoCalendario.getBotaoClicavel());
-        labelFundo.remove(labelBarraAvanco);
-        labelFundo.revalidate();
-        labelFundo.repaint();
-    }
-
-    @Override
-    public void tirarZoomCalendario() {
-        labelFundo.remove(botaoCalendarioZoom.getBotaoClicavel());
-        labelFundo.add(botaoVestidoRasgado.getBotaoClicavel());
-        labelFundo.add(botaoCalendario.getBotaoClicavel());
-        labelFundo.add(labelBarraAvanco);
-        labelFundo.revalidate();
-        labelFundo.repaint();
-    }
-
-    @Override
-    public void darZoomVestido() {
-        labelFundo.remove(botaoVestidoRasgado.getBotaoClicavel());
-        labelFundo.remove(botaoCalendario.getBotaoClicavel());
-        labelFundo.add(botaoVestidoRasgadoZoom.getBotaoClicavel());
-        labelFundo.remove(labelBarraAvanco);
-        labelFundo.revalidate();
-        labelFundo.repaint();
-    }
-
-    @Override
-    public void tirarZoomVestido() {
-        labelFundo.remove(botaoVestidoRasgadoZoom.getBotaoClicavel());
-        labelFundo.add(botaoVestidoRasgado.getBotaoClicavel());
-        labelFundo.add(botaoCalendario.getBotaoClicavel());
-        labelFundo.add(labelBarraAvanco);
-        labelFundo.revalidate();
-        labelFundo.repaint();
     }
 }

@@ -7,6 +7,7 @@ import telas.Puzzle1.Puzzle1;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -18,8 +19,10 @@ public class Puzzle2Final extends JPanel implements Puzzle2Interface {
     private Botao botaoCalendarioZoom;
     private JLabel labelBarraAvanco;
     private CaixaDialogo caixaPensamento;
+    private int indiceDaFala;
 
     public Puzzle2Final(FrameJanela frame) {
+        indiceDaFala = 0;
         this.frame = frame;
         ImageCon imageCon = new ImageCon();
         setLayout(null);
@@ -66,7 +69,30 @@ public class Puzzle2Final extends JPanel implements Puzzle2Interface {
         // vestido costurado leva para o próximo puzzle
         add(labelFundo);
         this.setComponentZOrder(labelFundo, this.getComponentCount() - 1);
+
+        MouseAdapter acaoDeClique = new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                passarCena();
+            }
+        };
+
+        this.addMouseListener(acaoDeClique);
+        caixaPensamento.addMouseListener(acaoDeClique);
+
         passarCena();
+
+        this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+                KeyStroke.getKeyStroke("SPACE"), "avancarHistoria"
+        );
+
+        this.getActionMap().put("avancarHistoria", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                passarCena();
+            }
+        });
+
      
     }
 
@@ -96,20 +122,32 @@ public class Puzzle2Final extends JPanel implements Puzzle2Interface {
     @Override
     public void tirarZoomVestido() { }
 
+    public void passarCena() {
+        String[] textoCaixa = {
+                "Ficou bem melhor assim!",
+                "Agora só falta ligar para minha mãe para saber o endereço!",
+        };
 
-	public void passarCena() {
-		caixaPensamento.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		caixaPensamento.digitarTexto("Agora só falta ligar para minha mãe para saber o endereço!");	
-		//Mudar para que o usuário possa clicar em qq lugar da tela para passar a cena?
-	    caixaPensamento.addMouseListener(new MouseAdapter() {
-             public void mouseClicked(MouseEvent e) {
-            	 frame.trocarTela(new Puzzle3(frame));
-           		 caixaPensamento.setVisible(false); 
-           	        labelFundo.repaint();
-             }
-         });
-        
-   	 }
+        caixaPensamento.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        //Mudar para que o usuário possa clicar em qq lugar da tela para passar a cena?
+//        caixaPensamento.addMouseListener(new MouseAdapter() {
+//            public void mouseClicked(MouseEvent e) {
+//                frame.trocarTela(new Puzzle3(frame));
+//                caixaPensamento.setVisible(false);
+//                labelFundo.repaint();
+//            }
+//        });
+        if (indiceDaFala < textoCaixa.length) {
+            caixaPensamento.digitarTexto(textoCaixa[indiceDaFala]);
+            indiceDaFala++;
+        } else {
+            caixaPensamento.setVisible(false);
+            labelFundo.remove(botaoVestidoCosturado.getBotaoClicavel());
+            labelFundo.repaint();
+        }
+
+    }
 	}
 	
 
