@@ -7,6 +7,8 @@ import telas.Puzzle1.Puzzle1;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Puzzle2Final extends JPanel implements Puzzle2Interface {
     private JLabel labelFundo;
@@ -22,13 +24,15 @@ public class Puzzle2Final extends JPanel implements Puzzle2Interface {
         ImageCon imageCon = new ImageCon();
         setLayout(null);
         // barra 2-6
-        ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/2-6.png"));
+        ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/barras-de-avanco/2-6.png"));
         this.labelBarraAvanco = new JLabel(imgBarra);
         labelBarraAvanco.setBounds(0, 0, imgBarra.getIconWidth(), imgBarra.getIconHeight());
 
         ImageIcon fundo = new ImageIcon(getClass().getResource("/assets/QuartRosalngelaSemVestido.png"));
 
         // vestido já costurado no cabide — troque pelo asset correto
+       //ImageIcon imgVestidoCosturado = new ImageIcon(getClass().getResource("/assets/2-6.png"));
+        //this.botaoVestidoCosturado = new Botao(imageCon.vestidoRasgadoNoCabide, 1070, 220);
         this.botaoVestidoCosturado = new Botao(imageCon.vestidoRasgadoNoCabide, 1070, 220);
         botaoVestidoCosturado.configuracoesPadrao();
 
@@ -94,16 +98,16 @@ public class Puzzle2Final extends JPanel implements Puzzle2Interface {
 
 
 	public void passarCena() {
-		caixaPensamento.digitarTexto("Agora só falta ligar para minha mãe para saber o endereço!");
-			 
-   	 Timer timerCaixaPensamento = new Timer(4000, evento -> {
-   		frame.trocarTela(new Puzzle3(frame));
-   		 caixaPensamento.setVisible(false); 
-   	        this.repaint();
-   	 	});
-   	 
-        timerCaixaPensamento.setRepeats(false);
-        timerCaixaPensamento.start();
+		caixaPensamento.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		caixaPensamento.digitarTexto("Agora só falta ligar para minha mãe para saber o endereço!");	
+		//Mudar para que o usuário possa clicar em qq lugar da tela para passar a cena?
+	    caixaPensamento.addMouseListener(new MouseAdapter() {
+             public void mouseClicked(MouseEvent e) {
+            	 frame.trocarTela(new Puzzle3(frame));
+           		 caixaPensamento.setVisible(false); 
+           	        labelFundo.repaint();
+             }
+         });
         
    	 }
 	}

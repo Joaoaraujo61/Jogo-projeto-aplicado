@@ -11,16 +11,17 @@ public class Puzzle3Jogavel extends JPanel {
 	private FrameJanela frame; 
     private JLabel labelFundo;
     private JLabel labelFiosDireita;
+    private JLabel labelFiosConectados;
     private JLabel labelFioVerde;
     private JLabel labelFioVermelho;
     private JLabel labelFioAzul;
     
     
     private final Point[] slotsFios = {
-        new Point(358, 260), // Slot 0
-        new Point(358, 350), // Slot 1
-        new Point(358, 420)  // Slot 2
-    };
+        new Point(390, 260), // Slot 0
+        new Point(390, 350), // Slot 1
+        new Point(390, 420)  // Slot 2
+    }; //X: Anteriormente tinha o valor de 358
     private int[] slotAtualDoFio = {0, 1, 2};
 
     private JLabel[] labelFios = new JLabel[3];
@@ -36,6 +37,12 @@ public class Puzzle3Jogavel extends JPanel {
         this.labelFiosDireita = new JLabel(imgFiosDireita);
         labelFiosDireita.setBounds(358, 158, imgFiosDireita.getIconWidth(), imgFiosDireita.getIconHeight());
         this.add(labelFiosDireita); 
+        
+        // Fios Conectados
+        ImageIcon imgFiosConectados = new ImageIcon(getClass().getResource("/assets/fiosConectados.png"));
+        this.labelFiosConectados = new JLabel(imgFiosConectados);
+        labelFiosConectados.setBounds(358, 158, imgFiosConectados.getIconWidth(), imgFiosConectados.getIconHeight());
+        //this.add(labelFiosConectados); 
         
         // Fio Azul (ID 0)
         ImageIcon imgfioAzul = new ImageIcon(getClass().getResource("/assets/fioAzul.png"));
@@ -73,6 +80,15 @@ public class Puzzle3Jogavel extends JPanel {
         this.setComponentZOrder(labelFioVerde, 1);
         this.setComponentZOrder(labelFioVermelho, 2);
         this.setComponentZOrder(labelFiosDireita, 3);
+        
+        SwingUtilities.invokeLater(() -> {
+            JOptionPane.showMessageDialog(
+                    frame,
+                    "Ordene corretamente os fios do lado esquerdo",
+                    "Instrução",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+        });
     } 
     
     private void configurarFioComTroca(JLabel fioInstancia, int idDoFio) {
@@ -142,13 +158,20 @@ public class Puzzle3Jogavel extends JPanel {
 
     private void verificarPuzzleResolvido() {	
         if (slotAtualDoFio[0] == 1 && slotAtualDoFio[1] == 2 && slotAtualDoFio[2] == 0) {
-        	   Timer timer = new Timer(250, evento -> {
+        	this.add(labelFiosConectados);
+        	this.remove(labelFiosDireita);
+        	labelFioAzul.setVisible(false);
+        	labelFioVerde.setVisible(false);
+        	labelFioVermelho.setVisible(false);
+            this.setComponentZOrder(labelFiosConectados, 3);
+          
+        	   Timer timer = new Timer(500, evento -> {
                    ((Timer) evento.getSource()).stop();
                    SwingUtilities.invokeLater(() -> {
                        JOptionPane.showMessageDialog(
                                SwingUtilities.getWindowAncestor(Puzzle3Jogavel.this),
                                "Puzzle concluído!"
-                       );
+                       );                      
                        frame.trocarTela(new Puzzle4(frame));
                    });
                });

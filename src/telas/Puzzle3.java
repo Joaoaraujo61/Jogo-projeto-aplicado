@@ -10,6 +10,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import componentes.Botao;
 import componentes.CaixaDialogo;
@@ -21,6 +23,7 @@ public class Puzzle3 extends JPanel {
     private ImageIcon imgTelefone;
     private Botao telefoneBtn;
     private CaixaDialogo caixaPensamento;
+    private JLabel labelBarraAvanco;
 
 
     public Puzzle3(FrameJanela frame) {
@@ -28,6 +31,12 @@ public class Puzzle3 extends JPanel {
         
         setLayout(null);
         setPreferredSize(new Dimension(1280, 720));
+        
+        ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/barras-de-avanco/2-6.png"));
+        this.labelBarraAvanco = new JLabel(imgBarra);
+        labelBarraAvanco.setBounds(0, 0, imgBarra.getIconWidth(), imgBarra.getIconHeight());
+        labelBarraAvanco.setLayout(null);
+        this.add(labelBarraAvanco);
         
         // Imagens do Telefone
         this.imgTelefone = new ImageIcon(MenuInicial.class.getResource("/assets/telefoneRompido.png"));
@@ -70,16 +79,14 @@ public class Puzzle3 extends JPanel {
     
     void apareceDialogo() {
     	caixaPensamento.digitarTexto("Ah, não! O Jorjão cortou os fios do telefone, vou ter que concertá-<br> lo para falar com a minha mãe.");
-    	 
-    	 Timer timerCaixaPensamento = new Timer(4000, evento -> {
-    		frame.remove(caixaPensamento);
-    		 caixaPensamento.setVisible(false); 
-    	        this.repaint();
-    	 	});
-    	 
-         timerCaixaPensamento.setRepeats(false);
-         timerCaixaPensamento.start();
-         
+	    caixaPensamento.addMouseListener(new MouseAdapter() {
+             public void mouseClicked(MouseEvent e) {
+            	 frame.trocarTela(new Puzzle3(frame));
+           		 caixaPensamento.setVisible(false); 
+           	        labelFundo.repaint();
+             }
+         }); 
+	    
     	 }
 
 

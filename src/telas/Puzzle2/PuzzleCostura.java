@@ -17,26 +17,36 @@ public class PuzzleCostura extends JPanel {
     private Point[] sequencia = {
             new Point(780, 140),  // ponto 1 — borda esquerda do rasgo, topo
             new Point(890, 140),  // ponto 2 — borda direita do rasgo, topo
-            new Point(780, 240),  // ponto 3 — borda esquerda, meio
-            new Point(890, 240),  // ponto 4 — borda direita, meio
-            new Point(780, 340),  // ponto 5 — borda esquerda, abaixo do meio
-            new Point(890, 340),  // ponto 6 — borda direita, abaixo do meio
-            new Point(780, 440),  // ponto 7 — borda esquerda, baixo
+            new Point(780, 190),  // ponto 3 — borda esquerda, meio
+            new Point(890, 190),  // ponto 4 — borda direita, meio
+            new Point(780, 240),  // ponto 5 — borda esquerda, abaixo do meio
+            new Point(890, 240),  // ponto 6 — borda direita, abaixo do meio
+            new Point(780, 290),  // ponto 7 — borda esquerda, baixo
+            new Point(890, 290),
+            new Point(780, 340),
+            new Point(890, 340),
+            new Point(780, 390),
+            new Point(890, 390),
+            new Point(780, 440),
             new Point(890, 440),
+            new Point(780, 490),
+            new Point(890, 490),
     };
 
     private int indiceAtual = 0;
     private LinhasCosturaPanel painelLinhas;
     private JLabel[] spritesPontos;
     private FrameJanela frame;
+    private ImageIcon fundo;
+    private JLabel labelFundo;
 
     public PuzzleCostura(FrameJanela frame) {
         this.frame = frame;
         setLayout(null);
         setPreferredSize(new Dimension(1280, 720));
 
-        ImageIcon fundo = new ImageIcon(getClass().getResource("/assets/VestidoRasgado.png"));
-        JLabel labelFundo = new JLabel(fundo);
+        this.fundo = new ImageIcon(getClass().getResource("/assets/VestidoRasgado.png"));
+        this.labelFundo = new JLabel(fundo);
         labelFundo.setBounds(0, 0, 1280, 720);
         labelFundo.setLayout(null);
 
@@ -51,7 +61,7 @@ public class PuzzleCostura extends JPanel {
         }
         if (imgAgulha != null) {
             Cursor cursorAgulha = Toolkit.getDefaultToolkit()
-                    .createCustomCursor(imgAgulha, new Point(0, 0), "agulha");
+                    .createCustomCursor(imgAgulha, new Point(1, 23), "agulha");
             setCursor(cursorAgulha);
         }
 
@@ -90,9 +100,9 @@ public class PuzzleCostura extends JPanel {
                     @Override
                     public void mousePressed(MouseEvent e) {
                         // só inicia o arrasto se for o ponto esperado
-                        if (idx == indiceAtual) {
-                            System.out.println("Arrasto iniciado no ponto: " + idx);
-                        }
+                       /* if (idx == indiceAtual) {
+                           // System.out.println("Arrasto iniciado no ponto: " + idx);
+                        }*/
                     }
 
                     @Override
@@ -131,10 +141,13 @@ public class PuzzleCostura extends JPanel {
         indiceAtual++;
 
         if (indiceAtual >= sequencia.length) {
+        	/*fundo = new ImageIcon(getClass().getResource("/assets/VestidoConsertado.png"));
+        	 labelFundo.revalidate();
+             labelFundo.repaint();*/
+             
             Timer timer = new Timer(1000, ev -> {
                 ((Timer) ev.getSource()).stop();
                 frame.trocarTela(new Puzzle2Final(frame));
-                //frame.trocarTela(new Puzzle3(frame));
             });
             timer.setRepeats(false);
             timer.start();

@@ -94,16 +94,19 @@ public class PuzzleEscolha1 extends JPanel {
 
     private void configurarEventos() {
         opcao1.addActionListener(e -> {
-            mostrarResposta("Não vou poder te acompanhar na sua mãe hoje<br> e não quero que saia sozinha");
+            mostrarResposta("Não vou poder te acompanhar na sua mãe hoje<br> e não quero que saia sozinha.");
             bloquearOpcao(opcao1);
+            tenteNovamente();
         });
         opcao2.addActionListener(e -> {
             mostrarResposta("Como assim? Mas a casa está uma bagunça, você <br>não pretende sair e deixar ela desse jeito, né?");
             bloquearOpcao(opcao2);
+            tenteNovamente();
         });
         opcao4.addActionListener(e -> {
-            mostrarResposta("Mas nem pensar! Você nem terminou de passar <br> minhas roupas");
+            mostrarResposta("Mas nem pensar! Você nem terminou de passar <br> minhas roupas.");
             bloquearOpcao(opcao4);
+            tenteNovamente();
         });
         opcao3.addActionListener(e -> {
             mostrarResposta("Consulta na UBS? Não me lembro disso. Mas tudo bem,<br> vá, mas troque de roupa antes, não quero que os <br>médicos te vejam assim...");
@@ -139,6 +142,23 @@ public class PuzzleEscolha1 extends JPanel {
 
         labelFundo.revalidate();
         labelFundo.repaint();
+        
+    }
+    
+    private void tenteNovamente() {
+    	 Timer timerTente = new Timer(3000, evento -> {
+             ((Timer) evento.getSource()).stop();
+             SwingUtilities.invokeLater(() -> {
+                 JOptionPane.showMessageDialog(
+                         SwingUtilities.getWindowAncestor(PuzzleEscolha1.this),
+                         "Tente outra desculpa"
+                 );
+              
+             });
+         });
+
+         timerTente.setRepeats(false);
+         timerTente.start();
     }
 
     private void bloquearOpcao(JButton botao) {

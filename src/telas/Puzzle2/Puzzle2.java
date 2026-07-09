@@ -19,7 +19,7 @@ public class Puzzle2 extends JPanel implements Puzzle2Interface {
         this.frame = frame;
         ImageCon imageCon = new ImageCon();
 
-        ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/1-6.png"));
+        ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/barras-de-avanco/1-6.png"));
         this.labelBarraAvanco = new JLabel(imgBarra);
         labelBarraAvanco.setBounds(0, 0, imgBarra.getIconWidth(), imgBarra.getIconHeight());
 

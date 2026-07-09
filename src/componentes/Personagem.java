@@ -36,9 +36,11 @@ public class Personagem {
         labelFundo.repaint();
 
         caixaDialogo.digitarTexto("Filha, encontrei uma vaga de emprego na sua área, <br>vem aqui para a minha casa para conversarmos sobre <br>isso, faz muito tempo que você não me visita...");
+       // labelFundo.add(odete.getSprite());
     }
 
-    public void desligarTelefone(JLabel labelFundo,CaixaDialogo caixaDialogo){
+    public void desligarTelefone(JLabel labelFundo,CaixaDialogo caixaDialogo, Personagem odete){
+        labelFundo.remove(odete.getSprite());
         labelFundo.remove(caixaDialogo);
         labelFundo.revalidate();
         labelFundo.repaint();
