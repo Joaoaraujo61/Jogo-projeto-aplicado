@@ -71,6 +71,7 @@ public class Puzzle5 extends JPanel {
 
     private void mostrarArmario() {
         trocarFundo("/assets/ArmarioZoom.png");
+        
 
         JButton cofre = criarBotao(430, 200, 420, 360);
         cofre.addActionListener(e -> mostrarCofreFechado());
@@ -80,7 +81,15 @@ public class Puzzle5 extends JPanel {
 
     private void mostrarCofreFechado() {
         senhaDigitada = "";
-        trocarFundo("/assets/CofreFechado.png");
+        trocarFundo("/assets/CofreFechadoVisor.png");
+        SwingUtilities.invokeLater(() -> {
+            JOptionPane.showMessageDialog(
+                    frame,
+                    "Use a combinação achada durante o jogo",
+                    "Instrução",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+        });
 
         criarBotaoNumero("1", 680, 350);
         criarBotaoNumero("2", 722, 350);
@@ -114,7 +123,7 @@ public class Puzzle5 extends JPanel {
         botao.addActionListener(e -> {
             if (senhaDigitada.length() < 6) {
                 senhaDigitada += numero;
-                System.out.println("Senha digitada: " + senhaDigitada);
+                //System.out.println("Senha digitada: " + senhaDigitada);
             }
         });
         fundo.add(botao);
