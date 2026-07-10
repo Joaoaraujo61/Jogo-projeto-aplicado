@@ -109,7 +109,7 @@ public class Puzzle6 extends JPanel {
         mostrarFechaduraComGrampo();
     }
 
-    private void mostrarFechaduraComGrampo() {
+  /*  private void mostrarFechaduraComGrampo() {
        // trocarFundo("/assets/FechaduraComGampoDaPortaZoom2.png");]
     	//labelFundo.add(btnFechaduraGrampo.getBotaoClicavel());
     	fundo.add(btnFechaduraGrampo.getBotaoClicavel());
@@ -122,7 +122,7 @@ public class Puzzle6 extends JPanel {
         );*/
 
         //mostrarPortaAberta();
-        btnFechaduraGrampo.getBotaoClicavel().addActionListener(e -> {
+     /*   btnFechaduraGrampo.getBotaoClicavel().addActionListener(e -> {
         	JOptionPane.showMessageDialog(
                     this,
                     "Você usou o grampo para destrancar a porta."
@@ -130,6 +130,41 @@ public class Puzzle6 extends JPanel {
             mostrarPortaAberta();
 
         });
+    }*/
+
+private void mostrarFechaduraComGrampo() {
+        // 1. Muda o fundo para o asset da fechadura em zoom
+        //trocarFundo("/assets/FechaduraComGampoDaPortaZoom2.png");
+	trocarFundo("/assets/PortaZoom.png");
+        
+        // 2. Resgata o botão clicável de dentro do seu componente customizado
+        JButton botao = btnFechaduraGrampo.getBotaoClicavel();
+        
+        // 3. Garante que ele tenha um tamanho e posição válidos na tela!
+        // Ajuste X, Y, Largura e Altura para ficarem exatamente onde o jogador deve clicar
+        botao.setBounds(160, 412, 200, 200); 
+        
+        // 4. Remove action listeners antigos para não acumular cliques duplicados
+        for (java.awt.event.ActionListener al : botao.getActionListeners()) {
+            botao.removeActionListener(al);
+        }
+        
+        // 5. Configura a ação de clique do botão
+        botao.addActionListener(e -> {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Você usou o grampo para destrancar a porta."
+            );
+            mostrarPortaAberta();
+        });
+        
+        // 6. Adiciona o botão no novo fundo e puxa para a frente
+        fundo.add(botao);
+        fundo.setComponentZOrder(botao, 0);
+        
+        // 7. Força o Java Swing a desenhar o novo botão na tela!
+        fundo.revalidate();
+        fundo.repaint();
     }
 
     private void mostrarPortaAberta() {
