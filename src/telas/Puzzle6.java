@@ -5,6 +5,8 @@ import javax.swing.*;
 import componentes.Botao;
 
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Puzzle6 extends JPanel {
 
@@ -13,6 +15,8 @@ public class Puzzle6 extends JPanel {
     private boolean pegouGrampo = false;
     private JLabel labelBarraAvanco;
     private FrameJanela frame;
+    private ImageIcon imgFechaduraGrampo;
+    private Botao btnFechaduraGrampo;
 
     
 
@@ -34,6 +38,16 @@ public class Puzzle6 extends JPanel {
 		labelBarraAvanco.setBounds(0, 0, imgBarra.getIconWidth(), imgBarra.getIconHeight());
 		labelBarraAvanco.setLayout(null);
 		//this.add(labelBarraAvanco);
+		
+		 //Botão fechadura grampo
+	       this.imgFechaduraGrampo = new ImageIcon(MenuInicial.class.getResource("/assets/FechaduraComGampoDaPortaZoom2.png"));
+	       this.btnFechaduraGrampo = new Botao(imgFechaduraGrampo, 160, 412);
+	       JButton botao = btnFechaduraGrampo.getBotaoClicavel();
+	       botao.setBorderPainted(false);
+	       botao.setContentAreaFilled(false);
+	       botao.setFocusPainted(false);
+	       
+		
 		mostrarSala();
     }
 
@@ -96,14 +110,26 @@ public class Puzzle6 extends JPanel {
     }
 
     private void mostrarFechaduraComGrampo() {
-        trocarFundo("/assets/FechaduraComGampoDaPortaZoom.png");
+       // trocarFundo("/assets/FechaduraComGampoDaPortaZoom2.png");]
+    	//labelFundo.add(btnFechaduraGrampo.getBotaoClicavel());
+    	fundo.add(btnFechaduraGrampo.getBotaoClicavel());
+    	//fundo.add(btnFechaduraGrampo);
+    	/*btnFechaduraGrampo.getBotaoClicavel().addActionListener(e -> mostrarPortaAberta());
 
         JOptionPane.showMessageDialog(
                 this,
                 "Você usou o grampo para destrancar a porta."
-        );
+        );*/
 
-        mostrarPortaAberta();
+        //mostrarPortaAberta();
+        btnFechaduraGrampo.getBotaoClicavel().addActionListener(e -> {
+        	JOptionPane.showMessageDialog(
+                    this,
+                    "Você usou o grampo para destrancar a porta."
+            );
+            mostrarPortaAberta();
+
+        });
     }
 
     private void mostrarPortaAberta() {
@@ -138,6 +164,7 @@ public class Puzzle6 extends JPanel {
         fundo = new JLabel(new ImageIcon(imagem));
         fundo.setBounds(0, 0, 1280, 720);
         fundo.setLayout(null);
+        fundo.setOpaque(false);
 
         add(fundo);
 
