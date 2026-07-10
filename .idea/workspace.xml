@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b92d4aa6-1d22-4ecd-8187-bd7921a833da" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/CaixaDialogo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/CaixaDialogo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/MenuInicial.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/MenuInicial.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle1/Puzzle1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle1/Puzzle1$1.class" afterDir="false" />
@@ -15,12 +14,6 @@
       <change beforePath="$PROJECT_DIR$/src/componentes/CaixaDialogo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/CaixaDialogo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/telas/MenuInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/MenuInicial.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/telas/Puzzle1/Puzzle1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/Puzzle1/Puzzle1.java" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telas/MenuInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/MenuInicial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telas/Puzzle2/Puzzle2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/Puzzle2/Puzzle2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telas/Puzzle2/Puzzle2Final.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/Puzzle2/Puzzle2Final.java" afterDir="false" />
->>>>>>> 22b5f7d8dd0b44c5d69808550dae45476b1eee11
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

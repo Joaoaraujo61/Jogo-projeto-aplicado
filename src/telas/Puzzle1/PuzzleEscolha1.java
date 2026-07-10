@@ -10,6 +10,7 @@ import java.awt.*;
 
 public class PuzzleEscolha1 extends JPanel {
 
+    private final JLabel Puzzl1Titulo;
     private FrameJanela frame;
     private JLabel labelFundo;
 
@@ -36,6 +37,10 @@ public class PuzzleEscolha1 extends JPanel {
         labelFundo.setBounds(0, 0, 1280, 720);
         labelFundo.setLayout(null);
 
+        ImageIcon imgPuzzle1 = new ImageIcon(getClass().getResource("/assets/Puzzle_1.png"));
+        this.Puzzl1Titulo = new JLabel(imgPuzzle1);
+        Puzzl1Titulo.setBounds(270, 40, imgPuzzle1.getIconWidth(), imgPuzzle1.getIconHeight());
+
         this.jorjao = new Personagem(
                 new ImageIcon(PuzzleEscolha1.class.getResource("/assets/JorjaoNormal.png")),
                 70, 180
@@ -55,6 +60,7 @@ public class PuzzleEscolha1 extends JPanel {
         );
         caixaDialogoJorjao.setVisible(false);
 
+        labelFundo.add(Puzzl1Titulo);
         add(labelFundo);
         criarOpcoes();
     }
