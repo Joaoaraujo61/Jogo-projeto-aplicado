@@ -1,5 +1,7 @@
 package telas;
 
+import componentes.GerenciadorSom;
+
 import javax.swing.*;
 
 public class FrameJanela extends JFrame {
@@ -12,6 +14,7 @@ public class FrameJanela extends JFrame {
         setResizable(false);
         
         setContentPane(new MenuInicial(this));
+        GerenciadorSom.tocarTrilha("/assets/sons/trilha-fundo.wav",0.35f);
         
         pack();
         setLocationRelativeTo(null);

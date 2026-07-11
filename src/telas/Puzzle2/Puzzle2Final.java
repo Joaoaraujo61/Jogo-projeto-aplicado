@@ -14,7 +14,6 @@ import java.awt.event.MouseEvent;
 public class Puzzle2Final extends JPanel implements Puzzle2Interface {
     private JLabel labelFundo;
     private FrameJanela frame;
-    private Botao botaoVestidoCosturado; // asset do vestido já costurado
     private Botao botaoCalendario;
     private Botao botaoCalendarioZoom;
     private JLabel labelBarraAvanco;
@@ -33,11 +32,6 @@ public class Puzzle2Final extends JPanel implements Puzzle2Interface {
 
         ImageIcon fundo = new ImageIcon(getClass().getResource("/assets/QuartRosalngelaSemVestido.png"));
 
-        // vestido já costurado no cabide — troque pelo asset correto
-       //ImageIcon imgVestidoCosturado = new ImageIcon(getClass().getResource("/assets/2-6.png"));
-        //this.botaoVestidoCosturado = new Botao(imageCon.vestidoRasgadoNoCabide, 1070, 220);
-        this.botaoVestidoCosturado = new Botao(imageCon.vestidoRasgadoNoCabide, 1070, 220);
-        botaoVestidoCosturado.configuracoesPadrao();
 
         this.botaoCalendario = new Botao(imageCon.calendario, 150, 270);
         botaoCalendario.configuracoesPadrao();
@@ -48,7 +42,6 @@ public class Puzzle2Final extends JPanel implements Puzzle2Interface {
         this.labelFundo = new JLabel(fundo);
         labelFundo.setBounds(0, 0, 1280, 720);
         labelFundo.setLayout(null);
-        labelFundo.add(botaoVestidoCosturado.getBotaoClicavel());
         labelFundo.add(labelBarraAvanco);
         labelFundo.add(botaoCalendario.getBotaoClicavel());
         
@@ -96,7 +89,6 @@ public class Puzzle2Final extends JPanel implements Puzzle2Interface {
     @Override
     public void darZoomCalendario() {
         labelFundo.add(botaoCalendarioZoom.getBotaoClicavel());
-        labelFundo.remove(botaoVestidoCosturado.getBotaoClicavel());
         labelFundo.remove(botaoCalendario.getBotaoClicavel());
         labelFundo.remove(labelBarraAvanco);
         labelFundo.revalidate();
@@ -106,7 +98,6 @@ public class Puzzle2Final extends JPanel implements Puzzle2Interface {
     @Override
     public void tirarZoomCalendario() {
         labelFundo.remove(botaoCalendarioZoom.getBotaoClicavel());
-        labelFundo.add(botaoVestidoCosturado.getBotaoClicavel());
         labelFundo.add(botaoCalendario.getBotaoClicavel());
         labelFundo.add(labelBarraAvanco);
         labelFundo.revalidate();
@@ -132,7 +123,6 @@ public class Puzzle2Final extends JPanel implements Puzzle2Interface {
             indiceDaFala++;
         } else {
             caixaPensamento.setVisible(false);
-            labelFundo.remove(botaoVestidoCosturado.getBotaoClicavel());
             labelFundo.repaint();
         }
 

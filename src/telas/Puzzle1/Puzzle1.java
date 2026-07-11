@@ -52,6 +52,7 @@
 
             //Imagem Telefone
             Telefone telefone = new Telefone();
+            telefone.getTelefoneBtn().getBotaoClicavel().setFocusable(false);
 
             //Caixa Telefone
            // ImageIcon imgCaixaTelefone = new ImageIcon(Puzzle1.class.getResource("/assets/DialogoTelefoneMae.png"));

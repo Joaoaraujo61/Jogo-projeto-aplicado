@@ -111,8 +111,8 @@ public class Puzzle2 extends JPanel{
         String[] textoCaixa = {
                 "Preciso me trocar rápido antes que ele volte e desconfie de algo...",
                 "Onde estão minhas roupas boas? Ai não, meu vestido favorito,",
-                "o mesmo que ele rasgou naquele dia em que se irritou comigo,",
-                "ele vai perceber que algo está errado se eu sair assim.",
+                "o mesmo que ele rasgou naquele dia em que se irritou comigo.",
+                "Preciso dar um jeito nisso e sair daqui o quanto antes.",
         };
 
         caixaPensamento.setCursor(new Cursor(Cursor.HAND_CURSOR));
