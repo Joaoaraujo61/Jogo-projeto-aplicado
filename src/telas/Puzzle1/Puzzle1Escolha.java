@@ -8,9 +8,9 @@ import telas.Puzzle2.Puzzle2;
 import javax.swing.*;
 import java.awt.*;
 
-public class PuzzleEscolha1 extends JPanel {
+public class Puzzle1Escolha extends JPanel {
 
-    private final JLabel Puzzl1Titulo;
+    private final JLabel labelTituloPuzzle1;
     private FrameJanela frame;
     private JLabel labelFundo;
 
@@ -23,33 +23,34 @@ public class PuzzleEscolha1 extends JPanel {
     private CaixaDialogo caixaDialogoJorjao;
     private Personagem jorjao;
 
-    public PuzzleEscolha1(FrameJanela frame) {
+    public Puzzle1Escolha(FrameJanela frame) {
         this.frame = frame;
-
         setLayout(null);
         setPreferredSize(new Dimension(1280, 720));
 
         ImageIcon fundo = new ImageIcon(
-                PuzzleEscolha1.class.getResource("/assets/salaDeEstar-pixilart.png")
+                Puzzle1Escolha.class.getResource("/assets/salaDeEstar-pixilart.png")
         );
 
-        labelFundo = new JLabel(fundo);
+        this.labelFundo = new JLabel(fundo);
         labelFundo.setBounds(0, 0, 1280, 720);
         labelFundo.setLayout(null);
 
         ImageIcon imgPuzzle1 = new ImageIcon(getClass().getResource("/assets/Puzzle_1.png"));
-        this.Puzzl1Titulo = new JLabel(imgPuzzle1);
-        Puzzl1Titulo.setBounds(270, 40, imgPuzzle1.getIconWidth(), imgPuzzle1.getIconHeight());
+        this.labelTituloPuzzle1 = new JLabel(imgPuzzle1);
+        labelTituloPuzzle1.setBounds(270, 30, imgPuzzle1.getIconWidth(), imgPuzzle1.getIconHeight());
 
         this.jorjao = new Personagem(
-                new ImageIcon(PuzzleEscolha1.class.getResource("/assets/JorjaoNormal.png")),
+                new ImageIcon(Puzzle1Escolha.class.getResource("/assets/JorjaoNormal.png")),
                 70, 180
         );
         this.spriteJorjao = jorjao.getSprite();
         spriteJorjao.setVisible(false);
 
+
+
         ImageIcon imgDialogo = new ImageIcon(
-                PuzzleEscolha1.class.getResource("/assets/DialogoJorjao.png")
+                Puzzle1Escolha.class.getResource("/assets/DialogoJorjao.png")
         );
 
         caixaDialogoJorjao = new CaixaDialogo(
@@ -60,9 +61,9 @@ public class PuzzleEscolha1 extends JPanel {
         );
         caixaDialogoJorjao.setVisible(false);
 
-        labelFundo.add(Puzzl1Titulo);
         add(labelFundo);
         criarOpcoes();
+        labelFundo.add(labelTituloPuzzle1);
     }
 
     private void criarOpcoes() {
@@ -99,21 +100,13 @@ public class PuzzleEscolha1 extends JPanel {
     }
 
     private void configurarEventos() {
-        opcao1.addActionListener(e -> {
-            mostrarResposta("Não vou poder te acompanhar na sua mãe hoje<br> e não quero que saia sozinha.");
-            bloquearOpcao(opcao1);
-            tenteNovamente();
-        });
-        opcao2.addActionListener(e -> {
-            mostrarResposta("Como assim? Mas a casa está uma bagunça, você <br>não pretende sair e deixar ela desse jeito, né?");
-            bloquearOpcao(opcao2);
-            tenteNovamente();
-        });
-        opcao4.addActionListener(e -> {
-            mostrarResposta("Mas nem pensar! Você nem terminou de passar <br> minhas roupas.");
-            bloquearOpcao(opcao4);
-            tenteNovamente();
-        });
+        opcao1.addActionListener(e -> tratarErro(opcao1,
+                "Não vou poder te acompanhar na sua mãe hoje<br> e não quero que saia sozinha."));
+        opcao2.addActionListener(e -> tratarErro(opcao2,
+                "Como assim? Mas a casa está uma bagunça, você <br>não pretende sair e deixar ela desse jeito, né?"));
+        opcao4.addActionListener(e -> tratarErro(opcao4,
+                "Mas nem pensar! Você nem terminou de passar <br> minhas roupas."));
+
         opcao3.addActionListener(e -> {
             mostrarResposta("Consulta na UBS? Não me lembro disso. Mas tudo bem,<br> vá, mas troque de roupa antes, não quero que os <br>médicos te vejam assim...");
             desabilitarTodas();
@@ -122,21 +115,44 @@ public class PuzzleEscolha1 extends JPanel {
                 ((Timer) evento.getSource()).stop();
                 SwingUtilities.invokeLater(() -> {
                     JOptionPane.showMessageDialog(
-                            SwingUtilities.getWindowAncestor(PuzzleEscolha1.this),
+                            SwingUtilities.getWindowAncestor(Puzzle1Escolha.this),
                             "Puzzle concluído!"
                     );
                     frame.trocarTela(new Puzzle2(frame));
                 });
             });
-
             timer.setRepeats(false);
             timer.start();
         });
     }
 
+    private void tratarErro(JButton botao, String fala) {
+        mostrarResposta(fala);
+        bloquearOpcao(botao);
+        desabilitarTodas();      // trava tudo enquanto o diálogo não aparece
+
+        Timer timerTente = new Timer(3000, evento -> {
+            ((Timer) evento.getSource()).stop();
+            SwingUtilities.invokeLater(() -> {
+                JOptionPane.showMessageDialog(
+                        SwingUtilities.getWindowAncestor(Puzzle1Escolha.this),
+                        "Tente outra desculpa"
+                );
+                reabilitarOpcoesNaoBloqueadas(); // libera só as ainda não tentadas
+            });
+        });
+        timerTente.setRepeats(false);
+        timerTente.start();
+    }
+
+    private void reabilitarOpcoesNaoBloqueadas() {
+        for (JButton b : new JButton[]{opcao1, opcao2, opcao3, opcao4}) {
+            if (b.getBackground() != Color.GRAY) { // não foi "bloqueado" permanentemente
+                b.setEnabled(true);
+            }
+        }
+    }
     private void mostrarResposta(String texto) {
-        labelFundo.remove(spriteJorjao);
-        labelFundo.remove(caixaDialogoJorjao);
 
         labelFundo.add(spriteJorjao, 0);
         labelFundo.add(caixaDialogoJorjao, 0);
@@ -156,7 +172,7 @@ public class PuzzleEscolha1 extends JPanel {
              ((Timer) evento.getSource()).stop();
              SwingUtilities.invokeLater(() -> {
                  JOptionPane.showMessageDialog(
-                         SwingUtilities.getWindowAncestor(PuzzleEscolha1.this),
+                         SwingUtilities.getWindowAncestor(Puzzle1Escolha.this),
                          "Tente outra desculpa"
                  );
               

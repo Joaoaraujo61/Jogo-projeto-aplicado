@@ -184,7 +184,7 @@
                     etapa++;
                     break;
                 case 4:
-                    frame.trocarTela(new PuzzleEscolha1(frame));;
+                    frame.trocarTela(new Puzzle1Escolha(frame));;
                     JOptionPane.showMessageDialog(
                             frame,
                             "Puzzle 1: Escolha a opcão certa para conseguir a permissão para sair.",

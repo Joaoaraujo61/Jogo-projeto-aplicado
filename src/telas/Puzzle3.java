@@ -1,15 +1,9 @@
 package telas;
 
-import telas.MenuInicial;
 import telas.Puzzle1.Puzzle1;
-import telas.Puzzle1.PuzzleEscolha1;
-import componentes.*;
-import telas.FrameJanela;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 

@@ -59,10 +59,7 @@ public class Puzzle2Final extends JPanel implements Puzzle2Interface {
         labelFundo.add(caixaPensamento);
 
         
-        //Adicionando uma ação para o vestido costurado
-        /*botaoVestidoCosturado.getBotaoClicavel().addActionListener(e -> {
-        	frame.trocarTela(new Puzzle3(frame));
-        });*/
+
         botaoCalendario.getBotaoClicavel().addActionListener(e -> darZoomCalendario());
         botaoCalendarioZoom.getBotaoClicavel().addActionListener(e -> tirarZoomCalendario());
        
@@ -130,14 +127,6 @@ public class Puzzle2Final extends JPanel implements Puzzle2Interface {
 
         caixaPensamento.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
-        //Mudar para que o usuário possa clicar em qq lugar da tela para passar a cena?
-//        caixaPensamento.addMouseListener(new MouseAdapter() {
-//            public void mouseClicked(MouseEvent e) {
-//                frame.trocarTela(new Puzzle3(frame));
-//                caixaPensamento.setVisible(false);
-//                labelFundo.repaint();
-//            }
-//        });
         if (indiceDaFala < textoCaixa.length) {
             caixaPensamento.digitarTexto(textoCaixa[indiceDaFala]);
             indiceDaFala++;
