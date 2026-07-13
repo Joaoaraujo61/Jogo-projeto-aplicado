@@ -5,6 +5,8 @@ import javax.swing.*;
 import componentes.Botao;
 
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Puzzle6 extends JPanel {
 
@@ -13,6 +15,9 @@ public class Puzzle6 extends JPanel {
     private boolean pegouGrampo = false;
     private JLabel labelBarraAvanco;
     private FrameJanela frame;
+    private ImageIcon imgFechaduraGrampo;
+    private JLabel labelFechaduraGrampo;
+    private Botao btnFechaduraGrampo;
 
     
 
@@ -21,12 +26,6 @@ public class Puzzle6 extends JPanel {
 		
 		setLayout(null);
 		setPreferredSize(new Dimension(1280, 720));
-		
-		/*//Fundo
-		ImageIcon fundo = new ImageIcon(MenuInicial.class.getResource("/assets/salaDeEstar-pixilart.png"));
-		this.labelFundo = new JLabel(fundo);
-		labelFundo.setBounds(0, 0, 1280, 720);
-		labelFundo.setLayout(null);*/
 	  
 		//Imagem barra de avanço
 		ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/barras-de-avanco/5-6.png"));
@@ -34,6 +33,18 @@ public class Puzzle6 extends JPanel {
 		labelBarraAvanco.setBounds(0, 0, imgBarra.getIconWidth(), imgBarra.getIconHeight());
 		labelBarraAvanco.setLayout(null);
 		//this.add(labelBarraAvanco);
+		
+		 //Botão fechadura grampo
+	       this.imgFechaduraGrampo = new ImageIcon(MenuInicial.class.getResource("/assets/FechaduraComGampoDaPortaZoom2.png"));
+	   	   this.labelFechaduraGrampo = new JLabel(imgFechaduraGrampo);
+	       labelFechaduraGrampo.setBounds(162, 480, imgFechaduraGrampo.getIconWidth(), imgFechaduraGrampo.getIconHeight());
+	       this.btnFechaduraGrampo = new Botao(imgFechaduraGrampo, 162, 420);
+	       JButton botao = btnFechaduraGrampo.getBotaoClicavel();
+	       botao.setBorderPainted(false);
+	       botao.setContentAreaFilled(false);
+	       botao.setFocusPainted(false);
+	       
+		
 		mostrarSala();
     }
 
@@ -41,21 +52,13 @@ public class Puzzle6 extends JPanel {
         trocarFundo("/assets/SalaComPorta.png");
 
         JButton planta = criarBotao(950, 250, 250, 350);
-        planta.addActionListener(e -> mostrarPlanta());
+        planta.addActionListener(e -> mostrarZoomPlanta());
         fundo.add(planta);
 
         JButton porta = criarBotao(510, 80, 290, 470);
         porta.addActionListener(e -> mostrarPortaZoom());
         fundo.add(labelBarraAvanco);
         fundo.add(porta);
-    }
-
-    private void mostrarPlanta() {
-        trocarFundo("/assets/plantaDaSala.png");
-
-        JButton vaso = criarBotao(0, 0, 1280, 720);
-        vaso.addActionListener(e -> mostrarZoomPlanta());
-        fundo.add(vaso);
     }
 
     private void mostrarZoomPlanta() {
@@ -69,7 +72,7 @@ public class Puzzle6 extends JPanel {
     private void pegarGrampo() {
         pegouGrampo = true;
 
-        trocarFundo("/assets/Grampo.png");
+        //trocarFundo("/assets/Grampo.png");
 
         JOptionPane.showMessageDialog(
                 this,
@@ -89,7 +92,7 @@ public class Puzzle6 extends JPanel {
 
     private void tentarAbrirFechadura() {
         if (!pegouGrampo) {
-            trocarFundo("/assets/fechadurazoom.png");
+            //trocarFundo("/assets/fechadurazoom2.png");
 
             JOptionPane.showMessageDialog(
                     this,
@@ -103,15 +106,14 @@ public class Puzzle6 extends JPanel {
         mostrarFechaduraComGrampo();
     }
 
-    private void mostrarFechaduraComGrampo() {
-        trocarFundo("/assets/FechaduraComGampoDaPortaZoom.png");
+private void mostrarFechaduraComGrampo() {
+	trocarFundo("/assets/SalaFechadura2.png");
+	 JOptionPane.showMessageDialog(
+             this,
+             "Você usou o grampo para destrancar a porta."
+     );
 
-        JOptionPane.showMessageDialog(
-                this,
-                "Você usou o grampo para destrancar a porta."
-        );
-
-        mostrarPortaAberta();
+     mostrarPortaAberta();
     }
 
     private void mostrarPortaAberta() {
@@ -146,6 +148,7 @@ public class Puzzle6 extends JPanel {
         fundo = new JLabel(new ImageIcon(imagem));
         fundo.setBounds(0, 0, 1280, 720);
         fundo.setLayout(null);
+        fundo.setOpaque(false);
 
         add(fundo);
 
