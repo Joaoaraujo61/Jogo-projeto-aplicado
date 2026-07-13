@@ -1,12 +1,7 @@
 package telas;
 
 import javax.swing.*;
-
-
 import componentes.Botao;
-import telas.Puzzle2.Puzzle2Final;
-
-
 import java.awt.*;
 
 public class MenuInicial extends JPanel{
@@ -17,7 +12,6 @@ public class MenuInicial extends JPanel{
         setPreferredSize(new Dimension(1280, 720));
 
         ImageIcon iconeComecar = new ImageIcon(MenuInicial.class.getResource("/assets/botaoComecar.png"));
-        ImageIcon iconeContinuar = new ImageIcon(MenuInicial.class.getResource("/assets/botaoContinuar.png"));
         this.fundo = new ImageIcon(MenuInicial.class.getResource("/assets/fundoMenu.png"));
         ImageIcon nomeJogo = new ImageIcon(MenuInicial.class.getResource("/assets/RotaDeFuga.png"));
 
@@ -32,19 +26,16 @@ public class MenuInicial extends JPanel{
 
         //Botoes
         Botao botaoComecar = new Botao(iconeComecar, 490, 380);
-        Botao botaoContinuar = new Botao(iconeContinuar, 472, 504);
 
         //
         //Adiciona elementos
         labelFundo.add(labelNomeJogo);
-        labelFundo.add(botaoContinuar.getBotaoClicavel());
         labelFundo.add(botaoComecar.getBotaoClicavel());
 
         add(labelFundo);
 
         botaoComecar.getBotaoClicavel().addActionListener(e ->{
-        	frame.trocarTela(new CenaFinal(frame));
-            //frame.trocarTela(new Puzzle1(frame));
+            frame.trocarTela(new CenaInicial(frame));
         });
 
     }

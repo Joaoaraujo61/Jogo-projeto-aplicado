@@ -33,7 +33,7 @@ public class CenaFinal  extends JPanel {
       };
       
         this.labelFundo = new JLabel(quadrosCenaFinal[0]);
-        labelFundo.setBounds(0, 0, 1280, 720);
+        labelFundo.setBounds(0, 0, 1279, 720);
         this.add(labelFundo); 
 
         this.setComponentZOrder(labelFundo, this.getComponentCount() - 1);
