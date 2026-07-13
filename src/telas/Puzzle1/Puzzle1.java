@@ -36,7 +36,7 @@
             setPreferredSize(new Dimension(1280, 720));
             
             //personagens
-            this.odete = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/Odete.png")), 737, 291);
+            this.odete = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/maeComFiltroAzul.png")), 250, 170);
             this.rosangela = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/RosangelaNormal.png")), -70, 250);
             
             //Barra de progresso

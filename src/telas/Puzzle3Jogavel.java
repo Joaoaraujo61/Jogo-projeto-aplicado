@@ -18,9 +18,9 @@ public class Puzzle3Jogavel extends JPanel {
     
     
     private final Point[] slotsFios = {
-        new Point(390, 260), // Slot 0
+        new Point(390, 220), // Slot 0
         new Point(390, 350), // Slot 1
-        new Point(390, 420)  // Slot 2
+        new Point(390, 480)  // Slot 2
     }; //X: Anteriormente tinha o valor de 358
     private int[] slotAtualDoFio = {0, 1, 2};
 
