@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b92d4aa6-1d22-4ecd-8187-bd7921a833da" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2/Puzzle2Final$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2/Puzzle2Final$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2/Puzzle2Final$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2/Puzzle2Final$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2/Puzzle2Final.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2/Puzzle2Final.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/MenuInicial.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/MenuInicial.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telas/Puzzle2/Puzzle2Final.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/Puzzle2/Puzzle2Final.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/telas/MenuInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/MenuInicial.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/telas/Puzzle4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/Puzzle4.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/telas/Puzzle5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/Puzzle5.java" afterDir="false" />
     </list>
