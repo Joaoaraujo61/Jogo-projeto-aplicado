@@ -1,15 +1,10 @@
 package telas;
 
-import telas.MenuInicial;
+import componentes.ImageCon;
 import telas.Puzzle1.Puzzle1;
-import telas.Puzzle1.PuzzleEscolha1;
-import componentes.*;
-import telas.FrameJanela;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -24,7 +19,7 @@ public class Puzzle3 extends JPanel {
     private Botao telefoneBtn;
     private CaixaDialogo caixaPensamento;
     private JLabel labelBarraAvanco;
-
+    private JLabel rosangelaVestidoCinza;
 
     public Puzzle3(FrameJanela frame) {
         this.frame = frame; 
@@ -37,6 +32,10 @@ public class Puzzle3 extends JPanel {
         labelBarraAvanco.setBounds(0, 0, imgBarra.getIconWidth(), imgBarra.getIconHeight());
         labelBarraAvanco.setLayout(null);
         this.add(labelBarraAvanco);
+
+        ImageCon imageCon = new ImageCon();
+        this.rosangelaVestidoCinza = new JLabel(imageCon.rosangelaVestidoNovo);
+        rosangelaVestidoCinza.setBounds(-70, 250, imageCon.rosangelaVestidoNovo.getIconWidth(), imageCon.rosangelaVestidoNovo.getIconHeight());
         
         // Imagens do Telefone
         this.imgTelefone = new ImageIcon(MenuInicial.class.getResource("/assets/telefoneRompido.png"));
@@ -67,7 +66,8 @@ public class Puzzle3 extends JPanel {
         this.add(caixaPensamento);
 
         this.setComponentZOrder(labelFundo, this.getComponentCount() - 1);
-        
+
+        labelFundo.add(rosangelaVestidoCinza);
         apareceDialogo();
     } 
      
@@ -82,6 +82,7 @@ public class Puzzle3 extends JPanel {
 	    caixaPensamento.addMouseListener(new MouseAdapter() {
              public void mouseClicked(MouseEvent e) {
             	 frame.trocarTela(new Puzzle3(frame));
+                 labelFundo.remove(rosangelaVestidoCinza);
            		 caixaPensamento.setVisible(false); 
            	        labelFundo.repaint();
              }

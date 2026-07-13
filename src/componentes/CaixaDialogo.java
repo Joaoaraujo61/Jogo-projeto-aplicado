@@ -21,7 +21,7 @@ public class CaixaDialogo extends JLabel {
 
 
         labelTexto = new JLabel();
-        labelTexto.setBounds(140, 35, larguraTexto, imagem.getIconHeight()-20);
+        labelTexto.setBounds(140, 60, larguraTexto, imagem.getIconHeight()-20);
 
         
 

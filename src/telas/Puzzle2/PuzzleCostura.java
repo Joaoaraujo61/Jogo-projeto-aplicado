@@ -1,5 +1,6 @@
 package telas.Puzzle2;
 
+import componentes.BotaoVolume;
 import componentes.LinhasCosturaPanel;
 import telas.FrameJanela;
 import telas.Puzzle3;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.awt.event.MouseEvent;
 
 public class PuzzleCostura extends JPanel {
+    private BotaoVolume botaoVolume;
     // Sequência correta: alternar borda A (esquerda) e borda B (direita)
     private Point[] sequencia = {
             new Point(780, 140),  // ponto 1 — borda esquerda do rasgo, topo

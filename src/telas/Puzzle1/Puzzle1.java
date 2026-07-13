@@ -5,6 +5,7 @@
 
     import javax.swing.*;
     import java.awt.*;
+    import java.awt.event.ActionEvent;
     import java.awt.event.MouseAdapter;
     import java.awt.event.MouseEvent;
     
@@ -21,6 +22,8 @@
         private Personagem odete;
         private FrameJanela frame;
         private JLabel labelBarraAvanco;
+        private Timer timerTelefone;
+        private Telefone telefoneRef;
         
         private float alphaFade = 1.0f;
 
@@ -49,6 +52,7 @@
 
             //Imagem Telefone
             Telefone telefone = new Telefone();
+            telefone.getTelefoneBtn().getBotaoClicavel().setFocusable(false);
 
             //Caixa Telefone
            // ImageIcon imgCaixaTelefone = new ImageIcon(Puzzle1.class.getResource("/assets/DialogoTelefoneMae.png"));
@@ -70,11 +74,39 @@
          
             
             iniciarFadeIn();
-            tocarTelefone(telefone);            
-        }  
+            configurarAvancoGlobal();
+            tocarTelefone(telefone);
+        }
+
+        private void configurarAvancoGlobal() {
+            this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+                    KeyStroke.getKeyStroke("SPACE"), "avancarHistoria"
+            );
+            this.getActionMap().put("avancarHistoria", new AbstractAction() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    tentarAvancoGlobal();
+                }
+            });
+
+            // Clique em qualquer lugar do fundo: só avança se etapa >= 1
+            labelFundo.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    tentarAvancoGlobal();
+                }
+            });
+        }
+
+        // Método "porteiro": só deixa passar se já passou da etapa do telefone
+        private void tentarAvancoGlobal() {
+            if (etapa >= 1) {
+                avancaCena(timerTelefone, telefoneRef);
+            }
+        }
 
         public void tocarTelefone(Telefone telefone){
-            Timer timer = new Timer(500, e ->{
+            this.timerTelefone = new Timer(500, e -> {
                 JButton botao = telefone.getTelefoneBtn().getBotaoClicavel();
                 Icon iconeAtual = botao.getIcon();
                 if (iconeAtual == telefone.getImgTelefone()) {
@@ -85,19 +117,12 @@
             });
 
             telefone.getTelefoneBtn().getBotaoClicavel().addActionListener(e -> {
-                if(etapa < 2){
-                    avancaCena(timer, telefone);
+                if (etapa == 0) {
+                    avancaCena(timerTelefone, telefone); // única porta de saída da etapa 0
                 }
-                    caixaPensamento.addMouseListener(new MouseAdapter() {
-                        public void mouseClicked(MouseEvent e) {
-                            if (etapa >= 2) {
-                                avancaCena(timer, telefone);
-                            }
-                        }
-                    });
             });
-            timer.start();
-          
+
+            timerTelefone.start();
         }
         
         private void iniciarFadeIn() {
@@ -138,6 +163,8 @@
             switch (etapa){
                 case 0:
                 	labelFundo.add(odete.getSprite());
+                    labelFundo.remove(telefone.getTelefoneBtn().getBotaoClicavel());
+                    labelFundo.add(telefone.getTelefoneBtn().getBotaoClicavel());
                     rosangela.atenderTelefone(timer,telefone.getTelefoneBtn(), telefone.getImgTelefone(), labelFundo,caixaDialogo);
                     etapa++;
                     break;
@@ -158,7 +185,13 @@
                     etapa++;
                     break;
                 case 4:
-                    frame.trocarTela(new PuzzleEscolha1(frame));;
+                    frame.trocarTela(new Puzzle1Escolha(frame));;
+                    JOptionPane.showMessageDialog(
+                            frame,
+                            "Puzzle 1: Escolha a opcão certa para conseguir a permissão para sair.",
+                            "Instrução",
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
                     etapa++;
                     break;
             }

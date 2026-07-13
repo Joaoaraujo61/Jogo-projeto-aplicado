@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import componentes.*;
 import telas.Puzzle1.Puzzle1;
+import telas.Puzzle2.Puzzle2;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,13 +21,11 @@ import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
 
 public class CenaInicial extends JPanel {
-
     private FrameJanela frame;
     private CaixaDialogo caixaDialogo;
     private int indiceDaFala = 0;
-    
     private float alphaFade = 0.0f;
-	
+    private BotaoVolume botaoVolume;
 
     private String[] dialogoInicial = {
         "Eu estava no 2° semestre de medicina de uma universidade federal, <br> quando trombei pelos corredores da faculdade, com um cara chamado <br>Jorjão,  que estava no 6° semestre de Relações Internacionais.",
@@ -36,13 +35,14 @@ public class CenaInicial extends JPanel {
     };
 
     public CenaInicial(FrameJanela frame) {
-       
         this.frame = frame;
         setLayout(null);
         setPreferredSize(new Dimension(1280, 720));
-        this.setBackground(Color.BLACK); 
+        this.setBackground(Color.BLACK);
 
-        
+        this.botaoVolume = new BotaoVolume();
+        this.add(botaoVolume.getBotaoSom());
+
         caixaDialogo = new CaixaDialogo(120, 500, Color.WHITE);
         this.add(caixaDialogo);
 
