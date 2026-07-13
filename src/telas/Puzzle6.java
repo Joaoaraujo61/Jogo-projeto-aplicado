@@ -16,6 +16,7 @@ public class Puzzle6 extends JPanel {
     private JLabel labelBarraAvanco;
     private FrameJanela frame;
     private ImageIcon imgFechaduraGrampo;
+    private JLabel labelFechaduraGrampo;
     private Botao btnFechaduraGrampo;
 
     
@@ -25,12 +26,6 @@ public class Puzzle6 extends JPanel {
 		
 		setLayout(null);
 		setPreferredSize(new Dimension(1280, 720));
-		
-		/*//Fundo
-		ImageIcon fundo = new ImageIcon(MenuInicial.class.getResource("/assets/salaDeEstar-pixilart.png"));
-		this.labelFundo = new JLabel(fundo);
-		labelFundo.setBounds(0, 0, 1280, 720);
-		labelFundo.setLayout(null);*/
 	  
 		//Imagem barra de avanço
 		ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/barras-de-avanco/5-6.png"));
@@ -41,7 +36,9 @@ public class Puzzle6 extends JPanel {
 		
 		 //Botão fechadura grampo
 	       this.imgFechaduraGrampo = new ImageIcon(MenuInicial.class.getResource("/assets/FechaduraComGampoDaPortaZoom2.png"));
-	       this.btnFechaduraGrampo = new Botao(imgFechaduraGrampo, 160, 412);
+	   	   this.labelFechaduraGrampo = new JLabel(imgFechaduraGrampo);
+	       labelFechaduraGrampo.setBounds(162, 480, imgFechaduraGrampo.getIconWidth(), imgFechaduraGrampo.getIconHeight());
+	       this.btnFechaduraGrampo = new Botao(imgFechaduraGrampo, 162, 420);
 	       JButton botao = btnFechaduraGrampo.getBotaoClicavel();
 	       botao.setBorderPainted(false);
 	       botao.setContentAreaFilled(false);
@@ -75,7 +72,7 @@ public class Puzzle6 extends JPanel {
     private void pegarGrampo() {
         pegouGrampo = true;
 
-        trocarFundo("/assets/Grampo.png");
+        //trocarFundo("/assets/Grampo.png");
 
         JOptionPane.showMessageDialog(
                 this,
@@ -109,62 +106,14 @@ public class Puzzle6 extends JPanel {
         mostrarFechaduraComGrampo();
     }
 
-  /*  private void mostrarFechaduraComGrampo() {
-       // trocarFundo("/assets/FechaduraComGampoDaPortaZoom2.png");]
-    	//labelFundo.add(btnFechaduraGrampo.getBotaoClicavel());
-    	fundo.add(btnFechaduraGrampo.getBotaoClicavel());
-    	//fundo.add(btnFechaduraGrampo);
-    	/*btnFechaduraGrampo.getBotaoClicavel().addActionListener(e -> mostrarPortaAberta());
-
-        JOptionPane.showMessageDialog(
-                this,
-                "Você usou o grampo para destrancar a porta."
-        );*/
-
-        //mostrarPortaAberta();
-     /*   btnFechaduraGrampo.getBotaoClicavel().addActionListener(e -> {
-        	JOptionPane.showMessageDialog(
-                    this,
-                    "Você usou o grampo para destrancar a porta."
-            );
-            mostrarPortaAberta();
-
-        });
-    }*/
-
 private void mostrarFechaduraComGrampo() {
-        // 1. Muda o fundo para o asset da fechadura em zoom
-        //trocarFundo("/assets/FechaduraComGampoDaPortaZoom2.png");
-	trocarFundo("/assets/PortaZoom.png");
-        
-        // 2. Resgata o botão clicável de dentro do seu componente customizado
-        JButton botao = btnFechaduraGrampo.getBotaoClicavel();
-        
-        // 3. Garante que ele tenha um tamanho e posição válidos na tela!
-        // Ajuste X, Y, Largura e Altura para ficarem exatamente onde o jogador deve clicar
-        botao.setBounds(160, 412, 200, 200); 
-        
-        // 4. Remove action listeners antigos para não acumular cliques duplicados
-        for (java.awt.event.ActionListener al : botao.getActionListeners()) {
-            botao.removeActionListener(al);
-        }
-        
-        // 5. Configura a ação de clique do botão
-        botao.addActionListener(e -> {
-            JOptionPane.showMessageDialog(
-                    this,
-                    "Você usou o grampo para destrancar a porta."
-            );
-            mostrarPortaAberta();
-        });
-        
-        // 6. Adiciona o botão no novo fundo e puxa para a frente
-        fundo.add(botao);
-        fundo.setComponentZOrder(botao, 0);
-        
-        // 7. Força o Java Swing a desenhar o novo botão na tela!
-        fundo.revalidate();
-        fundo.repaint();
+	trocarFundo("/assets/SalaFechadura2.png");
+	 JOptionPane.showMessageDialog(
+             this,
+             "Você usou o grampo para destrancar a porta."
+     );
+
+     mostrarPortaAberta();
     }
 
     private void mostrarPortaAberta() {
