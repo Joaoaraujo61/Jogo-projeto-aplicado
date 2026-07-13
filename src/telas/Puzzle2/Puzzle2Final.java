@@ -3,6 +3,7 @@ package telas.Puzzle2;
 import componentes.*;
 import telas.FrameJanela;
 import telas.Puzzle3;
+import telas.Puzzle3Jogavel;
 import telas.Puzzle5;
 import telas.Puzzle1.Puzzle1;
 
@@ -159,7 +160,9 @@ public class Puzzle2Final extends JPanel implements Puzzle2Interface {
         labelFundo.add(labelBarraAvanco);
 
         // Só mostra a seta pro Puzzle3 se o calendário já foi aberto ao menos uma vez
-        if (calendarioJaAberto) {
+        // E se o jogador NÃO veio do Puzzle5 — se veio, ele já passou pelo Puzzle3/4,
+        // então essa seta não deve reaparecer (evita reiniciar o fluxo do jogo).
+        if (calendarioJaAberto && !veioDoPuzzle5) {
             labelFundo.add(botaoSeta.getBotaoClicavel());
         }
 
@@ -195,9 +198,7 @@ public class Puzzle2Final extends JPanel implements Puzzle2Interface {
             caixaPensamento.digitarTexto(textoCaixa[indiceDaFala]);
             indiceDaFala++;
         } else {
-            caixaPensamento.setVisible(false);
-            labelFundo.remove(rosangelaVestidoCinza);
-            labelFundo.repaint();
+            frame.trocarTela(new Puzzle3(frame));
         }
 
     }

@@ -87,9 +87,18 @@ public class Puzzle5 extends JPanel {
         cofre.addActionListener(e -> mostrarCofreFechado());
         fundo.add(cofre);
 
-        // Seta que leva para o Puzzle2Final. Passa "true" para que o
-        // Puzzle2Final saiba que o jogador veio daqui e mostre a seta de volta.
-        // OBS: ajuste "/assets/seta.png" para o caminho real do seu asset.
+        adicionarSetaPuzzle2Final();
+    }
+
+    /**
+     * Adiciona a seta que leva para o Puzzle2Final. Precisa ser chamada em
+     * TODA tela do fluxo do armário/cofre, porque trocarFundo() limpa os
+     * componentes anteriores a cada troca de imagem (removeAll()).
+     * Passa "true" para que o Puzzle2Final saiba que o jogador veio daqui
+     * e mostre a seta de volta.
+     * OBS: ajuste "/assets/seta.png" para o caminho real do seu asset.
+     */
+    private void adicionarSetaPuzzle2Final() {
         ImageIcon imgSeta = new ImageIcon(getClass().getResource("/assets/seta.png"));
         JButton botaoSeta = criarBotao(1130, 600, imgSeta.getIconWidth(), imgSeta.getIconHeight());
         botaoSeta.setIcon(imgSeta);
@@ -154,6 +163,8 @@ public class Puzzle5 extends JPanel {
             }
         });
         fundo.add(apagar);
+
+        adicionarSetaPuzzle2Final();
     }
 
     private void criarBotaoNumero(String numero, int x, int y) {
@@ -183,6 +194,8 @@ public class Puzzle5 extends JPanel {
             mostrarCofreAberto();
         });
         fundo.add(dinheiro);
+
+        adicionarSetaPuzzle2Final();
     }
     private void mostrarCofreAberto() {
         trocarFundo("/assets/CofreAberto.png");
