@@ -1,14 +1,6 @@
 package telas;
 
-import telas.MenuInicial;
-import telas.Puzzle3Jogavel;
 import componentes.*;
-import telas.FrameJanela;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import javax.swing.*;
 import java.awt.*;
@@ -127,7 +119,7 @@ public class Puzzle4 extends JPanel{
         } else {
       
             timer.stop();
-            frame.trocarTela(new Puzzle5(frame));        
+            frame.trocarTela(new Puzzle5(frame, true));
              labelFundo.remove(caixaDialogo); labelFundo.repaint();
         }
         labelFundo.setComponentZOrder(caixaDialogo, 0);

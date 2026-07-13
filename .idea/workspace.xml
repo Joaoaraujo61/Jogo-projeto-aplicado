@@ -5,26 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b92d4aa6-1d22-4ecd-8187-bd7921a833da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/componentes/BotaoVolume.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/assets/rosagela-vestido-cinza.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/assets/rosagela-vestido-cinza.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/ImageCon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/componentes/ImageCon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/CenaInicial.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/CenaInicial.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/FrameJanela.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/FrameJanela.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/MenuInicial.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/MenuInicial.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2/Puzzle2Final$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2/Puzzle2Final$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2/Puzzle2Final$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2/Puzzle2Final$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2/Puzzle2Final.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2/Puzzle2Final.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2/PuzzleCostura$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2/PuzzleCostura$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2/PuzzleCostura.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle2/PuzzleCostura.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/rosagela-vestido-cinza.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/rosagela-vestido-cinza.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/FundoCaixaDeFios.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/FundoCaixaDeFios.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/componentes/ImageCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/ImageCon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telas/CenaInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/CenaInicial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telas/FrameJanela.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/FrameJanela.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/telas/MenuInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/MenuInicial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telas/Puzzle1/Puzzle1Escolha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/Puzzle1/Puzzle1Escolha.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/telas/Puzzle2/Puzzle2Final.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/Puzzle2/Puzzle2Final.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telas/Puzzle2/PuzzleCostura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/Puzzle2/PuzzleCostura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/telas/Puzzle4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/Puzzle4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/telas/Puzzle5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/Puzzle5.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

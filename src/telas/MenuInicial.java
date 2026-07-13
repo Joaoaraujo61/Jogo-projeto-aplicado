@@ -4,9 +4,6 @@ import javax.swing.*;
 
 
 import componentes.Botao;
-import telas.Puzzle1.Puzzle1;
-import telas.Puzzle1.Puzzle1Escolha;
-import telas.Puzzle2.Puzzle2;
 import telas.Puzzle2.Puzzle2Final;
 
 
@@ -51,7 +48,7 @@ public class MenuInicial extends JPanel{
         });
 
         botaoContinuar.getBotaoClicavel().addActionListener(e ->{
-           frame.trocarTela(new Puzzle5(frame));
+           frame.trocarTela(new Puzzle5(frame, true));
         });
     }
 }
