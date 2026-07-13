@@ -15,7 +15,7 @@ public class CenaFinal  extends JPanel {
     private FrameJanela frame; 
     private JLabel labelFundo;
     private ImageIcon[] quadrosCenaFinal;
-    private int quadroAtual = 1;
+    private int quadroAtual = 0;
     private Timer timerCenaFinal;
    
 
@@ -26,15 +26,13 @@ public class CenaFinal  extends JPanel {
         setPreferredSize(new Dimension(1280, 720));
   
       quadrosCenaFinal = new ImageIcon[] {
-    		  new ImageIcon(MenuInicial.class.getResource("/assets/cenas-finais/cenaFinal1.png")),
-    		  new ImageIcon(MenuInicial.class.getResource("/assets/cenas-finais/cenaFinal2.png")),
-    		  new ImageIcon(MenuInicial.class.getResource("/assets/cenas-finais/cenaFinal3.png")),
-    		  new ImageIcon(MenuInicial.class.getResource("/assets/cenas-finais/cenaFinal4.png")),
-    		  new ImageIcon(MenuInicial.class.getResource("/assets/cenas-finais/cenaFinal5.png")),
-    		  new ImageIcon(MenuInicial.class.getResource("/assets/cenas-finais/cenaFinal6.png")),
+    		  new ImageIcon(MenuInicial.class.getResource("/assets/Frame1.png")),
+    		  new ImageIcon(MenuInicial.class.getResource("/assets/frame2.png")),
+    		  new ImageIcon(MenuInicial.class.getResource("/assets/frame4.png")),
+              new ImageIcon(MenuInicial.class.getResource("/assets/frame5.png")),
       };
       
-        this.labelFundo = new JLabel(quadrosCenaFinal[1]);
+        this.labelFundo = new JLabel(quadrosCenaFinal[0]);
         labelFundo.setBounds(0, 0, 1280, 720);
         this.add(labelFundo); 
 
@@ -42,16 +40,13 @@ public class CenaFinal  extends JPanel {
         
         this.timerCenaFinal = new Timer(3000, EventObject -> {
         	avancarQuadro();
-        	
         });
         
         this.timerCenaFinal.start();
-        
     } 
     
     public void avancarQuadro() {
     	quadroAtual++;
-    	
     	if(quadroAtual < quadrosCenaFinal.length) {
     		labelFundo.setIcon(quadrosCenaFinal[quadroAtual]);
     	} else {

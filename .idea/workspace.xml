@@ -7,10 +7,14 @@
     <list default="true" id="b92d4aa6-1d22-4ecd-8187-bd7921a833da" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/MenuInicial.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/MenuInicial.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/telas/Puzzle5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/cenas-finais/cenaFinal1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/cenas-finais/cenaFinal2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/cenas-finais/cenaFinal3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/cenas-finais/cenaFinal4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/cenas-finais/cenaFinal5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/cenas-finais/cenaFinal6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/telas/CenaFinal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/CenaFinal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/telas/MenuInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/MenuInicial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telas/Puzzle4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/Puzzle4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telas/Puzzle5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/telas/Puzzle5.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
