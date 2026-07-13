@@ -17,6 +17,7 @@ public class Puzzle2Final extends JPanel implements Puzzle2Interface {
     private Botao botaoCalendario;
     private Botao botaoCalendarioZoom;
     private JLabel labelBarraAvanco;
+    private JLabel rosangelaVestidoCinza;
     private CaixaDialogo caixaPensamento;
     private int indiceDaFala;
 
@@ -39,6 +40,9 @@ public class Puzzle2Final extends JPanel implements Puzzle2Interface {
         this.botaoCalendarioZoom = new Botao(imageCon.calendarioZoom, 0, 0);
         botaoCalendarioZoom.configuracoesPadrao();
 
+        this.rosangelaVestidoCinza = new JLabel(imageCon.rosangelaVestidoNovo);
+        rosangelaVestidoCinza.setBounds(-70, 250, imageCon.rosangelaVestidoNovo.getIconWidth(), imageCon.rosangelaVestidoNovo.getIconHeight());
+
         this.labelFundo = new JLabel(fundo);
         labelFundo.setBounds(0, 0, 1280, 720);
         labelFundo.setLayout(null);
@@ -50,6 +54,7 @@ public class Puzzle2Final extends JPanel implements Puzzle2Interface {
         this.caixaPensamento = new CaixaDialogo(imgCaixaPensamento, 70, 500, Color.BLACK);
         caixaPensamento.setCursor(new Cursor(Cursor.HAND_CURSOR));
         labelFundo.add(caixaPensamento);
+        labelFundo.add(rosangelaVestidoCinza);
 
         
 
@@ -123,6 +128,7 @@ public class Puzzle2Final extends JPanel implements Puzzle2Interface {
             indiceDaFala++;
         } else {
             caixaPensamento.setVisible(false);
+            labelFundo.remove(rosangelaVestidoCinza);
             labelFundo.repaint();
         }
 

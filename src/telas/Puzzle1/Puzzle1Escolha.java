@@ -1,5 +1,6 @@
 package telas.Puzzle1;
 
+import componentes.BotaoVolume;
 import componentes.CaixaDialogo;
 import componentes.Personagem;
 import telas.FrameJanela;

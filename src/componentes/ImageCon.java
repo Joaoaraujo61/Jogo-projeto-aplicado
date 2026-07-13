@@ -18,6 +18,8 @@ public class ImageCon {
 
         public ImageIcon calendarioZoom =
                 new ImageIcon(getClass().getResource("/assets/CalendarioZoom.png"));
+    public ImageIcon rosangelaVestidoNovo =
+            new ImageIcon(getClass().getResource("/assets/rosagela-vestido-cinza.png"));
     public BufferedImage agulha; // não inicializa inline — precisa de try/catch
 
     public ImageCon() {
