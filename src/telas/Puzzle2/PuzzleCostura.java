@@ -74,7 +74,7 @@ public class PuzzleCostura extends JPanel {
         add(labelFundo);   // embaixo de tudo
 
         SwingUtilities.invokeLater(() -> {
-            JOptionPane.showMessageDialog(
+            componentes.GerenciadorMensagem.mostrarMensagem(
                     frame,
                     "Puzzle 2: costure a roupa ligando os pontos na sequência correta",
                     "Instrução",
