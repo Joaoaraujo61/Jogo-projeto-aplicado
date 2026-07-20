@@ -1,8 +1,14 @@
 package telas;
 
+import componentes.BotaoVolume;
+import componentes.GerenciadorSom;
+
 import javax.swing.*;
 
 public class FrameJanela extends JFrame {
+
+    // Guardamos a referência para não precisar recriar o botão a cada troca de tela
+    private BotaoVolume botaoVolume;
 
     public FrameJanela(){
         setTitle("Rota de Fuga");
@@ -11,11 +17,30 @@ public class FrameJanela extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
 
-        // coloca o menu na janela
         setContentPane(new MenuInicial(this));
-        pack(); // ← deixa o frame se ajustar ao tamanho do painel
+        GerenciadorSom.tocarTrilha("/assets/sons/trilha-fundo.wav",0.35f);
+
+        pack();
+
+        // Botão de volume no layeredPane: fica acima de qualquer tela e
+        // NÃO é removido quando trocarTela() troca o contentPane.
+        this.botaoVolume = new BotaoVolume();
+        botaoVolume.getBotaoSom().setFocusable(false);
+        getLayeredPane().add(botaoVolume.getBotaoSom(), JLayeredPane.PALETTE_LAYER);
+
         setLocationRelativeTo(null);
         setVisible(true);
+        this.setFocusable(true); 
+        this.requestFocusInWindow();
+        this.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                // Se o jogador apertar a tecla ESC (Escape), fecha o jogo na hora!
+                if (e.getKeyCode() == java.awt.event.KeyEvent.VK_ESCAPE) {
+                    System.exit(0);
+                }
+            }
+        });
     }
 
     public void trocarTela(JPanel tela){

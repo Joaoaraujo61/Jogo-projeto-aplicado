@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b92d4aa6-1d22-4ecd-8187-bd7921a833da" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/assets/seta.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jogo-projeto-aplicado/assets/seta.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/componentes/BotaoVolume.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentes/BotaoVolume.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,9 +38,9 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/dev/Jogo-projeto-aplicado/src/assets&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/joao61732576/dev/Jogo-projeto-aplicado&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>

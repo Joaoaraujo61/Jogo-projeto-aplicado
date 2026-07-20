@@ -1,8 +1,96 @@
 package telas;
 
+import componentes.ImageCon;
+import telas.Puzzle1.Puzzle1;
+
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import componentes.Botao;
+import componentes.CaixaDialogo;
 
 public class Puzzle3 extends JPanel {
+    
+    private FrameJanela frame; 
+    private JLabel labelFundo;
+    private ImageIcon imgTelefone;
+    private Botao telefoneBtn;
+    private CaixaDialogo caixaPensamento;
+    private JLabel labelBarraAvanco;
+    private JLabel rosangelaVestidoCinza;
+
     public Puzzle3(FrameJanela frame) {
-    }
+        this.frame = frame; 
+        
+        setLayout(null);
+        setPreferredSize(new Dimension(1280, 720));
+        
+        ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/barras-de-avanco/2-6.png"));
+        this.labelBarraAvanco = new JLabel(imgBarra);
+        labelBarraAvanco.setBounds(0, 0, imgBarra.getIconWidth(), imgBarra.getIconHeight());
+        labelBarraAvanco.setLayout(null);
+        this.add(labelBarraAvanco);
+
+        ImageCon imageCon = new ImageCon();
+        this.rosangelaVestidoCinza = new JLabel(imageCon.rosangelaVestidoNovo);
+        rosangelaVestidoCinza.setBounds(-70, 250, imageCon.rosangelaVestidoNovo.getIconWidth(), imageCon.rosangelaVestidoNovo.getIconHeight());
+        
+        // Imagens do Telefone
+        this.imgTelefone = new ImageIcon(MenuInicial.class.getResource("/assets/telefoneRompido.png"));
+               
+        // Configuração do botão customizado do telefone
+        this.telefoneBtn = new Botao(imgTelefone, 1070, 200);
+        JButton botaoTelefone = telefoneBtn.getBotaoClicavel();
+        botaoTelefone.setBorderPainted(false);
+        botaoTelefone.setContentAreaFilled(false);
+        botaoTelefone.setFocusPainted(false);
+       
+        
+        // Configura as ações de clique
+        botaoTelefone.addActionListener(e -> mudarTela());
+
+        this.add(botaoTelefone);
+      
+        // Imagem de Fundo 
+        ImageIcon fundo = new ImageIcon(MenuInicial.class.getResource("/assets/salaDeEstar-pixilart.png"));
+        this.labelFundo = new JLabel(fundo);
+        labelFundo.setBounds(0, 0, 1280, 720);
+        this.add(labelFundo); 
+        
+        //Adicionando a caixa de pensamento
+        ImageIcon imgCaixaPensamento = new ImageIcon(Puzzle1.class.getResource("/assets/caixaDePensamento.png"));
+        this.caixaPensamento = new CaixaDialogo(imgCaixaPensamento, 70, 500, Color.BLACK);
+        caixaPensamento.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        this.add(caixaPensamento);
+
+        this.setComponentZOrder(labelFundo, this.getComponentCount() - 1);
+
+        labelFundo.add(rosangelaVestidoCinza);
+        apareceDialogo();
+    } 
+     
+    void mudarTela() {
+        if (frame != null) {
+            frame.trocarTela(new Puzzle3Jogavel(frame));
+        }
+    } 
+    
+    void apareceDialogo() {
+    	caixaPensamento.digitarTexto("Ah, não! O Jorjão cortou os fios do telefone, vou ter que concertá-<br> lo para falar com a minha mãe.");
+	    caixaPensamento.addMouseListener(new MouseAdapter() {
+             public void mouseClicked(MouseEvent e) {
+            	 frame.trocarTela(new Puzzle3(frame));
+                 labelFundo.remove(rosangelaVestidoCinza);
+           		 caixaPensamento.setVisible(false); 
+           	        labelFundo.repaint();
+             }
+         }); 
+	    
+    	 }
+
+
 }
+
+
