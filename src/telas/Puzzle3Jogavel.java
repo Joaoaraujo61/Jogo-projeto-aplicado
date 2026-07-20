@@ -82,7 +82,7 @@ public class Puzzle3Jogavel extends JPanel {
         this.setComponentZOrder(labelFiosDireita, 3);
         
         SwingUtilities.invokeLater(() -> {
-            JOptionPane.showMessageDialog(
+            componentes.GerenciadorMensagem.mostrarMensagem(
                     frame,
                     "Ordene corretamente os fios do lado esquerdo",
                     "Instrução",
@@ -168,7 +168,7 @@ public class Puzzle3Jogavel extends JPanel {
         	   Timer timer = new Timer(500, evento -> {
                    ((Timer) evento.getSource()).stop();
                    SwingUtilities.invokeLater(() -> {
-                       JOptionPane.showMessageDialog(
+                       componentes.GerenciadorMensagem.mostrarMensagem(
                                SwingUtilities.getWindowAncestor(Puzzle3Jogavel.this),
                                "Puzzle concluído!"
                        );                      

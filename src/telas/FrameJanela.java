@@ -30,6 +30,17 @@ public class FrameJanela extends JFrame {
 
         setLocationRelativeTo(null);
         setVisible(true);
+        this.setFocusable(true); 
+        this.requestFocusInWindow();
+        this.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                // Se o jogador apertar a tecla ESC (Escape), fecha o jogo na hora!
+                if (e.getKeyCode() == java.awt.event.KeyEvent.VK_ESCAPE) {
+                    System.exit(0);
+                }
+            }
+        });
     }
 
     public void trocarTela(JPanel tela){

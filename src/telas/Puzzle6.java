@@ -74,7 +74,7 @@ public class Puzzle6 extends JPanel {
 
         //trocarFundo("/assets/Grampo.png");
 
-        JOptionPane.showMessageDialog(
+        componentes.GerenciadorMensagem.mostrarMensagem(
                 this,
                 "Você encontrou um grampo de cabelo!\nEsse objeto pode servir para abrir a porta."
         );
@@ -94,7 +94,7 @@ public class Puzzle6 extends JPanel {
         if (!pegouGrampo) {
             //trocarFundo("/assets/fechadurazoom2.png");
 
-            JOptionPane.showMessageDialog(
+            componentes.GerenciadorMensagem.mostrarMensagem(
                     this,
                     "A porta está trancada.\nTalvez exista algo fino para abrir a fechadura."
             );
@@ -108,7 +108,7 @@ public class Puzzle6 extends JPanel {
 
 private void mostrarFechaduraComGrampo() {
 	trocarFundo("/assets/SalaFechadura2.png");
-	 JOptionPane.showMessageDialog(
+	 componentes.GerenciadorMensagem.mostrarMensagem(
              this,
              "Você usou o grampo para destrancar a porta."
      );
@@ -127,7 +127,7 @@ private void mostrarFechaduraComGrampo() {
     private void mostrarFinal() {
         //trocarFundo("/assets/SalaSemAPorta.png");
 
-        JOptionPane.showMessageDialog(
+        componentes.GerenciadorMensagem.mostrarMensagem(
                 this,
                 "Parabéns!\nVocê conseguiu sair."
         );

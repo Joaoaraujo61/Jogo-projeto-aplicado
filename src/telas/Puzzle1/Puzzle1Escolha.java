@@ -115,7 +115,7 @@ public class Puzzle1Escolha extends JPanel {
             Timer timer = new Timer(3500, evento -> {
                 ((Timer) evento.getSource()).stop();
                 SwingUtilities.invokeLater(() -> {
-                    JOptionPane.showMessageDialog(
+                    componentes.GerenciadorMensagem.mostrarMensagem(
                             SwingUtilities.getWindowAncestor(Puzzle1Escolha.this),
                             "Puzzle concluído!"
                     );
@@ -135,7 +135,7 @@ public class Puzzle1Escolha extends JPanel {
         Timer timerTente = new Timer(3000, evento -> {
             ((Timer) evento.getSource()).stop();
             SwingUtilities.invokeLater(() -> {
-                JOptionPane.showMessageDialog(
+                componentes.GerenciadorMensagem.mostrarMensagem(
                         SwingUtilities.getWindowAncestor(Puzzle1Escolha.this),
                         "Tente outra desculpa"
                 );
@@ -172,7 +172,7 @@ public class Puzzle1Escolha extends JPanel {
     	 Timer timerTente = new Timer(3000, evento -> {
              ((Timer) evento.getSource()).stop();
              SwingUtilities.invokeLater(() -> {
-                 JOptionPane.showMessageDialog(
+                 componentes.GerenciadorMensagem.mostrarMensagem(
                          SwingUtilities.getWindowAncestor(Puzzle1Escolha.this),
                          "Tente outra desculpa"
                  );

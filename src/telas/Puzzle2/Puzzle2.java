@@ -72,7 +72,7 @@ public class Puzzle2 extends JPanel{
             frame.trocarTela(new PuzzleCostura(frame));
         });
         botaoCalendario.getBotaoClicavel().addActionListener(e->{
-            JOptionPane.showMessageDialog(
+            componentes.GerenciadorMensagem.mostrarMensagem(
                     frame,
                     "Conclua o puzzle 2 para olhar o calendário!",
                     "Instrução",

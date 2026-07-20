@@ -64,11 +64,10 @@ public class Puzzle5 extends JPanel {
 
 
         SwingUtilities.invokeLater(() -> {
-            JOptionPane.showMessageDialog(
-                    frame,
+            componentes.GerenciadorMensagem.mostrarMensagem(
+            		this,
                     "Procure por dinheiro nesta sala",
-                    "Instrução",
-                    JOptionPane.INFORMATION_MESSAGE
+                    "Instrução"
             );
         });
 
@@ -135,7 +134,7 @@ public class Puzzle5 extends JPanel {
 
         configurarVisorCofre(fundo);
         SwingUtilities.invokeLater(() -> {
-            JOptionPane.showMessageDialog(
+            componentes.GerenciadorMensagem.mostrarMensagem(
                     frame,
                     "Use a combinação achada durante o jogo",
                     "Instrução",
@@ -181,7 +180,7 @@ public class Puzzle5 extends JPanel {
         if (senhaDigitada.equals(SENHA)) {
             mostrarCofreComDinheiro();
         } else {
-            JOptionPane.showMessageDialog(this, "Senha incorreta!");
+            componentes.GerenciadorMensagem.mostrarMensagem(this, "Senha incorreta!");
             senhaDigitada = "";
             labelVisorSenha.setText(senhaDigitada);
         }
@@ -190,7 +189,7 @@ public class Puzzle5 extends JPanel {
         trocarFundo("/assets/CofreAbertoDinheiro.png");
         JButton dinheiro = criarBotao(500, 390, 260, 150);
         dinheiro.addActionListener(e -> {
-            JOptionPane.showMessageDialog(this, "Você pegou o dinheiro!");
+            componentes.GerenciadorMensagem.mostrarMensagem(this, "Você pegou o dinheiro!");
             mostrarCofreAberto();
         });
         fundo.add(dinheiro);
@@ -199,9 +198,9 @@ public class Puzzle5 extends JPanel {
     }
     private void mostrarCofreAberto() {
         trocarFundo("/assets/CofreAberto.png");
-        JOptionPane.showMessageDialog(this, "Puzzle 5 concluído!");
+        componentes.GerenciadorMensagem.mostrarMensagem(this, "Puzzle 5 concluído!");
         frame.trocarTela(new Puzzle6(frame));
-        JOptionPane.showMessageDialog(
+        componentes.GerenciadorMensagem.mostrarMensagem(
                 this,
                 "Abra a porta e encontre sua rota de fuga!"
         );

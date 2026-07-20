@@ -186,7 +186,7 @@
                     break;
                 case 4:
                     frame.trocarTela(new Puzzle1Escolha(frame));;
-                    JOptionPane.showMessageDialog(
+                    componentes.GerenciadorMensagem.mostrarMensagem(
                             frame,
                             "Puzzle 1: Escolha a opcão certa para conseguir a permissão para sair.",
                             "Instrução",
