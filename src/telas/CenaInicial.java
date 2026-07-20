@@ -26,6 +26,7 @@ public class CenaInicial extends JPanel {
     private int indiceDaFala = 0;
     private float alphaFade = 0.0f;
     private BotaoVolume botaoVolume;
+    private JLabel imgEspaco;
 
     private String[] dialogoInicial = {
         "Eu estava no 2° semestre de medicina de uma universidade federal, <br> quando trombei pelos corredores da faculdade, com um cara chamado <br>Jorjão,  que estava no 6° semestre de Relações Internacionais.",
@@ -42,6 +43,24 @@ public class CenaInicial extends JPanel {
 
         this.botaoVolume = new BotaoVolume();
         this.add(botaoVolume.getBotaoSom());
+
+        ImageIcon iconEspaco = new ImageIcon(
+                CenaInicial.class.getResource("/assets/espaco.png")
+        );
+        imgEspaco = new JLabel(iconEspaco);
+
+        int larguraImg = iconEspaco.getIconWidth();
+        int alturaImg = iconEspaco.getIconHeight();
+
+        int x = (1280 - larguraImg) / 2;
+        int y = (720 - alturaImg) / 2;
+        imgEspaco.setBounds(x, y, larguraImg, alturaImg);
+
+        this.add(imgEspaco);
+        caixaDialogo = new CaixaDialogo(120, 500, Color.WHITE);
+        this.add(caixaDialogo);
+        this.setComponentZOrder(caixaDialogo, 0); // caixa fica na frente
+
 
         caixaDialogo = new CaixaDialogo(120, 500, Color.WHITE);
         this.add(caixaDialogo);
