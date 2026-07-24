@@ -71,9 +71,6 @@ public class Puzzle6 extends JPanel {
 
     private void pegarGrampo() {
         pegouGrampo = true;
-
-        //trocarFundo("/assets/Grampo.png");
-
         componentes.GerenciadorMensagem.mostrarMensagem(
                 this,
                 "Você encontrou um grampo de cabelo!\nEsse objeto pode servir para abrir a porta."

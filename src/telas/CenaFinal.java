@@ -66,7 +66,6 @@ public class CenaFinal  extends JPanel {
     	if(quadroAtual < quadrosCenaFinal.length) {
     		labelFundo.setIcon(quadrosCenaFinal[quadroAtual]);
     	} else {
-    		//timerCenaFinal.stop();
     		 frame.trocarTela(new MenuInicial(frame));
     	}
     }

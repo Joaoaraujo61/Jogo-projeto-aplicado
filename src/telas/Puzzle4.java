@@ -41,7 +41,6 @@ public class Puzzle4 extends JPanel{
         //this.rosangela = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/RosangelaNormal.png")), -120, 230);
         this.rosangela = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/rosagela-vestido-cinza.png")), -120, 230);
         this.odete = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/maeComFiltroAzul.png")), 250, 170);
-        //this.odete = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/Odete2.png")), 850, 320);
 
         //Barra de progresso
         ImageIcon imgBarra = new ImageIcon(getClass().getResource("/assets/barras-de-avanco/3-6.png"));
