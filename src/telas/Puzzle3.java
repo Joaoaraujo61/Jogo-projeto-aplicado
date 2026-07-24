@@ -81,7 +81,6 @@ public class Puzzle3 extends JPanel {
     	caixaPensamento.digitarTexto("Ah, não! O Jorjão cortou os fios do telefone, vou ter que concertá-<br> lo para falar com a minha mãe.");
 	    caixaPensamento.addMouseListener(new MouseAdapter() {
              public void mouseClicked(MouseEvent e) {
-            	 frame.trocarTela(new Puzzle3(frame));
                  labelFundo.remove(rosangelaVestidoCinza);
            		 caixaPensamento.setVisible(false); 
            	        labelFundo.repaint();

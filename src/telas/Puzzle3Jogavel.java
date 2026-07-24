@@ -156,33 +156,34 @@ public class Puzzle3Jogavel extends JPanel {
         });
     }
 
+
     private void verificarPuzzleResolvido() {	
         if (slotAtualDoFio[0] == 1 && slotAtualDoFio[1] == 2 && slotAtualDoFio[2] == 0) {
-        	this.add(labelFiosConectados);
-        	this.remove(labelFiosDireita);
-        	labelFioAzul.setVisible(false);
-        	labelFioVerde.setVisible(false);
-        	labelFioVermelho.setVisible(false);
-            this.setComponentZOrder(labelFiosConectados, 3);
-          
-        	   Timer timer = new Timer(500, evento -> {
-                   ((Timer) evento.getSource()).stop();
-                   SwingUtilities.invokeLater(() -> {
-                       componentes.GerenciadorMensagem.mostrarMensagem(
-                               SwingUtilities.getWindowAncestor(Puzzle3Jogavel.this),
-                               "Puzzle concluído!"
-                       );                      
-                       frame.trocarTela(new Puzzle4(frame));
-                   });
-               });
+            
+            this.add(labelFiosConectados);
+            this.remove(labelFiosDireita);
+            
+            labelFioAzul.setVisible(false);
+            labelFioVerde.setVisible(false);
+            labelFioVermelho.setVisible(false);
+            
+            this.setComponentZOrder(labelFiosConectados, 0);
+            this.revalidate();
+            this.repaint();
 
-               timer.setRepeats(false);
-               timer.start();
-          
-    	}
-      }
+            componentes.GerenciadorMensagem.mostrarMensagem(
+                    frame,
+                    "Puzzle concluído!"
+            ); 
+            
+            if (frame != null) {
+                frame.trocarTela(new Puzzle4(frame));
+            } else {
+                FrameJanela janelaPai = (FrameJanela) SwingUtilities.getWindowAncestor(this);
+                if (janelaPai != null) {
+                    janelaPai.trocarTela(new Puzzle4(janelaPai));
+                }
+            }
+        }
+    }
 }
-
-
-
-

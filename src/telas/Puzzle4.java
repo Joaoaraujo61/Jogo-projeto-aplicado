@@ -38,7 +38,8 @@ public class Puzzle4 extends JPanel{
         labelFundo.setBounds(0, 0, 1280, 720);
         labelFundo.setLayout(null);
 
-        this.rosangela = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/RosangelaNormal.png")), -120, 230);
+        //this.rosangela = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/RosangelaNormal.png")), -120, 230);
+        this.rosangela = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/rosagela-vestido-cinza.png")), -120, 230);
         this.odete = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/maeComFiltroAzul.png")), 250, 170);
         //this.odete = new Personagem(new ImageIcon(Personagem.class.getResource("/assets/Odete2.png")), 850, 320);
 

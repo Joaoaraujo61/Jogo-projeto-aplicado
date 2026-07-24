@@ -36,10 +36,7 @@ public class Puzzle2Final extends JPanel implements Puzzle2Interface {
         this(frame, false);
     }
 
-    /**
-     * @param veioDoPuzzle5 true = jogador chegou aqui pela seta do armário aberto
-     *                      no Puzzle5; nesse caso mostramos a seta de volta.
-     */
+    
     public Puzzle2Final(FrameJanela frame, boolean veioDoPuzzle5) {
         indiceDaFala = 0;
         this.frame = frame;
