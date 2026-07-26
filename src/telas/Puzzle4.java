@@ -21,9 +21,6 @@ public class Puzzle4 extends JPanel{
     private  Personagem rosangela;
     private Personagem odete;
     private JLabel labelBarraAvanco;
-
-    // Controla se o telefone já foi atendido — só a partir daqui o
-    // clique em qualquer lugar / tecla espaço podem avançar o diálogo.
     private boolean telefoneAtendido = false;
 
     public Puzzle4(FrameJanela frame) {
@@ -57,7 +54,7 @@ public class Puzzle4 extends JPanel{
         botao.setBorderPainted(false);
         botao.setContentAreaFilled(false);
         botao.setFocusPainted(false);
-        botao.setFocusable(false); // evita que a tecla espaço clique o botão sozinha
+        botao.setFocusable(false); 
         this.imgTelefoneTocando = new ImageIcon(MenuInicial.class.getResource("/assets/telefoneTocando.png"));
 
 
@@ -75,7 +72,6 @@ public class Puzzle4 extends JPanel{
     }
 
     private void configurarAvancoGlobal() {
-        // Tecla espaço avança o diálogo, em qualquer lugar da janela
         this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
                 KeyStroke.getKeyStroke("SPACE"), "avancarDialogo"
         );
@@ -86,7 +82,7 @@ public class Puzzle4 extends JPanel{
             }
         });
 
-        // Clique em qualquer lugar do fundo também avança
+
         labelFundo.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -94,8 +90,6 @@ public class Puzzle4 extends JPanel{
             }
         });
     }
-
-    // "Porteiro": só deixa avançar depois que o telefone foi atendido
     private void tentarAvancoGlobal() {
         if (telefoneAtendido) {
             avancarDialogoMae();
@@ -107,17 +101,17 @@ public class Puzzle4 extends JPanel{
             "Oi, filha? É você, meu bem?",
             "Sim, sou eu mesma. Preciso da sua ajuda.",
             "O que aconteceu, minha filha?",
-            "<html>Eu insisti pro Jorjão me deixar sair hoje,<br>mas ele saiu de casa e levou a chave.</html>",
-            "<html>Não acredito que esse homem fez isso<br>com a minha filhinha...</html>",
-            "<html>Ah, mãe, você sabe como ele é,<br>deve ter levado a chave sem querer.</html>",
-            "<html>Sem querer? Ele te tranca dentro de casa<br>e você ainda sai em defesa dele?</html>",
+            "<html>Eu insisti pro Jorjão me deixar sair hoje,mas ele saiu de casa e<br> levou a chave.</html>",
+            "<html>Não acredito que esse homem fez isso com a minha filhinha...</html>",
+            "<html>Ah, mãe, você sabe como ele é,deve ter levado a chave<br> sem querer.</html>",
+            "<html>Sem querer? Ele te tranca dentro de casa e você ainda sai<br> em defesa dele?</html>",
             "Ele só se preocupa comigo, tem medo que eu seja roubada...",
-            "<html>O seu pai era atencioso de verdade,<br> não possessivo como esse seu marido.</html>",
+            "<html>O seu pai era atencioso de verdade, não possessivo como<br> esse seu marido.</html>",
             "Mãe…",
-            "<html>Deixa eu terminar. Nada do que ele faz<br> é cuidado, ele só quer te prender.</html>",
+            "<html>Deixa eu terminar. Nada do que ele faz é cuidado, ele só<br> quer te prender.</html>",
             "E como eu saio daqui? Nem dinheiro eu tenho!",
-            "<html>Deve ter algum dinheiro guardado na casa.<br> Pega um ônibus e vem pra cá, eu te ajudo.</html>",
-            "<html>Tá bem. Vou procurar nos armários da sala,<br> deve ter algum dinheiro do Jorjão por aqui.</html>",
+            "<html>Deve ter algum dinheiro guardado na casa. Pega um ônibus<br> e vem pra cá, eu te ajudo.</html>",
+            "<html>Tá bem. Vou procurar nos armários da sala, deve ter algum<br> dinheiro do Jorjão por aqui.</html>",
     };
 
     private int indiceDaFala = 0;

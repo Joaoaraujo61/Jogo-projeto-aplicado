@@ -31,8 +31,8 @@ public class Botao {
     
     //Outro construtor que não pede um ícone como parâmetro 
     public Botao(int largura, int altura, int posicaoX,int posicaoY){
-        this.largura = icone.getIconWidth();
-        this.altura = icone.getIconHeight();
+        this.largura = largura;
+        this.altura = altura;
         this.posicaoY = posicaoY;
         this.posicaoX = posicaoX;
 

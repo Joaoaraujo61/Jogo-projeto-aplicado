@@ -22,8 +22,6 @@ public class FrameJanela extends JFrame {
 
         pack();
 
-        // Botão de volume no layeredPane: fica acima de qualquer tela e
-        // NÃO é removido quando trocarTela() troca o contentPane.
         this.botaoVolume = new BotaoVolume();
         botaoVolume.getBotaoSom().setFocusable(false);
         getLayeredPane().add(botaoVolume.getBotaoSom(), JLayeredPane.PALETTE_LAYER);
@@ -32,15 +30,7 @@ public class FrameJanela extends JFrame {
         setVisible(true);
         this.setFocusable(true); 
         this.requestFocusInWindow();
-        this.addKeyListener(new java.awt.event.KeyAdapter() {
-            @Override
-            public void keyPressed(java.awt.event.KeyEvent e) {
-                // Se o jogador apertar a tecla ESC (Escape), fecha o jogo na hora!
-                if (e.getKeyCode() == java.awt.event.KeyEvent.VK_ESCAPE) {
-                    System.exit(0);
-                }
-            }
-        });
+        
     }
 
     public void trocarTela(JPanel tela){
