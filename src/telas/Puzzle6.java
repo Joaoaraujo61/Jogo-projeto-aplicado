@@ -64,16 +64,13 @@ public class Puzzle6 extends JPanel {
     private void mostrarZoomPlanta() {
         trocarFundo("/assets/zoomDaPlantaComGrampo.png");
 
-        JButton grampo = criarBotao(0, 0, 1280, 720);
+        JButton grampo = criarBotao(556, 259, 184, 104);
         grampo.addActionListener(e -> pegarGrampo());
         fundo.add(grampo);
     }
 
     private void pegarGrampo() {
         pegouGrampo = true;
-
-        //trocarFundo("/assets/Grampo.png");
-
         componentes.GerenciadorMensagem.mostrarMensagem(
                 this,
                 "Você encontrou um grampo de cabelo!\nEsse objeto pode servir para abrir a porta."

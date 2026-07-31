@@ -21,11 +21,6 @@ public class Puzzle5 extends JPanel {
         this(frame, false);
     }
 
-    /**
-     * @param abrirArmarioDireto true = pula direto para a tela do armário aberto
-     *                           (usado ao voltar do Puzzle2Final, pra não obrigar
-     *                           o jogador a clicar no armário de novo).
-     */
     public Puzzle5(FrameJanela frame, boolean abrirArmarioDireto) {
         this.frame = frame;
         //this.labelVisorSenha = labelVisorSenha;
@@ -54,8 +49,7 @@ public class Puzzle5 extends JPanel {
         labelFundo.add(labelImgTelefone);
 
         //Botão armário
-        this.imgArmarioSozinho = new ImageIcon(MenuInicial.class.getResource("/assets/ArmarioSozinho.png"));
-        this.btnArmarioSozinho = new Botao(imgArmarioSozinho, 111, 69);
+        this.btnArmarioSozinho = new Botao(184, 192, 111, 413); 
         JButton botao = btnArmarioSozinho.getBotaoClicavel();
         botao.setBorderPainted(false);
         botao.setContentAreaFilled(false);
@@ -89,14 +83,6 @@ public class Puzzle5 extends JPanel {
         adicionarSetaPuzzle2Final();
     }
 
-    /**
-     * Adiciona a seta que leva para o Puzzle2Final. Precisa ser chamada em
-     * TODA tela do fluxo do armário/cofre, porque trocarFundo() limpa os
-     * componentes anteriores a cada troca de imagem (removeAll()).
-     * Passa "true" para que o Puzzle2Final saiba que o jogador veio daqui
-     * e mostre a seta de volta.
-     * OBS: ajuste "/assets/seta.png" para o caminho real do seu asset.
-     */
     private void adicionarSetaPuzzle2Final() {
         ImageIcon imgSeta = new ImageIcon(getClass().getResource("/assets/seta.png"));
         JButton botaoSeta = criarBotao(1130, 600, imgSeta.getIconWidth(), imgSeta.getIconHeight());
@@ -105,22 +91,19 @@ public class Puzzle5 extends JPanel {
         fundo.add(botaoSeta);
     }
 
-    // 2. Dentro do seu construtor ou método de inicialização:
     public void configurarVisorCofre(JLabel labelFundoCofre) {
-        // Cria o rótulo de texto com uma fonte que lembre um cofre/digital
+       
         this.labelVisorSenha = new JLabel("");
 
-        // Customize o estilo: Cor, Fonte e Alinhamento Centralizado
-        labelVisorSenha.setForeground(Color.GREEN); // Ou Color.BLACK, depende do seu asset
-        labelVisorSenha.setFont(new Font("Monospaced", Font.BOLD, 30)); // Fonte estilo relógio digital
+       
+        labelVisorSenha.setForeground(Color.GREEN); 
+        labelVisorSenha.setFont(new Font("Monospaced", Font.BOLD, 30)); 
         labelVisorSenha.setHorizontalAlignment(SwingConstants.CENTER);
 
-        // CALIBRAÇÃO: Defina a posição exata onde fica o "vidro" do visor no seu asset
-        // Exemplo: X=500, Y=200, Largura=200, Altura=50
+        
         labelVisorSenha.setBounds(657, 284, 134, 45);
 
-        // Adicione o visor EM CIMA da imagem de fundo do cofre
-        //labelFundoCofre.add(labelVisorSenha);
+       
         fundo.add(labelVisorSenha);
 
         // Garante que o visor fique na camada da frente

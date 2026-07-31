@@ -6,6 +6,7 @@ import componentes.Botao;
 import componentes.CaixaDialogo;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.EventObject;
@@ -38,11 +39,26 @@ public class CenaFinal  extends JPanel {
 
         this.setComponentZOrder(labelFundo, this.getComponentCount() - 1);
         
-        this.timerCenaFinal = new Timer(3000, EventObject -> {
-        	avancarQuadro();
-        });
+        MouseAdapter acaoDeClique = new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+            	avancarQuadro();
+            }
+        };
         
-        this.timerCenaFinal.start();
+        this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+        	    KeyStroke.getKeyStroke("SPACE"), "avancarHistoria"
+        	);
+
+        	this.getActionMap().put("avancarHistoria", new AbstractAction() {
+        	    @Override
+        	    public void actionPerformed(ActionEvent e) {
+        	    	avancarQuadro();
+        	    }
+        	});
+
+        this.addMouseListener(acaoDeClique);    
+        
     } 
     
     public void avancarQuadro() {
@@ -50,7 +66,6 @@ public class CenaFinal  extends JPanel {
     	if(quadroAtual < quadrosCenaFinal.length) {
     		labelFundo.setIcon(quadrosCenaFinal[quadroAtual]);
     	} else {
-    		timerCenaFinal.stop();
     		 frame.trocarTela(new MenuInicial(frame));
     	}
     }

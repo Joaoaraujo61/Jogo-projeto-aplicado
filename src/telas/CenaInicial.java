@@ -34,7 +34,7 @@ public class CenaInicial extends JPanel {
         "Mas de repente, ele já não queria mais que eu saísse sem ele, ou <br> perdesse muito tempo estudando, então deixei minha faculdade para <br> me dedicar à casa depois que nos casamos.",
         "Fiquei ali até o dia 23/06/1999 e quero que você me acompanhe<br> na minha Rota de Fuga."
     };
-
+    
     public CenaInicial(FrameJanela frame) {
         this.frame = frame;
         setLayout(null);
@@ -55,15 +55,26 @@ public class CenaInicial extends JPanel {
         int x = (1280 - larguraImg) / 2;
         int y = (720 - alturaImg) / 2;
         imgEspaco.setBounds(x, y, larguraImg, alturaImg);
-
         this.add(imgEspaco);
-        caixaDialogo = new CaixaDialogo(120, 500, Color.WHITE);
-        this.add(caixaDialogo);
-        this.setComponentZOrder(caixaDialogo, 0); // caixa fica na frente
-
 
         caixaDialogo = new CaixaDialogo(120, 500, Color.WHITE);
         this.add(caixaDialogo);
+        
+        this.setComponentZOrder(imgEspaco, 0);      
+        this.setComponentZOrder(caixaDialogo, 1);   
+
+        contarHistoria();
+
+        Timer timer = new Timer(2000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CenaInicial.this.remove(imgEspaco);
+                CenaInicial.this.revalidate(); 
+                CenaInicial.this.repaint();   
+            }
+        });
+        timer.setRepeats(false);
+        timer.start();
 
         MouseAdapter acaoDeClique = new MouseAdapter() {
             @Override
@@ -74,23 +85,18 @@ public class CenaInicial extends JPanel {
 
         this.addMouseListener(acaoDeClique);         
         caixaDialogo.addMouseListener(acaoDeClique); 
-        
-        contarHistoria();
-        
+
         this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
-        	    KeyStroke.getKeyStroke("SPACE"), "avancarHistoria"
-        	);
+                KeyStroke.getKeyStroke("SPACE"), "avancarHistoria"
+        );
 
-        	this.getActionMap().put("avancarHistoria", new AbstractAction() {
-        	    @Override
-        	    public void actionPerformed(ActionEvent e) {
-        	        contarHistoria();
-        	    }
-        	});
-
-    }     
-    
-    
+        this.getActionMap().put("avancarHistoria", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                contarHistoria();
+            }
+        });
+    }
     
     private void iniciarFadeOut() {
         if (this.getMouseListeners().length > 0) this.removeMouseListener(this.getMouseListeners()[0]);
