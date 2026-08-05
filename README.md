@@ -26,7 +26,7 @@ O objetivo do projeto é utilizar a linguagem de jogos como ferramenta de consci
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/Joaoaraujo61/Jogo-projeto-aplicado.git
+   git clone https://github.com/Joaoaraujo61/Rota-de-Fuga.git
    ```
 2. Abra o projeto na sua IDE de preferência:
    - **Eclipse**: `File > Open Projects from File System...` e selecione a pasta clonada.
