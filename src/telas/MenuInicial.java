@@ -35,8 +35,7 @@ public class MenuInicial extends JPanel{
         add(labelFundo);
 
         botaoComecar.getBotaoClicavel().addActionListener(e ->{
-        	frame.trocarTela(new Puzzle4(frame));
-            //frame.trocarTela(new CenaInicial(frame));
+            frame.trocarTela(new CenaInicial(frame));
         });
 
     }
